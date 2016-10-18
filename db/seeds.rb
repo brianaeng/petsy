@@ -1,8 +1,8 @@
 
 require "csv"
 
-CSV.foreach('seeds_csvs/pets.csv', :headers => true) do |csv_obj|
-  Product.create( name: csv_obj['name'], user_id: csv_obj['user_id'], price: cvs_obj['price'], quantity: cvs_obj['quantity'], exotic: cvs_obj['exotic'], farm: csv_obj['farm'], domestic: csv_obj['domestic'],description: cvs_obj['description'],picture: csv_obj['picture'])
+CSV.foreach('seed_csvs/pets.csv', :headers => true) do |csv_obj|
+  Product.create( name: csv_obj['name'], user_id: csv_obj['user_id'], price: csv_obj['price'], quantity: csv_obj['quantity'], exotic: csv_obj['exotic'], farm: csv_obj['farm'], domestic: csv_obj['domestic'],description: csv_obj['description'],picture: csv_obj['picture'])
 end
 
 # This file should contain all the record creation needed to seed the database with its default values.
