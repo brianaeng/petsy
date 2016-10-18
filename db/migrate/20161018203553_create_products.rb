@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration
       t.boolean :domestic
       t.text :description
       t.string :picture
-      t.reference :user
+      t.references :user, index: true, foreign_key: true
       t.belongs_to :user, index: true, foreign_key: true
 
       t.timestamps null: false
