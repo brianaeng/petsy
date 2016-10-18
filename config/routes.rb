@@ -1,4 +1,68 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'orders/new'
+
+  get 'orders/create'
+
+  get 'orders/index'
+
+  get 'orders/show'
+
+  get 'orders/update'
+
+  get 'orders/edit'
+
+  get 'orders/destroy'
+
+  get 'reviews/new'
+
+  get 'reviews/create'
+
+  get 'reviews/index'
+
+  get 'reviews/show'
+
+  get 'reviews/update'
+
+  get 'reviews/edit'
+
+  get 'reviews/destroy'
+
+  get 'products/new'
+
+  get 'products/create'
+
+  get 'products/index'
+
+  get 'products/show'
+
+  get 'products/update'
+
+  get 'products/edit'
+
+  get 'products/destroy'
+
+  get 'homepages/index'
+
+  get 'homepages/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
