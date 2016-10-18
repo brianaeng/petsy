@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails-erd'
 gem 'awesome_print', require: 'ap'
 #OmniAuth
 gem 'omniauth'
