@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
+  root to: 'homepages#index'
+
   get 'sessions/create'
+
+  get "/auth/:provider/callback" =>  "sessions#create"
 
   get 'sessions/destroy'
 
