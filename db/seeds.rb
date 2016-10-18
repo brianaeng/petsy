@@ -1,7 +1,7 @@
 
 require "csv"
 
-CSV.foreach('seeds_csvs/farm.csv', :headers => true) do |csv_obj|
+CSV.foreach('seeds_csvs/pets.csv', :headers => true) do |csv_obj|
   Product.create( name: csv_obj['name'], user_id: csv_obj['user_id'], price: cvs_obj['price'], quantity: cvs_obj['quantity'], exotic: cvs_obj['exotic'], farm: csv_obj['farm'], domestic: csv_obj['domestic'],description: cvs_obj['description'],picture: csv_obj['picture'])
 end
 
