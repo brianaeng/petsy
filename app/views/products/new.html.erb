@@ -1,2 +1,31 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<!-- <h1>Products#new</h1> -->
+
+<h1>Add a New Product</h1>
+
+<%= form_for @product, url: #<--WHERE?--->do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name%></br>
+
+<%= f.label :price %>
+<%= f.text_field :price %></br>
+
+<%= f.label :quantity %>
+<%= f.text_field :quantity %></br>
+
+<%= check_box(@product, @product.domestic, checked_value = true, unchecked_value = false) %>
+<%= check_box(@product, @product.exotic, checked_value = true, unchecked_value = false) %>
+<%= check_box(@product, @product.farm, checked_value = true, unchecked_value = false) %>
+
+<%= f.label :description %>
+<%= f.text_area :description %></br>
+
+<%= f.label :picture %>
+<%= f.text_field :picture %></br>
+
+<%= f.hidden_field :user_id, :value => @user.id %></br>
+
+<%= f.submit %>
+
+<% end %>
+<!-- <p>Find me in app/views/products/new.html.erb</p> -->
