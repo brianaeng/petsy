@@ -1,2 +1,12 @@
 <h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<%= form_for @review, url: reviews_new_path do |f| %>
+<!-- use rating gem for stars (maybe use paws?) -->
+  <%= f.label :rating %>
+  <%= f.number_field :rating, max: 5 %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+<% end %>
