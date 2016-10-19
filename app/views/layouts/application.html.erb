@@ -8,7 +8,12 @@
 </head>
 <body>
   <header>
-    <%= link_to("Login via Github", "auth/github") %>  <%# i.e. "/auth/:provider" %>
+    <% if session[:user_id] == nil %>
+      <%= link_to("Login via Github", "/auth/github") %>  <%# i.e. "/auth/:provider" %>
+    <% else %>
+      <%= link_to("Logout", "/sessions/destroy", method: "delete") %>
+    <% end %>
+
     <h1><%= link_to("PETSY", root_path)%></h1>
     <hr/>
 
