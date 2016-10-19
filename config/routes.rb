@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'homepages#index'
 
-  get 'sessions/create'
+  # get 'sessions/create'
 
   get "/auth/:provider/callback" =>  "sessions#create"
 
