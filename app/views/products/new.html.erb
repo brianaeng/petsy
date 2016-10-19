@@ -11,6 +11,7 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
+
 <%# f.select(:category_ids, @categories, :name, { multiple: true }) %>
 <%# f.collection_select :category_ids, @categories,:id,:name, include_blank: true %>
 <%# f.select :category, options_for_select(Product.categories) %>
@@ -28,6 +29,7 @@
   <%= m.label :name, "Add Category" %>
   <%= m.text_field :name %>
 <% end %>
+
 
 <%= f.label :description %>
 <%= f.text_area :description %>

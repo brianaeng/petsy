@@ -1,17 +1,28 @@
+
+<% if @user %>
+  <h1> Welcome <%= @user.name %></h1>
+<% else %>
+  <h1> Please log in </h1>
+<% end %>
+
 <%= search_form_for @q do |f| %>
   <%= f.search_field :name_or_description_cont, placeholder: "Search Products"%>
   <%= f.submit "search" %>
 <% end %>
 
-<% if @user %>
-  <h1> Welcome <%= @user.name %></h1>
+  <h3><%= link_to(@random_pet1.name, product_path(@random_pet1.id)) %></h3>
+  <image><%= image_tag(@random_pet1.picture)%></image>
 
-<% else %>
-  <h1> Please log in </h1>
-<% end %>
+  <h3><%= link_to(@random_pet2.name, product_path(@random_pet2.id)) %></h3>
+  <image><%= image_tag(@random_pet2.picture)%></image>
+
+  <h3><%= link_to(@random_pet3.name, product_path(@random_pet3.id)) %></h3>
+  <image><%= image_tag(@random_pet3.picture)%></image>
 
 <% if flash[:notice] %>
   <p class="flash-notice">
     <%= flash[:notice] %>
   </p>
 <% end %>
+
+<%= link_to("All Pets", products_path)%>

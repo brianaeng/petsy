@@ -8,8 +8,15 @@
 </head>
 <body>
   <header>
-    <%= link_to("Login via Github", "/auth/github") %>  <%# i.e. "/auth/:provider" %>
+
+      <p><%= link_to("Login via Github", "/auth/github") %></p>
+       <%# i.e. "/auth/:provider" %>
+
     <h1><%= link_to("PETSY", root_path)%></h1>
+
+    <% if session[:user_id] != nil%>
+      <p><%= link_to("Profile", homepages_show_path) %></p>
+    <%end%>
     <hr/>
 
   </header>
