@@ -17,7 +17,19 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Products.all
+
+    if params[:commit] == "search"
+      if !params[:q].blank?
+        @results = Product.ransack(params[:q])
+      else
+        @results = Product.ransack({:id_eq => 0})
+      end
+
+      @products = @results.result
+
+    else
+      @products = Product.all
+    end
   end
 
   def show

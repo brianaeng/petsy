@@ -1,2 +1,8 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<% if !@products.empty? %>
+  <% @products.each do |product| %>
+      <h3><%= product.name %></h3>
+  <% end %>
+<% else %>
+  Product not found.
+<% end %>
