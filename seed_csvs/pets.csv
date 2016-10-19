@@ -1,35 +1,35 @@
 name,user_id,price,quantity,description,picture,active
-goat,2,8000,17,I kid you not - these are the best goats available anywhere!,goat.jpg
-piglet,2,25000,25,Squeeeee!,piglet.jpg
-pig,2,60000,5,Exceptional pigs - they can do karate. You might even call them porkchops,pig.jpg
-gosling,2,1200,30,Everything you ever wanted in a creature,gosling.jpg
-horse,2,150000,6,Quit stalling! Now's the time to pony up and order one of these glorious beasts,horse.jpg
+goat,2,8000,17,I kid you not - these are the best goats available anywhere!,goat.jpg,true
+piglet,2,25000,25,Squeeeee!,piglet.jpg,true
+pig,2,60000,5,Exceptional pigs - they can do karate. You might even call them porkchops,pig.jpg,true
+gosling,2,1200,30,Everything you ever wanted in a creature,gosling.jpg,true
+horse,2,150000,6,Quit stalling! Now's the time to pony up and order one of these glorious beasts,horse.jpg,true
 sheep,2,15000,12,There's nothing baaaaaad about these ewe-nique sheep,sheep.jpg
-laying hen,2,1400,35,They're simply egg-cellent.,hens.jpg
-rooster,2,2000,18,Put one of these bad boys in your cart - just cockadoodle dooooo it,rooster.jpg
+laying hen,2,1400,35,They're simply egg-cellent.,hens.jpg,true
+rooster,2,2000,18,Put one of these bad boys in your cart - just cockadoodle dooooo it,rooster.jpg,true
 milk cow,2,85000,6,These bovine beauties are udderly delightful!,cow.png
-rabbit,2,3500,999,Everybunny loves them!,bunny.jpg
-barn cat,2,4000,7,Pawsitively full of catitude,barn_cat.jpg
-Axolotl,1,3000,52,These guys are known as walking fish for obvious reasons how many fish do you know that have legs? Turns out they aren't actually fish, they are amphibians. However - they are unique because they don't develop lungs at adulthood instead they stay in the water and keep their gills., axolotl.jpeg
-Fennec Fox,1,150000,21,These little guys are about the size of a Chihuahua and a lot better looking. They are the smallest fox in the world and their distinguishing characteristic is their unusually large ears. They are friendly and have a large amount of energy which makes them perfect pets. However they are only legal in some states so if you want one you'll have to do some digging.,fennec_fox.jpeg
-Capybara,1,60000,9,For the person who likes their rodents big. The Capybara is the largest rodent on the planet and is native to South America. You will have to check if the area you live in requires a permit but these cute creatures are actually pretty gentle and can stay underwater for five minutes at a time which is insanely cool. Own your own R.O.U.S.!,capybara.jpeg
-Argentine Horned Frog,1,3000,70,The key characteristics of this frog is its massive mouth and exotic patterns on its skin. They can live for 15 years so if you buy one you better be prepared to have it for a considerable chunk of your life.,argentine_horned_frog.jpeg
-Serval,1,250000,5,You should go out and get one of these right now - that is if they are legal in your state - because they are banned in over 20. You need a lot of space to take care of a Serval. It is also extremely intelligent and because of this it can get up to tons of mischief.,serval.jpeg
-Genet,1,100000,10,The Genet is not the most affectionate creature. They are solitary and very territorial but they sure are a lot nicer to look at than a Tarantula.,genet.jpeg
-Langur Monkey,1,250000,3,Langurs are diurnal. They sleep during the night in trees but also on man-made structures like towers and electric poles when in human settlements. When resting in trees they generally prefer the highest branches.,langur_monkey.jpeg
-Sugar Glider,1,20000,14,These little guys are cute as hell. They get their name because they love fruit and they... well ...glide. They are actually becoming pretty popular as pets and bond pretty well with humans and other animals you might have in your household. They live 10-15 years reach about 7 inches in length and weigh only about 6 ounces.,sugar_glider.jpeg
-Bush Baby,1,250000,7,The Bush Baby is a very curious little nocturnal primate on the list of endangered species native of Africa.,bush_baby.jpeg
-Bengal Cat,1,150000,2,The Bengal Cat it the result of crossing a regular domestic feline with an Asian leopard cat and its temperament is as gentle as a household cat.,bengal_cat.jpeg
-Squirrel Monkey,1,800000,2,The squirrel monkey is an adorable little primate that lives in the forest of Central and South America.,squirrel_monkey.jpeg
-Slow Loris,1,175000,3,The Slow Loris is a cute little primate that lives in Asia. It is unfortunately an endangered species and illegal to own in the USA. Its subtle nature makes it popular in the illegal pet trade but unknowing humans should stay clear of its toxin which is released from the sides of its elbows. So - honestly - you should probably not buy one of these.,slow_loris.jpeg
-Tarantula,1,1500,18,Tarantulas are found everywhere except Antarctica and have a lifespan of 10-25 years. Their sizes range from as small as a fingernail to as large as a dinner plate. Having 8 legs and 2 fangs can be quite intimidating but there is good news - Tarantulas rarely bite people.,tarantula.jpeg
-Siamese Kitten,3,10000,3,A fluffy kitty that's purrfect!,siamese.jpg
-Golden Retriever Puppy,3,8000,6,A lovable breed that's great for families,goldenretriever.jpg
-Betta Fish,3,2000,12,There isn't a betta fish out there,bettafish.jpg
-Ferret,3,4000,9,This pet will weasel its way into your heart,ferret.jpg
-Goldfish,3,1000,20,Bloop bloop bloop,goldfish.jpg
-Maine Coon Cat,3,9000,4,The largest domesticated cat breed out there,mainecoon.jpg
-Corgi Dog,3,20000,3,A regal breed that always makes people smile,corgi.jpg
-Husky Puppy,3,14000,2,Comes with a big coat of fur and an even bigger heart,husky.jpg
-Guinea Pig,3,3500,8,A delightful little critter,guinea.jpg
-Bunny,3,4000,5,Hop you like cute animals because this bunny is adorable,bunny2.jpg
+rabbit,2,3500,999,Everybunny loves them!,bunny.jpg,true
+barn cat,2,4000,7,Pawsitively full of catitude,barn_cat.jpg,true
+Axolotl,1,3000,52,These guys are known as walking fish for obvious reasons how many fish do you know that have legs? Turns out they aren't actually fish, they are amphibians. However - they are unique because they don't develop lungs at adulthood instead they stay in the water and keep their gills., axolotl.jpeg,true
+Fennec Fox,1,150000,21,These little guys are about the size of a Chihuahua and a lot better looking. They are the smallest fox in the world and their distinguishing characteristic is their unusually large ears. They are friendly and have a large amount of energy which makes them perfect pets. However they are only legal in some states so if you want one you'll have to do some digging.,fennec_fox.jpeg,true
+Capybara,1,60000,9,For the person who likes their rodents big. The Capybara is the largest rodent on the planet and is native to South America. You will have to check if the area you live in requires a permit but these cute creatures are actually pretty gentle and can stay underwater for five minutes at a time which is insanely cool. Own your own R.O.U.S.!,capybara.jpeg,true
+Argentine Horned Frog,1,3000,70,The key characteristics of this frog is its massive mouth and exotic patterns on its skin. They can live for 15 years so if you buy one you better be prepared to have it for a considerable chunk of your life.,argentine_horned_frog.jpeg,true
+Serval,1,250000,5,You should go out and get one of these right now - that is if they are legal in your state - because they are banned in over 20. You need a lot of space to take care of a Serval. It is also extremely intelligent and because of this it can get up to tons of mischief.,serval.jpeg,true
+Genet,1,100000,10,The Genet is not the most affectionate creature. They are solitary and very territorial but they sure are a lot nicer to look at than a Tarantula.,genet.jpeg,true
+Langur Monkey,1,250000,3,Langurs are diurnal. They sleep during the night in trees but also on man-made structures like towers and electric poles when in human settlements. When resting in trees they generally prefer the highest branches.,langur_monkey.jpeg,true
+Sugar Glider,1,20000,14,These little guys are cute as hell. They get their name because they love fruit and they... well ...glide. They are actually becoming pretty popular as pets and bond pretty well with humans and other animals you might have in your household. They live 10-15 years reach about 7 inches in length and weigh only about 6 ounces.,sugar_glider.jpeg,true
+Bush Baby,1,250000,7,The Bush Baby is a very curious little nocturnal primate on the list of endangered species native of Africa.,bush_baby.jpeg,true
+Bengal Cat,1,150000,2,The Bengal Cat it the result of crossing a regular domestic feline with an Asian leopard cat and its temperament is as gentle as a household cat.,bengal_cat.jpeg,true
+Squirrel Monkey,1,800000,2,The squirrel monkey is an adorable little primate that lives in the forest of Central and South America.,squirrel_monkey.jpeg,true
+Slow Loris,1,175000,3,The Slow Loris is a cute little primate that lives in Asia. It is unfortunately an endangered species and illegal to own in the USA. Its subtle nature makes it popular in the illegal pet trade but unknowing humans should stay clear of its toxin which is released from the sides of its elbows. So - honestly - you should probably not buy one of these.,slow_loris.jpeg,true
+Tarantula,1,1500,18,Tarantulas are found everywhere except Antarctica and have a lifespan of 10-25 years. Their sizes range from as small as a fingernail to as large as a dinner plate. Having 8 legs and 2 fangs can be quite intimidating but there is good news - Tarantulas rarely bite people.,tarantula.jpeg,true
+Siamese Kitten,3,10000,3,A fluffy kitty that's purrfect!,siamese.jpg,true
+Golden Retriever Puppy,3,8000,6,A lovable breed that's great for families,goldenretriever.jpg,true
+Betta Fish,3,2000,12,There isn't a betta fish out there,bettafish.jpg,true
+Ferret,3,4000,9,This pet will weasel its way into your heart,ferret.jpg,true
+Goldfish,3,1000,20,Bloop bloop bloop,goldfish.jpg,true
+Maine Coon Cat,3,9000,4,The largest domesticated cat breed out there,mainecoon.jpg,true
+Corgi Dog,3,20000,3,A regal breed that always makes people smile,corgi.jpg,true
+Husky Puppy,3,14000,2,Comes with a big coat of fur and an even bigger heart,husky.jpg,true
+Guinea Pig,3,3500,8,A delightful little critter,guinea.jpg,true
+Bunny,3,4000,5,Hop you like cute animals because this bunny is adorable,bunny2.jpg,true
