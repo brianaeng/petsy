@@ -12,12 +12,11 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to request.referrer #Where
     else
-      #Where do we want this to go?
+      user_show_path
     end
   end
 
   def index
-
     if params[:commit] == "search"
       if !params[:q].blank?
         @results = Product.ransack(params[:q])
@@ -33,7 +32,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product_of_interest = Product.find(params[:id].to_i)
+    @product = Product.find(params[:id].to_i)
+    @reviews = Review.where(product_id: params[:id].to_i)
   end
 
   def update
@@ -50,6 +50,19 @@ class ProductsController < ApplicationController
     redirect_to #Where?
   end
 
+  # def average_rating_for_this_product
+  #     @reviews = Review.where(product_id: params[:id].to_i)
+  #     @reviews.rating.reduce()
+  # end
+  # def seller_average_rating
+  #   ratings_for_products_from_this_seller = []
+  #   @product = Product.find(params[:id].to_i)
+  #   #Find all the products that the seller of this product also sells
+  #   @products = Product.where(user_id: @product.user_id)
+  #   @products.each do |product|
+  #
+  #
+  # end
 private
    def product_params
      params.require(:product).permit(:name, :user_id, :price, :quantity, :exotic, :farm, :domestic, :description, :picture)

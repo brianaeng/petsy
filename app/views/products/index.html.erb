@@ -1,7 +1,9 @@
 <h1>Products#index</h1>
 <% if !@products.empty? %>
   <% @products.each do |product| %>
-      <h3><%= product.name %></h3>
+    <h3><%= link_to(product.name, product_path(product.id)) %></h3>
+    <h3><%= product.description %></h3>
+    <image><%= image_tag(product.picture)%></image>
   <% end %>
 <% else %>
   Product not found.
