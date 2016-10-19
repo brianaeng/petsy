@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :products
+  has_many :orders
   validates :email, :uid, :provider, presence: true
 
   def self.build_from_github(auth_hash)
