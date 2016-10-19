@@ -1,31 +1,31 @@
-<!-- <h1>Products#new</h1> -->
-
 <h1>Add a New Product</h1>
 
-<%= form_for @product, url: #<--WHERE?--->do |f| %>
+<%= form_for @product, url: root_path do |f| %>
 
 <%= f.label :name %>
-<%= f.text_field :name%></br>
+<%= f.text_field :name%>
 
 <%= f.label :price %>
-<%= f.text_field :price %></br>
+<%= f.text_field :price %>
 
 <%= f.label :quantity %>
-<%= f.text_field :quantity %></br>
+<%= f.text_field :quantity %>
 
-<%= check_box(@product, @product.domestic, checked_value = true, unchecked_value = false) %>
-<%= check_box(@product, @product.exotic, checked_value = true, unchecked_value = false) %>
-<%= check_box(@product, @product.farm, checked_value = true, unchecked_value = false) %>
+<%= f.label :domestic%>
+<%= f.check_box :domestic, {:class => "checkbox"}, "true", "false" %>
+<%= f.label :exotic%>
+<%= f.check_box :exotic, {:class => "checkbox", :style => "mystyle"}, "true", "false" %>
+<%= f.label :farm%>
+<%= f.check_box :farm, {:class => "checkbox", :style => "mystyle"}, "true", "false" %>
 
 <%= f.label :description %>
-<%= f.text_area :description %></br>
+<%= f.text_area :description %>
 
 <%= f.label :picture %>
-<%= f.text_field :picture %></br>
+<%= f.text_field :picture %>
 
-<%= f.hidden_field :user_id, :value => @user.id %></br>
+<%= f.hidden_field :user_id, :value => @product.user_id %>
 
 <%= f.submit %>
 
 <% end %>
-<!-- <p>Find me in app/views/products/new.html.erb</p> -->
