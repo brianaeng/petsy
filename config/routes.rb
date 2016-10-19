@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :products do
     get 'reviews/new'
-    get 'reviews/create'
+    post 'reviews/create'
   end
 
   resources :users do

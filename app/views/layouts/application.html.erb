@@ -15,6 +15,10 @@
     <% end %>
 
     <h1><%= link_to("PETSY", root_path)%></h1>
+
+    <% if session[:user_id] != nil%>
+      <p><%= link_to("Profile", homepages_show_path) %></p>
+    <%end%>
     <hr/>
 
   </header>
