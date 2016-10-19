@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018222151) do
+ActiveRecord::Schema.define(version: 20161019220409) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "order_products", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "shipped"
+    t.integer  "quantity"
   end
 
   add_index "order_products", ["order_id"], name: "index_order_products_on_order_id"
@@ -25,24 +33,37 @@ ActiveRecord::Schema.define(version: 20161018222151) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "cc_number"
+    t.datetime "cc_expiration"
+    t.string   "address"
+    t.integer  "buyer_id"
+    t.string   "status"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "product_categories", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "product_categories", ["category_id"], name: "index_product_categories_on_category_id"
+  add_index "product_categories", ["product_id"], name: "index_product_categories_on_product_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
     t.integer  "quantity"
-    t.boolean  "exotic"
-    t.boolean  "farm"
-    t.boolean  "domestic"
     t.text     "description"
     t.string   "picture"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "active"
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id"
@@ -64,10 +85,10 @@ ActiveRecord::Schema.define(version: 20161018222151) do
     t.string   "email"
     t.string   "username"
     t.string   "provider"
-    t.boolean  "seller"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "avatar"
+    t.boolean  "authenticated"
   end
 
 end
