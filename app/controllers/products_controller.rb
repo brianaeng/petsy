@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id].to_i)
+    @reviews = Review.where(product_id: params[:id].to_i)
   end
 
   def update

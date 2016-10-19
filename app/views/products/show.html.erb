@@ -1,2 +1,15 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1><%=@product.name%></h1>
+<p>Price: <%=number_to_currency(@product.price)%></p>
+<p> Quantity available: <%=@product.quantity%></p>
+<p><%=@product.description%></p>
+<image><%= image_tag(@product.picture)%></image>
+
+<h3>Product Reviews</h3>
+<% @reviews.each do |review| %>
+  <h4><%=review.title%></h4>
+  <% (review.rating).times do %>
+   <h4 class ="stars">⭐️</h4>
+   <%end%>
+  <p><%= review.description%></p>
+  <hr/>
+<%end%>
