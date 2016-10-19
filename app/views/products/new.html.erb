@@ -1,5 +1,3 @@
-<!-- <h1>Products#new</h1> -->
-
 <h1>Add a New Product</h1>
 
 <%= form_for @product, url: root_path do |f| %>
@@ -13,8 +11,12 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
-<%= f.check_box("Domestic", @product.domestic) %>
-
+<%= f.label :domestic%>
+<%= f.check_box :domestic, {:class => "checkbox"}, "true", "false" %>
+<%= f.label :exotic%>
+<%= f.check_box :exotic, {:class => "checkbox", :style => "mystyle"}, "true", "false" %>
+<%= f.label :farm%>
+<%= f.check_box :farm, {:class => "checkbox", :style => "mystyle"}, "true", "false" %>
 
 <%= f.label :description %>
 <%= f.text_area :description %>
