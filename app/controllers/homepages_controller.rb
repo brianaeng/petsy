@@ -7,6 +7,10 @@ class HomepagesController < ApplicationController
     @results = @q.result(distinct: true)
 
     #need to get product's average review rating then order with .order('rating DESC') and take first one from each category
+    @random_pet1 =  Product.find(rand(Product.count))
+    @random_pet2 =  Product.find(rand(Product.count))
+    @random_pet3 =  Product.find(rand(Product.count))
+
   end
 
   def show
