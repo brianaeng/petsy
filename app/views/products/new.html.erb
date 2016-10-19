@@ -11,12 +11,23 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
-<%= f.label :domestic%>
-<%= f.check_box :domestic, {:class => "checkbox"}, "true", "false" %>
-<%= f.label :exotic%>
-<%= f.check_box :exotic, {:class => "checkbox", :style => "mystyle"}, "true", "false" %>
-<%= f.label :farm%>
-<%= f.check_box :farm, {:class => "checkbox", :style => "mystyle"}, "true", "false" %>
+<%# f.select(:category_ids, @categories, :name, { multiple: true }) %>
+<%# f.collection_select :category_ids, @categories,:id,:name, include_blank: true %>
+<%# f.select :category, options_for_select(Product.categories) %>
+
+<%= f.fields_for :product_categories do |pc_form| %>
+   <%= pc_form.hidden_field :category_type %>
+   <%= pc_form.fields_for :category do |c_form| %>
+     <%= c_form.label :name, "Add Category" %>:
+     <%= c_form.text_field :name %>
+   <% end %>
+ <% end %>
+
+
+<%= f.fields_for :categories do |m| %>
+  <%= m.label :name, "Add Category" %>
+  <%= m.text_field :name %>
+<% end %>
 
 <%= f.label :description %>
 <%= f.text_area :description %>

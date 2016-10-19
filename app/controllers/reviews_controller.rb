@@ -15,8 +15,8 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review successfully created"
       redirect_to controller: 'products', action:'show', id: @review.product_id
     else
-      flash[:notice] = @review.errors.messages.join(',')
-      redirect_to product_reviews_new
+      flash[:notice] = @review.errors.messages
+      redirect_to product_reviews_new_path
     end
 
   end
