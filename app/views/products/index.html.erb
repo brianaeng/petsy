@@ -1,4 +1,4 @@
-<h1>Products#index</h1>
+<h1>Products</h1>
 <% if !@products.empty? %>
   <% @products.each do |product| %>
     <h3><%= link_to(product.name, product_path(product.id)) %></h3>
