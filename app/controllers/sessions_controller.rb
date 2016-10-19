@@ -17,11 +17,18 @@ class SessionsController < ApplicationController
 
     # Save the user ID in the session
     session[:user_id] = @user.id  #This is a cookie... NOTE: we're adding the id of the user model, not the uid from github
+    # session[:gh_token] = omniauth["credentials"]["token"] if omniauth['provider'] == 'github'
 
     flash[:notice] = "Successfully logged in!"
     redirect_to root_path
   end
 
   def destroy
+    # reset_session
+    # session.clear
+    # session.delete(:user_id)
+    session[:user_id] = nil  # Don't want to delete users (usually) for simplicity
+
+    redirect_to(:back)
   end
 end

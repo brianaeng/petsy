@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" =>  "sessions#create"
 
-  get 'sessions/destroy'
+  delete '/sessions/destroy' => "sessions#destroy", as: 'destroy_session'
 
   resources :products do
     get 'reviews/new'
