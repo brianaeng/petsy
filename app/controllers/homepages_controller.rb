@@ -14,6 +14,8 @@ class HomepagesController < ApplicationController
   end
 
   def show
+
+    get_current_user
   end
 
   private

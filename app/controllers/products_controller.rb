@@ -50,10 +50,6 @@ class ProductsController < ApplicationController
     redirect_to #Where?
   end
 
-  def exotic_products
-    @exotic_products = Product.where(exotic: true)
-  end
-
   # def average_rating_for_this_product
   #     @reviews = Review.where(product_id: params[:id].to_i)
   #     @reviews.rating.reduce()
