@@ -17,11 +17,11 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Products.all
+    @products = Product.all
   end
 
   def show
-    @product_of_interest = Product.find(params[:id].to_i)
+    @product = Product.find(params[:id].to_i)
   end
 
   def update
