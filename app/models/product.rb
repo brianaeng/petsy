@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :user
   has_many :reviews
-  has_many :categories, through: :product_categories
+  has_many :categories, through: :product_categories, foreign_key: :category_id
   has_many :orders, through: :order_products
   validates :name, presence: true
   #validates :user_id, presence: true
