@@ -11,22 +11,17 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
-
-<%# f.select(:category_ids, @categories, :name, { multiple: true }) %>
-<%# f.collection_select :category_ids, @categories,:id,:name, include_blank: true %>
-<%# f.select :category, options_for_select(Product.categories) %>
-
 <%# f.fields_for :categories do |m| %>
   <%# m.label :name, "Add Category" %>
   <%# m.text_field :name %>
 <%# end %>
 
-<%# @categories.each do |cat| %>
-  <%# cat.label :name  %>
-  <%# check_box_tag "categories[#{cat.name}]", cat.name  %>
-<%# end %>
+<%= f.collection_select :category_ids, Category.all, :id, :name, {}, {:multiple => true} %>
 
-<%= f.collection_select :categories, Category.all, :id, :name, {}, {:multiple => true} %>
+<%# f.fields_for :category, @product.categories.build do |categories_fields| %>
+  <%# categories_fields.label :name, "Add New Category" %>
+  <%# categories_fields.text_field :name %>
+<%# end %>
 
 <%= f.label :description %>
 <%= f.text_area :description %>
