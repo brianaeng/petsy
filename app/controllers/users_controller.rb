@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user only: [:show, :edit, :update]
+  # before_action :find_user only: [:show, :edit, :update]
 
   def new
   end
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    find_user
+    @products = Product.where(user_id: @user.id )
   end
 
   def edit
