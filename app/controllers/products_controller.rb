@@ -5,13 +5,20 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @categories = Category.all
+    # @categories = @product.categories.build
   end
 
   def create
     @product = Product.new(product_params)
+
+    # @categories = Category.all
+    #
+    # params[:categories].each do |cat|
+    #   @product.categories << Category.find_by_name(cat)
+    # end
+
     if @product.save
-      redirect_to request.referrer #Where
+      redirect_to action: "show", id: @product.id
     else
       user_show_path
     end
@@ -66,6 +73,6 @@ class ProductsController < ApplicationController
   # end
 private
    def product_params
-     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active)
+     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, category_ids: [])
    end
 end
