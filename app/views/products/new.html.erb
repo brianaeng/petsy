@@ -1,6 +1,6 @@
 <h1>Add a New Product</h1>
 
-<%= form_for @product, url: root_path do |f| %>
+<%= form_for @product, url: products_path do |f| %>
 
 <%= f.label :name %>
 <%= f.text_field :name%>
@@ -16,11 +16,17 @@
 <%# f.collection_select :category_ids, @categories,:id,:name, include_blank: true %>
 <%# f.select :category, options_for_select(Product.categories) %>
 
-<%= f.fields_for :categories do |m| %>
-  <%= m.label :name, "Add Category" %>
-  <%= m.text_field :name %>
-<% end %>
+<%# f.fields_for :categories do |m| %>
+  <%# m.label :name, "Add Category" %>
+  <%# m.text_field :name %>
+<%# end %>
 
+<%# @categories.each do |cat| %>
+  <%# cat.label :name  %>
+  <%# check_box_tag "categories[#{cat.name}]", cat.name  %>
+<%# end %>
+
+<%= f.collection_select :categories, Category.all, :id, :name, {}, {:multiple => true} %>
 
 <%= f.label :description %>
 <%= f.text_area :description %>
@@ -28,7 +34,9 @@
 <%= f.label :picture %>
 <%= f.text_field :picture %>
 
-<%= f.hidden_field :user_id, :value => @product.user_id %>
+<%# f.hidden_field :user_id, :value => @product.user_id %>
+<%= f.hidden_field :user_id, value: session[:user_id] %>
+<%= f.hidden_field :active, value: true %>
 
 <%= f.submit %>
 
