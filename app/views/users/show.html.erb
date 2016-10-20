@@ -7,9 +7,12 @@
 <h4>Pets You Sell</h4>
 <ul>
   <% @products.each do |pet|%>
-    <li><%=link_to(pet.name, product_path(pet.id)) %> Quantity Available: <%=pet.quantity%>
+    <li><%=link_to(pet.name, product_path(pet.id)) %>
+      <%= button_to "✗", {controller: "products", action: "destroy", id: pet[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
+      Quantity Available: <%=pet.quantity%>
       <%if pet.active %>
       Active
+      <%pet.toggle(:active)%>
       <%else%>
       Inactive
       <%end%>

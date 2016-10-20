@@ -6,7 +6,7 @@ one:
   email: MyString
   username: MyString
   provider: MyString
-  seller: false
+
 
 two:
   uid: MyString
@@ -14,4 +14,4 @@ two:
   email: MyString
   username: MyString
   provider: MyString
-  seller: false
+  
