@@ -17,7 +17,7 @@
     <h1><%= link_to("PETSY", root_path)%></h1>
 
     <% if session[:user_id] != nil%>
-      <p><%= link_to("Profile", homepages_show_path) %></p>
+      <p><%= link_to("Profile", user_path(session[:user_id])) %></p>
     <%end%>
     <hr/>
 
