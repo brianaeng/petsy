@@ -31,4 +31,25 @@ class User < ActiveRecord::Base
       errors.add(:avatar, "Avatar link must be a .com url")
     end
   end
+
+  def average_rating
+    #Find all of the products sold by this seller
+    products = self.products
+    #Find all of the reveiws for all of the products sold by this seller
+    if products.length > 0
+      reviews = []
+      products.each do |product|
+        reviews << product.reviews
+      end
+      #Find all of the ratings for all of those reviews
+      ratings = []
+      reviews.flatten.each do |review|
+        ratings << review.rating.to_f
+      end
+    end
+    #Sum all of the ratings and divide the sum by the number of ratings
+    average = ratings.reduce(:+)/ratings.length
+
+    return average.round
+  end
 end
