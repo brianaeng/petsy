@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :products, through: :order_products
+  has_many :order_products
 
   validates :address, :buyer_id, :cc_expiration, presence: true
   validates_inclusion_of :status, :within => ["pending","paid","complete","cancelled"], :message => "{{value}} is not a valid status"
@@ -13,6 +14,6 @@ class Order < ActiveRecord::Base
     end
   end
 
-  #status can only be complete if all of the order-products associated with that order have been shipped 
+  #status can only be complete if all of the order-products associated with that order have been shipped
 
 end
