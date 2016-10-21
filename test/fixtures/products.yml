@@ -1,25 +1,127 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  price: 1
-  quantity: 1
-  exotic: false
-  farm: false
-  domestic: false
-  description: MyText
-  picture: MyString
-  user_id: 
-  user_id: 
+valid_penguin:
+  name: Penguin
+  price: 10000
+  quantity: 12
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
 
-two:
-  name: MyString
-  price: 1
-  quantity: 1
-  exotic: false
-  farm: false
-  domestic: false
-  description: MyText
-  picture: MyString
-  user_id: 
-  user_id: 
+nameless_animal:
+  name:
+  price: 10000
+  quantity: 12
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+priceless_animal:
+  name: Penguin
+  price:
+  quantity: 12
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+quantityless_animal:
+  name: Penguin
+  price: 10000
+  quantity:
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+descriptionless_animal:
+  name: Penguin
+  price: 10000
+  quantity: 12
+  description:
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+pictureless_animal: #should be valid
+  name: Penguin
+  price: 10000
+  quantity: 12
+  description: Wears a tuxedo and ice skates.
+  picture:
+  user_id: 3
+  active: true
+
+out_of_stock_animal: #should be valid
+  name: Penguin
+  price: 10000
+  quantity: 0
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: false
+
+active_out_of_stock_animal: #should be invalid
+  name: Penguin
+  price: 10000
+  quantity: 0
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+free_animal: #should be invalid
+  name: Penguin
+  price: 0
+  quantity: 10
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+neg_price_animal: #should be invalid
+  name: Penguin
+  price: -10000
+  quantity: 10
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+neg_quantity_animal: #should be invalid
+  name: Penguin
+  price: 10000
+  quantity: -1
+  description: Wears a tuxedo and ice skates.
+  picture: penguin.jpg
+  user_id: 3
+  active: true
+
+picture_not_url_animal: #should be invalid
+  name: Penguin
+  price: -10000
+  quantity: 10
+  description: Wears a tuxedo and ice skates.
+  picture: penguin
+  user_id: 3
+  active: true
+
+decimal_price: #should be invalid
+  name: Penguin
+  price: 10000.5
+  quantity: 10
+  description: Wears a tuxedo and ice skates.
+  picture: penguin
+  user_id: 3
+  active: true
+
+decimal_quantity: #should be invalid
+  name: Penguin
+  price: 10000
+  quantity: 10.5
+  description: Wears a tuxedo and ice skates.
+  picture: penguin
+  user_id: 3
+  active: true

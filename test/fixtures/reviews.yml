@@ -1,15 +1,36 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+valid_review:
   rating: 1
-  title: MyString
-  description: MyText
-  product_id: 
-  product_id: 
+  title: Best Pet Ever!
+  description: I love everything about it.
 
-two:
+no_rating_review:
+  rating:
+  title: Best Pet Ever!
+  description: I love everyhing about it.
+
+no_title_review:
   rating: 1
-  title: MyString
-  description: MyText
-  product_id: 
-  product_id: 
+  title:
+  description: I love everyhing about it.
+
+no_description_review:
+  rating: 1
+  title: Best Pet Ever!
+  description:
+
+rating_too_high:
+  rating: 100
+  title: Best Pet Ever!
+  description: I love everything about it.
+
+rating_too_low:
+  rating: -5
+  title: Best Pet Ever!
+  description: I love everything about it.
+
+rating_decimal:
+  rating: 1.5
+  title: Best Pet Ever!
+  description: I love everything about it.
