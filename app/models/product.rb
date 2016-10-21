@@ -12,15 +12,18 @@ class Product < ActiveRecord::Base
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :description, presence: true
 
+  validate :out_of_stock
+  validate :picture_must_be_url
+
   def out_of_stock
-    if self.quantity == 0
-      self.active = false
+    if self.quantity == 0 && self.active == true
+      errors.add(:active, "Out of stock products should be inactive")
     end
   end
 
   def picture_must_be_url
     allowed_extensions = %w[.jpg .jpeg .png]
-    if self.picture.exists? && !allowed_extensions.any?{ |ext| self.picture.end_with?(ext) }
+    if self.picture != nil && !allowed_extensions.any?{ |ext| self.picture.end_with?(ext) }
       errors.add(:picture, "Must be url for an image")
     end
   end
