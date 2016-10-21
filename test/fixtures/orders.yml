@@ -1,9 +1,99 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  user_id: 
+valid_order:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
 
-two:
-  user_id: 
-  user_id: 
+no_cc_number:
+  cc_number:
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
+
+no_cc_expiration:
+  cc_number: 1234
+  cc_expiration:
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
+
+no_address:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address:
+  status: pending
+  buyer_id: 4
+
+no_status:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status:
+  buyer_id: 4
+
+no_buyer_id:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id:
+
+invalid_status:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: whatever
+  buyer_id: 4
+
+paid_order:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
+
+complete_order:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: complete
+  buyer_id: 4
+
+cancelled_order:
+  cc_number: 1234
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: cancelled
+  buyer_id: 4
+
+cc_number_too_short:
+  cc_number: 4
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
+
+cc_number_too_long:
+  cc_number: 45678
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
+
+cc_expired:
+  cc_number: 45678
+  cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 4
+
+same_buyer_user:
+  cc_number: 45678
+  cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: pending
+  buyer_id: 3

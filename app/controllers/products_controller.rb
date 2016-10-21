@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
 
   def destroy
     product.destroy
-    redirect_to #Where?
+    redirect_to user_path(product.user_id)
   end
 
   # def average_rating_for_this_product
