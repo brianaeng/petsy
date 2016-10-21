@@ -23,6 +23,15 @@
 <image><%= image_tag(@product.picture)%></image>
 
 <h3>Product Reviews</h3>
+<p>Average product rating:
+  <% if @product.reviews.length > 0 %>
+    <% (@product.average_rating).times do %>
+      <h4 class ="stars">⭐️</h4></p>
+      <%end%>
+  <% else %>
+    <p>There are no reviews yet for this pet.</p>
+  <%end%>
+
 <% @reviews.each do |review| %>
   <h4><%=review.title%></h4>
   <% (review.rating).times do %>

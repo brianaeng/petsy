@@ -10,15 +10,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # @product.build_category(params[:product][:categories][:name])
-    # @categories = Category.all
-    #
-    # params[:categories].each do |cat|
-    #   @product.categories << Category.find_by_name(cat)
-    # end
-
 
     if @product.save
+      if Category.find_by(name:"") != nil
+        blank = Category.find_by(name:"")
+        blank.destroy
+      end
       redirect_to action: "show", id: @product.id
     else
       redirect_to new_product_path
@@ -59,12 +56,20 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product.update_attributes(product_params)
+    product
+    @product.update(product_params)
+
+    if Category.find_by(name:"") != nil
+      blank = Category.find_by(name:"")
+      blank.destroy
+    end
+
     redirect_to action: "show", id: @product.id
   end
 
   def edit
     product
+    @product.categories.build
   end
 
   def destroy
@@ -77,15 +82,6 @@ class ProductsController < ApplicationController
     redirect_to(request.referer)
   end
 
-  def average_rating_for_this_product
-      @reviews = Review.where(product_id: params[:id].to_i)
-      ratings = []
-      @reviews.each do |review|
-        ratings << review.rating
-      end
-      average_product_rating = ratings.reduce(:+)/ratings.length
-      return average_product_rating
-  end
 
 private
    def product_params

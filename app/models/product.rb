@@ -2,10 +2,8 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :reviews
   has_many :product_categories
-  has_many :categories, through: :product_categories#, foreign_key: :category_id
-  accepts_nested_attributes_for :categories, reject_if: :all_blank#reject_if: proc { |attributes| deep_blank?(attributes)} #, :allow_destroy => true
-
-  # validates_associated :categories
+  has_many :categories, through: :product_categories
+  accepts_nested_attributes_for :categories
 
   has_many :orders, through: :order_products
 
@@ -16,15 +14,6 @@ class Product < ActiveRecord::Base
   validates :description, presence: true
   validate :out_of_stock
   validate :picture_must_be_url
-
-  # def self.deep_blank?(hash)
-  #   hash.each do |key, value|
-  #     next if key == '_destroy'
-  #     any_blank = value.is_a?(Hash) ? deep_blank?(value) : value.blank?
-  #     return false unless any_blank
-  #   end
-  #   true
-  # end
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|
@@ -46,4 +35,15 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def average_rating
+      reviews = self.reviews
+      @ratings = []
+      if reviews.length > 0
+        reviews.each do |review|
+          @ratings << review.rating.to_f
+        end
+        average_product_rating = @ratings.reduce(:+)/@ratings.length
+        return average_product_rating.round
+      end
+  end
 end

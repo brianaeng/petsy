@@ -5,16 +5,19 @@
 <p><%= link_to 'Delete Your Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></p>
 
 <h4>Pets You Sell</h4>
+<p> Your average product rating:
+  <% (@user.average_rating).times do %>
+    <h4 class ="stars">⭐️</h4>
+    <%end%></p>
+    
 <ul>
   <% @products.each do |pet|%>
     <li><%=link_to(pet.name, product_path(pet.id)) %>
-      <%= button_to "✗", {controller: "products", action: "destroy", id: pet[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
       Quantity Available: <%=pet.quantity%>
       <%if pet.active %>
-      Active
-      <%pet.toggle(:active)%>
+        Active
       <%else%>
-      Inactive
+        Inactive
       <%end%>
     </li>
   <%end%>
