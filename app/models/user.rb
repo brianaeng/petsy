@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     user.email = auth_hash['info']['email']
     user.avatar = auth_hash['extra']['raw_info']['avatar_url']
     user.authenticated = true
+
     return user
   end
 
@@ -26,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def avatar_url
-    if self.avatar != nil && !self.avatar.end_with?(".com")
+    if self.avatar != nil && !self.avatar.include?(".com")
       errors.add(:avatar, "Avatar link must be a .com url")
     end
   end
