@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+ <body>
   <header>
     <%# Links to Login/Logout  %>
     <% if session[:user_id] == nil %>
@@ -14,7 +14,7 @@
     <% else %>
       <%= link_to("Logout", "/sessions/destroy", method: "delete") %>
     <% end %>
-    
+
 
     <%# Link to Homepage  %>
     <h1><%= link_to("PETSY", root_path)%></h1>
