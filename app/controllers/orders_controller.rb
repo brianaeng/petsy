@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
       session[:cart] = {params[:order_product][:product_id] => params[:order_product][:quantity]}  # {product_id => quantity}
     end
 
-    redirect_to :back
+    # redirect_to :back
   end
 
   def index
