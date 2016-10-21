@@ -1,4 +1,14 @@
 <h1>Products</h1>
+<section>
+  <% @categories.each do |category| %>
+    <%# link_to category.name, products_path %>
+    <!-- add category controller and do... -->
+    <%= link_to category.name, products_path(category_id: category.id) %>
+    <%# link_to category.name, category_path(id: category.id) %>
+  <% end %>
+  <%= link_to "All", products_path %>
+</section>
+
 <% if !@products.empty? %>
   <% @products.each do |product| %>
     <% if product.active %>

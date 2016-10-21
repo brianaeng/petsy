@@ -5,12 +5,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @product.categories.build
-
-    # @product.product_categories.build
-    # @product.product_categories.each do |pc|
-    #   pc.build_category
-    # end
+    @product.categories.build
   end
 
   def create
@@ -22,14 +17,16 @@ class ProductsController < ApplicationController
     #   @product.categories << Category.find_by_name(cat)
     # end
 
+
     if @product.save
       redirect_to action: "show", id: @product.id
     else
-      user_show_path
+      redirect_to new_product_path
     end
   end
 
   def index
+    @categories = Category.all
     if params[:commit] == "search"
       if !params[:q].blank?
         @results = Product.ransack(params[:q])
@@ -39,6 +36,8 @@ class ProductsController < ApplicationController
 
       @products = @results.result
 
+    elsif !params[:category_id].blank?
+      @products = Category.find(params[:category_id]).products
     else
       @products = Product.all
     end

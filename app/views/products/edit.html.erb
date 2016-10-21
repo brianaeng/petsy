@@ -1,8 +1,6 @@
 <h1>Products#edit</h1>
 <h1>Edit a Product</h1>
 
-<!-- UPDATE ONCE ADD NEW CATEGORY FIELD IS WORKING FOR 'NEW' PAGE -->
-
 <%= form_for @product, url: product_path do |f| %>
 
 <%= f.label :name %>
@@ -14,7 +12,14 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
-<!-- ADD CATEGORIES STUFF HERE -->
+<%= f.fields_for :categories, @product.categories.build do |categories_fields| %>
+  <%= categories_fields.label :name, "Add New Category" %>
+  <%= categories_fields.text_field :name %>
+<% end %>
+
+<!-- Need this to prepopulate/highlight with previously chosen categories (maybe through values?) -->
+<%= f.label :category_ids, "Choose Categories" %>
+<%= f.collection_select :category_ids, Category.all, :id, :name, {},  {:multiple => true} %>
 
 <%= f.label :description %>
 <%= f.text_area :description %>
