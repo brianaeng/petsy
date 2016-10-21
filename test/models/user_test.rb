@@ -25,4 +25,9 @@ class UserTest < ActiveSupport::TestCase
     users(:no_authentication_status).invalid?
     assert users(:no_authentication_status).invalid?
   end
+
+  test "If the user has an avatar, it must end in .com" do
+    users(:invalid_avatar).invalid?
+    assert users(:invalid_avatar).invalid?
+  end 
 end

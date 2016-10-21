@@ -16,7 +16,7 @@ no_email_user:
   email:
   username: Ada_C0de_G0ddess
   provider: github
-  avatar: adaavater.com
+  avatar: adaavatar.com
   authenticated: true
 
 invalid_email_user:
@@ -25,7 +25,7 @@ invalid_email_user:
   email: computeremail.com
   username: Ada_C0de_G0ddess
   provider: github
-  avatar: adaavater.com
+  avatar: adaavatar.com
   authenticated: true
 
 no_provider_user:
@@ -34,7 +34,7 @@ no_provider_user:
   email: ada@lovelacelearning.com
   username: Ada_C0de_G0ddess
   provider:
-  avatar: adaavater.com
+  avatar: adaavatar.com
   authenticated: true
 
 no_authentication_status:
@@ -43,5 +43,14 @@ no_authentication_status:
   email: ada@lovelacelearning.com
   username: Ada_C0de_G0ddess
   provider: github
-  avatar: adaavater.com
-  authenticated: 
+  avatar: adaavatar.com
+  authenticated:
+
+invalid_avatar:
+  uid: 1
+  name: Ada Lovelace
+  email: ada@lovelacelearning.com
+  username: Ada_C0de_G0ddess
+  provider: github
+  avatar: adaavatar
+  authenticated: true
