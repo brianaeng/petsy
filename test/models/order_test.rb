@@ -29,11 +29,6 @@ class OrderTest < ActiveSupport::TestCase
     assert orders(:no_status).invalid?
   end
 
-  test "Order without a user_id is not valid" do
-    orders(:no_user_id).invalid?
-    assert orders(:no_user_id).invalid?
-  end
-
   test "Order without a buyer_id is not valid" do
     orders(:no_buyer_id).invalid?
     assert orders(:no_buyer_id).invalid?
