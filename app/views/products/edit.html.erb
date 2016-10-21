@@ -19,7 +19,7 @@
 
 <!-- Need this to prepopulate/highlight with previously chosen categories (maybe through values?) -->
 <%= f.label :category_ids, "Choose Categories" %>
-<%= f.collection_select :category_ids, Category.all, :id, :name, {},  {:multiple => true} %>
+<%= f.collection_select :category_ids, Category.all, :id, :name, {}, {:selected => @product.categories, :multiple => true} %>
 
 <%= f.label :description %>
 <%= f.text_area :description %>

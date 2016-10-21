@@ -62,12 +62,19 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product.update_attributes(product_params)
+    product
+    if @product.update(product_params)
+      if Category.find_by(name:"") != nil
+        blank = Category.find_by(name:"")
+        blank.destroy
+      end
+    end
     redirect_to action: "show", id: @product.id
   end
 
   def edit
     product
+    @product.categories.build
   end
 
   def destroy

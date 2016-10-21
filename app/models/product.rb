@@ -46,16 +46,16 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def average_rating
-      reviews = self.reviews
-      @ratings = []
-      if reviews.length > 0
-        reviews.each do |review|
-          @ratings << review.rating.to_f
-        end
-        average_product_rating = @ratings.reduce(:+)/@ratings.length
-      end
-
-      return average_product_rating.round
-  end
+  # def average_rating
+  #     reviews = self.reviews
+  #     @ratings = []
+  #     if reviews.length > 0
+  #       reviews.each do |review|
+  #         @ratings << review.rating.to_f
+  #       end
+  #       average_product_rating = @ratings.reduce(:+)/@ratings.length
+  #     end
+  #
+  #     return average_product_rating.round
+  # end
 end
