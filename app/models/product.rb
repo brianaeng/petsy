@@ -43,8 +43,7 @@ class Product < ActiveRecord::Base
           @ratings << review.rating.to_f
         end
         average_product_rating = @ratings.reduce(:+)/@ratings.length
+        return average_product_rating.round
       end
-
-      return average_product_rating.round
   end
 end
