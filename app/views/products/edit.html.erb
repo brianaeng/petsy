@@ -1,2 +1,31 @@
 <h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h1>Edit a Product</h1>
+
+<!-- UPDATE ONCE ADD NEW CATEGORY FIELD IS WORKING FOR 'NEW' PAGE -->
+
+<%= form_for @product, url: product_path do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :price %>
+<%= f.text_field :price %>
+
+<%= f.label :quantity %>
+<%= f.text_field :quantity %>
+
+<!-- ADD CATEGORIES STUFF HERE -->
+
+<%= f.label :description %>
+<%= f.text_area :description %>
+
+<%= f.label :picture %>
+<%= f.text_field :picture %>
+
+<%# f.hidden_field :user_id, :value => @product.user_id %>
+<%= f.hidden_field :user_id, value: session[:user_id] %>
+<%= f.hidden_field :active, value: true %>
+
+<%= f.submit %>
+
+<% end %>

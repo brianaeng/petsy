@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
 
   def update
     product.update_attributes(product_params)
-    redirect_to request.referrer
+    redirect_to action: "show", id: @product.id
   end
 
   def edit
@@ -78,6 +78,6 @@ class ProductsController < ApplicationController
   # end
 private
    def product_params
-     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, product_categories_attributes: [{category_attributes: [:name]}])#, category_ids: [])
+     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
    end
 end
