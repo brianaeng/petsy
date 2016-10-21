@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
     user.name  = auth_hash['info']['name']
     user.email = auth_hash['info']['email']
     user.avatar = auth_hash['extra']['raw_info']['avatar_url']
+    user.authenticated = true
     return user
   end
 

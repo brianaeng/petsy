@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
-    # raise
+    raise
 
     return redirect_to root_path unless auth_hash['uid']  # THe return makes it so nothing after this happens
 
