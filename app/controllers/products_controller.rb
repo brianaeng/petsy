@@ -42,6 +42,16 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id].to_i)
     @reviews = Review.where(product_id: params[:id].to_i)
+
+    if session[:user_id] != nil
+      @order = Order.find_by(buyer_id: session[:user_id], status: "pending") # If the current user already has a pending order, just add to that
+      if @order.nil?
+        @order = Order.new(buyer_id: session[:user_id])
+      end
+      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
+    else
+      @orderproduct = OrderProduct.new(order_id: 0, product_id: @product.id, quantity: 0)
+    end
   end
 
   def update

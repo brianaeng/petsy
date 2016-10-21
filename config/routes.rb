@@ -13,11 +13,7 @@ Rails.application.routes.draw do
     post 'reviews/create'
   end
 
-  resources :users do
-    resources :orders
-  end
-
-  resources :order_products
+  resources :order_products, :users, :orders
 
   get 'homepages/index'
 
