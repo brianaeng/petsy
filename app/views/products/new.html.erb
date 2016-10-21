@@ -11,7 +11,6 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
-<!--Problem: creates a new blank category if nothing is typed into the field & then product not created -->
 <%= f.fields_for :categories do |categories_fields| %>
   <%= categories_fields.label :name, "Add New Category" %>
   <%= categories_fields.text_field :name %>
