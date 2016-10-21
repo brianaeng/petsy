@@ -1,2 +1,19 @@
 <h1>Orders#edit</h1>
 <p>Find me in app/views/orders/edit.html.erb</p>
+
+<%= @orderproducts %>
+
+
+
+<% @orderproducts.each do | orderproduct | %>
+  <%= form_for orderproduct, controller: "orders", action: "update", url: orders_path do |f| %>
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, :quantity => nil, :min => 0, :max => orderproduct.product.quantity, :required => true   %>
+    <%# f.hidden_field :product_id, :value => @product.id %>
+
+    <%= f.submit "Update" %>
+  <%end%>
+<% end %>
+
+<%= params %>
