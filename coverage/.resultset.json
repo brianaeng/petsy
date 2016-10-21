@@ -8,6 +8,25 @@
         null,
         null,
         null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/erinbond/Desktop/Ada/betsy/petsy/test/models/order_test.rb": [
@@ -239,6 +258,19 @@
         1,
         1,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/erinbond/Desktop/Ada/betsy/petsy/app/models/order.rb": [
@@ -249,15 +281,11 @@
         1,
         1,
         1,
-        null,
         1,
-        null,
         null,
         1,
         28,
         4,
-        null,
-        null,
         null,
         null,
         null,
@@ -348,6 +376,6 @@
         null
       ]
     },
-    "timestamp": 1477070131
+    "timestamp": 1477074497
   }
 }

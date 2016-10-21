@@ -34,6 +34,18 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def seller_average_rating
+    ratings_for_seller_products = []
+
+    user.products.each do |product|
+      ratings_for_seller_products << product.rating
+    end
+
+    seller_average_rating = ratings_for_seller_products.reduce(:+)/ratings_for_seller_products
+
+    return seller_average_rating
+  end
+  
   private  # Limited to just this class
     def user_params
       params.require(:user).permit(:name, :email, :username)
