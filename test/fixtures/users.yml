@@ -1,17 +1,56 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  uid: MyString
-  name: MyString
-  email: MyString
-  username: MyString
-  provider: MyString
-  seller: false
+minimal_valid_user:
+  uid: 1
+  name:
+  email: ada@lovelacelearning.com
+  username:
+  provider: github
+  avatar:
+  authenticated: true
 
-two:
-  uid: MyString
-  name: MyString
-  email: MyString
-  username: MyString
-  provider: MyString
-  seller: false
+
+no_email_user:
+  uid: 1
+  name: Ada Lovelace
+  email:
+  username: Ada_C0de_G0ddess
+  provider: github
+  avatar: adaavatar.com
+  authenticated: true
+
+invalid_email_user:
+  uid: 1
+  name: Ada Lovelace
+  email: computeremail.com
+  username: Ada_C0de_G0ddess
+  provider: github
+  avatar: adaavatar.com
+  authenticated: true
+
+no_provider_user:
+  uid: 1
+  name: Ada Lovelace
+  email: ada@lovelacelearning.com
+  username: Ada_C0de_G0ddess
+  provider:
+  avatar: adaavatar.com
+  authenticated: true
+
+no_authentication_status:
+  uid: 1
+  name: Ada Lovelace
+  email: ada@lovelacelearning.com
+  username: Ada_C0de_G0ddess
+  provider: github
+  avatar: adaavatar.com
+  authenticated:
+
+invalid_avatar:
+  uid: 1
+  name: Ada Lovelace
+  email: ada@lovelacelearning.com
+  username: Ada_C0de_G0ddess
+  provider: github
+  avatar: adaavatar
+  authenticated: true

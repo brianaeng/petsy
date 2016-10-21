@@ -1,2 +1,36 @@
 <h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h1>Edit a Product</h1>
+
+<%= form_for @product, url: product_path do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :price %>
+<%= f.text_field :price %>
+
+<%= f.label :quantity %>
+<%= f.text_field :quantity %>
+
+<%= f.fields_for :categories, @product.categories.build do |categories_fields| %>
+  <%= categories_fields.label :name, "Add New Category" %>
+  <%= categories_fields.text_field :name %>
+<% end %>
+
+<!-- Need this to prepopulate/highlight with previously chosen categories (maybe through values?) -->
+<%= f.label :category_ids, "Choose Categories" %>
+<%= f.collection_select :category_ids, Category.all, :id, :name, {},  {:multiple => true} %>
+
+<%= f.label :description %>
+<%= f.text_area :description %>
+
+<%= f.label :picture %>
+<%= f.text_field :picture %>
+
+<%# f.hidden_field :user_id, :value => @product.user_id %>
+<%= f.hidden_field :user_id, value: session[:user_id] %>
+<%= f.hidden_field :active, value: true %>
+
+<%= f.submit %>
+
+<% end %>

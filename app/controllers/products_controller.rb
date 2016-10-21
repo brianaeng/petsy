@@ -5,26 +5,28 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @categories = @product.categories.build
+    @product.categories.build
   end
 
   def create
     @product = Product.new(product_params)
-
+    # @product.build_category(params[:product][:categories][:name])
     # @categories = Category.all
     #
     # params[:categories].each do |cat|
     #   @product.categories << Category.find_by_name(cat)
     # end
 
+
     if @product.save
       redirect_to action: "show", id: @product.id
     else
-      user_show_path
+      redirect_to new_product_path
     end
   end
 
   def index
+    @categories = Category.all
     if params[:commit] == "search"
       if !params[:q].blank?
         @results = Product.ransack(params[:q])
@@ -34,6 +36,8 @@ class ProductsController < ApplicationController
 
       @products = @results.result
 
+    elsif !params[:category_id].blank?
+      @products = Category.find(params[:category_id]).products
     else
       @products = Product.all
     end
@@ -56,7 +60,7 @@ class ProductsController < ApplicationController
 
   def update
     product.update_attributes(product_params)
-    redirect_to request.referrer
+    redirect_to action: "show", id: @product.id
   end
 
   def edit
@@ -65,24 +69,26 @@ class ProductsController < ApplicationController
 
   def destroy
     product.destroy
-    redirect_to #Where?
+    redirect_to user_path(product.user_id)
   end
 
-  # def average_rating_for_this_product
-  #     @reviews = Review.where(product_id: params[:id].to_i)
-  #     @reviews.rating.reduce()
-  # end
-  # def seller_average_rating
-  #   ratings_for_products_from_this_seller = []
-  #   @product = Product.find(params[:id].to_i)
-  #   #Find all the products that the seller of this product also sells
-  #   @products = Product.where(user_id: @product.user_id)
-  #   @products.each do |product|
-  #
-  #
-  # end
+  def activation
+    product.update_attribute(product.toggle :active)
+    redirect_to(request.referer)
+  end
+
+  def average_rating_for_this_product
+      @reviews = Review.where(product_id: params[:id].to_i)
+      ratings = []
+      @reviews.each do |review|
+        ratings << review.rating
+      end
+      average_product_rating = ratings.reduce(:+)/ratings.length
+      return average_product_rating
+  end
+
 private
    def product_params
-     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, category_ids: [])
+     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
    end
 end
