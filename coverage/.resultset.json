@@ -262,18 +262,10 @@
         1,
         1,
         null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/erinbond/Desktop/Ada/betsy/petsy/app/models/order.rb": [
+        1,
         1,
         1,
         1,
@@ -376,6 +368,6 @@
         null
       ]
     },
-    "timestamp": 1477074497
+    "timestamp": 1477081886
   }
 }

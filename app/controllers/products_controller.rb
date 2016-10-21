@@ -58,6 +58,11 @@ class ProductsController < ApplicationController
     redirect_to user_path(product.user_id)
   end
 
+  def activation
+    product.update_attribute(product.toggle :active)
+    redirect_to(request.referer)
+  end
+
   def average_rating_for_this_product
       @reviews = Review.where(product_id: params[:id].to_i)
       ratings = []
