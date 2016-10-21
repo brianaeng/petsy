@@ -24,15 +24,15 @@
 
 <h3>Product Reviews</h3>
 <p>Average product rating:
-  <%# (@product.average_rating).times do %>
+  <% (@product.average_rating).times do %>
     <h4 class ="stars">⭐️</h4>
-    <%#end%></p>
+    <%end%></p>
 
-<%# @reviews.each do |review| %>
-  <h4><%#review.title%></h4>
-  <%# (review.rating).times do %>
+<% @reviews.each do |review| %>
+  <h4><%=review.title%></h4>
+  <% (review.rating).times do %>
    <h4 class ="stars">⭐️</h4>
-   <%#end%>
-  <p><%# review.description%></p>
+   <%end%>
+  <p><%= review.description%></p>
   <hr/>
-<%#end%>
+<%end%>

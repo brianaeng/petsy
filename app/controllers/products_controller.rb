@@ -10,12 +10,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # @product.build_category(params[:product][:categories][:name])
-    # @categories = Category.all
-    #
-    # params[:categories].each do |cat|
-    #   @product.categories << Category.find_by_name(cat)
-    # end
 
     if @product.save
       if Category.find_by(name:"") != nil
@@ -63,12 +57,13 @@ class ProductsController < ApplicationController
 
   def update
     product
-    if @product.update(product_params)
-      if Category.find_by(name:"") != nil
-        blank = Category.find_by(name:"")
-        blank.destroy
-      end
+    @product.update(product_params)
+
+    if Category.find_by(name:"") != nil
+      blank = Category.find_by(name:"")
+      blank.destroy
     end
+
     redirect_to action: "show", id: @product.id
   end
 

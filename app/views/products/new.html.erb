@@ -25,7 +25,6 @@
 <%= f.label :picture %>
 <%= f.text_field :picture %>
 
-<%# f.hidden_field :user_id, :value => @product.user_id %>
 <%= f.hidden_field :user_id, value: session[:user_id] %>
 <%= f.hidden_field :active, value: true %>
 
