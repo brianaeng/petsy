@@ -13,6 +13,10 @@ CSV.foreach('seed_csvs/categories.csv', :headers => true) do |csv_obj|
   Category.create(name: csv_obj['name'])
 end
 
+CSV.foreach('seed_csvs/product_categories.csv', :headers => true) do |csv_obj|
+  ProductCategory.create(product_id: csv_obj['product_id'], category_id: csv_obj['category_id'])
+end
+
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
