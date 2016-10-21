@@ -62,19 +62,21 @@ class ProductsController < ApplicationController
     redirect_to user_path(product.user_id)
   end
 
-  # def average_rating_for_this_product
-  #     @reviews = Review.where(product_id: params[:id].to_i)
-  #     @reviews.rating.reduce()
-  # end
-  # def seller_average_rating
-  #   ratings_for_products_from_this_seller = []
-  #   @product = Product.find(params[:id].to_i)
-  #   #Find all the products that the seller of this product also sells
-  #   @products = Product.where(user_id: @product.user_id)
-  #   @products.each do |product|
-  #
-  #
-  # end
+  def activation
+    product.update_attribute(product.toggle :active)
+    redirect_to(request.referer)
+  end
+
+  def average_rating_for_this_product
+      @reviews = Review.where(product_id: params[:id].to_i)
+      ratings = []
+      @reviews.each do |review|
+        ratings << review.rating
+      end
+      average_product_rating = ratings.reduce(:+)/ratings.length
+      return average_product_rating
+  end
+
 private
    def product_params
      params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
