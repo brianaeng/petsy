@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 #Gem for searching
 gem 'ransack'
-
+gem 'minitest-reporters'
 gem 'rails-erd'
 gem 'awesome_print', require: 'ap'
 #OmniAuth
