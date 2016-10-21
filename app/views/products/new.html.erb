@@ -11,12 +11,19 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 
-<%# f.fields_for :categories do |m| %>
-  <%# m.label :name, "Add Category" %>
-  <%# m.text_field :name %>
-<%# end %>
+<%= f.fields_for :categories do |m| %>
+  <%= m.label :name, "Add Category" %>
+  <%= m.text_field :name %>
+<% end %>
 
-<%= f.collection_select :category_ids, Category.all, :id, :name, {}, {:multiple => true} %>
+<!-- THIS WORKS -->
+<%# f.label :category_ids, "Choose Categories" %>
+<%# f.collection_select :category_ids, Category.all, :id, :name, {},  {:multiple => true} %>
+<!-- END -->
+
+<%# f.collection_select :category_ids, Category.all << Category.new(:name => params[:categories][:name]), :id, :name, {},  {:include_blank => true, :multiple => true} %>
+
+<%# f.select(:category_ids, @categories.collect {|p| [ p.name, p.id ] } + [ [ 'Or create a new one', 'new' ] ], {:include_blank => 'Please select a category'}) %>
 
 <%# f.fields_for :category, @product.categories.build do |categories_fields| %>
   <%# categories_fields.label :name, "Add New Category" %>

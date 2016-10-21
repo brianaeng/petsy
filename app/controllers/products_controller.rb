@@ -5,12 +5,17 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @categories = @product.categories.build
+    # @product.categories.build
+
+    # @product.product_categories.build
+    # @product.product_categories.each do |pc|
+    #   pc.build_category
+    # end
   end
 
   def create
     @product = Product.new(product_params)
-
+    # @product.build_category(params[:product][:categories][:name])
     # @categories = Category.all
     #
     # params[:categories].each do |cat|
@@ -73,6 +78,6 @@ class ProductsController < ApplicationController
   # end
 private
    def product_params
-     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, category_ids: [])
+     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, product_categories_attributes: [{category_attributes: [:name]}])#, category_ids: [])
    end
 end
