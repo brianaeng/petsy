@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
     #   @product.categories << Category.find_by_name(cat)
     # end
 
+    blanks = Category.find_by(name:"")
+    blanks.destroy
 
     if @product.save
       redirect_to action: "show", id: @product.id
