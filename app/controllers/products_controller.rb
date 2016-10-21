@@ -77,15 +77,6 @@ class ProductsController < ApplicationController
     redirect_to(request.referer)
   end
 
-  def average_rating_for_this_product
-      @reviews = Review.where(product_id: params[:id].to_i)
-      ratings = []
-      @reviews.each do |review|
-        ratings << review.rating
-      end
-      average_product_rating = ratings.reduce(:+)/ratings.length
-      return average_product_rating
-  end
 
 private
    def product_params
