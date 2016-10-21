@@ -62,4 +62,11 @@ class ProductTest < ActiveSupport::TestCase
     assert products(:picture_not_url_animal).invalid?
   end
 
+  test "Values for price (in cents) and quantity must be whole numbers" do
+    products(:decimal_price).invalid?
+    assert products(:decimal_price).invalid?
+    products(:decimal_quantity).invalid?
+    assert products(:decimal_quantity).invalid?
+  end
+  
 end

@@ -107,3 +107,21 @@ picture_not_url_animal: #should be invalid
   picture: penguin
   user_id: 3
   active: true
+
+decimal_price: #should be invalid
+  name: Penguin
+  price: 10000.5
+  quantity: 10
+  description: Wears a tuxedo and ice skates.
+  picture: penguin
+  user_id: 3
+  active: true
+
+decimal_quantity: #should be invalid
+  name: Penguin
+  price: 10000
+  quantity: 10.5
+  description: Wears a tuxedo and ice skates.
+  picture: penguin
+  user_id: 3
+  active: true
