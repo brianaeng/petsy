@@ -9,7 +9,7 @@
   <% (@user.average_rating).times do %>
     <h4 class ="stars">⭐️</h4>
     <%end%></p>
-    
+
 <ul>
   <% @products.each do |pet|%>
     <li><%=link_to(pet.name, product_path(pet.id)) %>
@@ -19,6 +19,15 @@
       <%else%>
         Inactive
       <%end%>
+      <p>Active?</p>
+<div class="switch tiny">
+  <input class="switch-input" id="yes-no" type="checkbox" name="Active?">
+  <label class="switch-paddle" for="yes-no">
+    <span class="show-for-sr">Active?</span>
+    <span class="switch-active" aria-hidden="true">Yes</span>
+    <span class="switch-inactive" aria-hidden="true">No</span>
+  </label>
+</div>
     </li>
   <%end%>
 </ul>
