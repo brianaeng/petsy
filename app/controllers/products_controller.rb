@@ -69,7 +69,12 @@ class ProductsController < ApplicationController
 
   def edit
     product
-    @product.categories.build
+
+    if session[:user_id] == @product.user_id
+      @product.categories.build
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy

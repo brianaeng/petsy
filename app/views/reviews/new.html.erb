@@ -1,18 +1,2 @@
 <h1>Reviews#new</h1>
-<% if flash[:notice] != nil %>
-  <%= flash[:notice] %>
-<% end %>
-
-<%= form_for @review, url: product_reviews_create_path do |f| %>
-<!-- use rating gem for stars (maybe use paws?) -->
-  <%= f.label :rating %>
-  <%= f.number_field :rating, max: 5 %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'reviewform' %>
