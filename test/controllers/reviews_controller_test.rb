@@ -3,12 +3,13 @@ require 'test_helper'
 class ReviewsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
+    assert_template :new
     assert_response :success
   end
 
   test "should get create" do
     get :create
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should get index" do
