@@ -2,7 +2,7 @@
 require "csv"
 
 CSV.foreach('seed_csvs/pets.csv', :headers => true) do |csv_obj|
-  Product.create( name: csv_obj['name'], user_id: csv_obj['user_id'], price: csv_obj['price'], quantity: csv_obj['quantity'],description: csv_obj['description'],picture: csv_obj['picture'], active: csv_obj['active'])
+  Product.create( name: csv_obj['name'], user_id: csv_obj['user_id'], price: csv_obj['price'], quantity: csv_obj['quantity'],description: csv_obj['description'],image: File.open(File.join(Rails.root, 'assets', 'images', csv_obj['picture'])), active: csv_obj['active'])
 end
 
 CSV.foreach('seed_csvs/reviews.csv', :headers => true) do |csv_obj|

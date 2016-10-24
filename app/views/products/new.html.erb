@@ -5,7 +5,8 @@
     <%= flash[:notice].join("<br>").html_safe %>
   <% else %>
     <%= flash[:notice].join("") %>
-<% end %><% end %>
+  <% end %>
+<% end %>
 
 <%= form_for @product, url: products_path do |f| %>
 
@@ -28,6 +29,9 @@
 
 <%= f.label :description %>
 <%= f.text_area :description %>
+
+<%= f.label :image %>
+<%= f.file_field :image %>
 
 <%= f.label :picture %>
 <%= f.text_field :picture %>

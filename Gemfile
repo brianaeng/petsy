@@ -1,11 +1,23 @@
 source 'https://rubygems.org'
 
+#Gem for image uploading
+gem 'paperclip'
+
 #Gem for searching
 gem 'ransack'
+
+#Testing
 gem 'minitest-reporters'
+
+#Generate an ERD diagram
 gem 'rails-erd'
+
+#Pretty print
 gem 'awesome_print', require: 'ap'
+
+#Coverage for tests
 gem 'simplecov'
+
 gem 'foundation-rails'
 #OmniAuth
 gem 'omniauth'

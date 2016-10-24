@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many :product_categories
   has_many :categories, through: :product_categories
   accepts_nested_attributes_for :categories
+  has_attached_file :image
 
   has_many :orders, through: :order_products
 
@@ -13,9 +14,11 @@ class Product < ActiveRecord::Base
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :description, presence: true
   validate :out_of_stock
-  validate :picture_must_be_url
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  def categories_attributes=(category_attributes)
+  # validate :picture_must_be_url
+
+  def categories_attributes(category_attributes)
     category_attributes.values.each do |category_attribute|
       category = Category.create(category_attribute)
       self.categories << category
