@@ -1,8 +1,4 @@
 
-  <% content_for(:body_attributes) do %>
-    data-no-turbolink="true"
-  <% end %>
-
   <h4>Orders#edit</h4>
   <p><%= "OrderProducts: #{@orderproducts}"%></p>
   <p><%= "Session ID nil? #{session[:user_id] == nil}  |  Status: #{@order.status}  |  Order ID: #{@order.id} | Valid Order: #{@order.valid?} " %></p>
@@ -35,7 +31,7 @@
     </tr>
   </table>
 
-  <%= button_to("Empty Cart", url_for(action: :update, id: @order.id), method: :patch) %>
+  <%= button_to("Empty Cart", url_for(action: :destroy, order_id: @order.id), method: :delete, data: {confirm: "Are you sure?"} ) %>
   <%= button_to("Place order", url_for(action: :update, id: @order.id), method: :patch) %>
 
   <%= params %>

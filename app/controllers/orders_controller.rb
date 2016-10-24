@@ -71,6 +71,7 @@ class OrdersController < ApplicationController
       @order = Order.new(buyer_id: 0, status: "pending")
       @orderproducts << OrderProduct.new(order_id: @order.id, product_id: 0, quantity: 0)
     end
+    @order.save
   end
 
   # o.products.exists?
@@ -88,8 +89,24 @@ class OrdersController < ApplicationController
   # ])
 
   def destroy
-    orderproduct = OrderProduct.find(params[:id])
-    orderproduct.destroy
+    # Remove everything from the cart
+    if params[:order_id]
+      #Get all the order_products for this order
+      orderproducts_to_delete = OrderProduct.where(order_id: params[:order_id])
+      # If the order is pending
+      if Order.find_by(id: params[:order_id]).status == "pending"  # just in case, probably not necessary
+        # Delete them
+        orderproducts_to_delete.each do | orderproduct |
+          orderproduct.destroy
+        end
+      end
+
+    # Remove one thing from the cart
+    elsif params[:id]
+      orderproduct = OrderProduct.find(params[:id])
+      orderproduct.destroy
+
+    end
     redirect_to(:back)
   end
 end
