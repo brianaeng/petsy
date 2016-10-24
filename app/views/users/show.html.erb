@@ -15,9 +15,9 @@
     <li><%=link_to(pet.name, product_path(pet.id)) %>
       Quantity Available: <%=pet.quantity%>
       <%if pet.active %>
-        Active <p><%= link_to "Deactivate🏼", {action: "activation", id: pet[:id] }, method: :post %></p>
+        Active <p><%= link_to"Deactivate🏼", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
       <%else%>
-        Inactive
+        Inactive <p><%= link_to"Activate🏼", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
       <%end%>
     </li>
   <%end%>
