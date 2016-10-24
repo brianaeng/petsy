@@ -15,9 +15,9 @@ class OrdersController < ApplicationController
       @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: params[:order_product][:product_id])
       if @orderproduct.nil?
         @orderproduct = OrderProduct.new(order_id: @order.id, product_id: params[:order_product][:product_id], quantity: params[:order_product][:quantity])
-      else
-        @orderproduct.quantity = params[:order_product][:quantity]
       end
+
+      @orderproduct.quantity = params[:order_product][:quantity]
 
       @order.save
       @orderproduct.save

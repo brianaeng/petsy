@@ -50,7 +50,10 @@ class ProductsController < ApplicationController
       if @order.nil?
         @order = Order.new(buyer_id: session[:user_id])
       end
-      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
+      @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: @product.id)
+      if @orderproduct.nil?
+        @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
+      end
     else
       @orderproduct = OrderProduct.new(order_id: 0, product_id: @product.id, quantity: 0)
     end
