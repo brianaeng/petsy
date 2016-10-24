@@ -93,8 +93,6 @@ class ProductsController < ApplicationController
     redirect_to :back
   end
 
-# book.update_attribute(:votes, (book.votes + 1))
-
 private
    def product_params
      params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
