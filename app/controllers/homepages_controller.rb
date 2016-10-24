@@ -15,7 +15,7 @@ class HomepagesController < ApplicationController
   end
 
 
-  private
+private
   def get_current_user # Private Helper method
     @user = User.find_by(id: session[:user_id]) # It will figure out the integer thing and return nil if it doesn't find anything
   end
@@ -30,5 +30,5 @@ class HomepagesController < ApplicationController
     @random_pet1 =  Product.find(@unique_random_nums[0])
     @random_pet2 =  Product.find(@unique_random_nums[1])
     @random_pet3 =  Product.find(@unique_random_nums[2])
-  end 
+  end
 end

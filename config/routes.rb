@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     post 'reviews/create'
   end
 
+  resources :users do
+    member do
+      post 'activation'
+    end
+  end
+
   resources :order_products, :users, :orders
 
   get 'homepages/index'

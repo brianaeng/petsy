@@ -1,4 +1,4 @@
-<h1><%=@product.name%></h1>
+<h2><%=@product.name%></h2>
 <p>Price: <%=number_to_currency(@product.price)%></p>
 
 <%# if session[:user_id] != nil %>
@@ -26,11 +26,11 @@
 <p>Average product rating:
   <% if @product.reviews.length > 0 %>
     <% (@product.average_rating).times do %>
-      <h4 class ="stars">⭐️</h4></p>
+      <h4 class ="stars">⭐️</h4>
       <%end%>
   <% else %>
     <p>There are no reviews yet for this pet.</p>
-  <%end%>
+  <%end%></p>
 
 <% @reviews.each do |review| %>
   <h4><%=review.title%></h4>
