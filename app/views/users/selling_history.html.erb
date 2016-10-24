@@ -1,0 +1,14 @@
+<% if @sold_orders.empty? %>
+  You have not sold any items yet.
+<% else %>
+  <% @sold_orders.each do |order| %>
+    <h5>Order ID: <%= order.id %></h5>
+    <p>Order Status: <%= order.status %></p>
+    <p>Order items:</p>
+    <% order.products.each do |product| %>
+      <p>Name: <%= product.name %></p>
+      <p>Quantity: <%= product.quantity %></p>
+    <% end %>
+    <p>Total: <%= number_to_currency(order.cart_total/100) %></p>
+  <% end %>
+<% end %>

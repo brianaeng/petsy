@@ -25,17 +25,22 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Category.all
+
+    #If a search is submitted
     if params[:commit] == "search"
+      #If the user does a non-blank search
       if !params[:q].blank?
-        @results = Product.ransack(params[:q])
-      else
-        @results = Product.ransack({:id_eq => 0})
+        @products = Product.ransack(params[:q]).result
+      #If the user does a blank search
+      #else
+        #@products = Product.all#ransack({:id_eq => 0}).result
       end
 
-      @products = @results.result
-
+    #If a category_id is passed via the products page (by clicking on a category)
     elsif !params[:category_id].blank?
       @products = Category.find(params[:category_id]).products
+
+    #If a user goes to the Products page without search or category selection
     else
       @products = Product.all
     end

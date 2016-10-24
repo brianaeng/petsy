@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   root to: 'homepages#index'
 
   # get 'sessions/create'
-  get '/products/by_merchant' => "products#by_merchant", as: 'by_merchant'
+  get '/products/by_merchant' => 'products#by_merchant', as: 'by_merchant'
 
-  get "/auth/:provider/callback" =>  "sessions#create"
+  get 'users/:id/purchase_history' => 'users#purchase_history', as: 'purchase_history'
+
+  get 'users/:id/selling_history' => "users#selling_history", as: 'selling_history'
+
+  get '/auth/:provider/callback' =>  'sessions#create'
 
   delete '/sessions/destroy' => "sessions#destroy", as: 'destroy_session'
 
