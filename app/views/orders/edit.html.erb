@@ -11,6 +11,14 @@
       <th> Update </th>
       <th> Subtotal </th>
       <th>  </th>
+      <%= form_for orderproduct, controller: "orders", action: "create", url: orders_path, method: "post" do |f| %>
+        <td> <%= link_to(orderproduct.product.name, product_path(orderproduct.product.id)) %></td>
+        <td> <%= f.number_field :quantity, :quantity => nil, :min => 0, :max => orderproduct.product.quantity, :required => true %> </td>
+        <%= f.hidden_field :product_id, :value => orderproduct.product.id %>
+        <td> <%= f.submit "Update" %> </td>
+        <td> <%= number_to_currency(orderproduct.subtotal/100) %> </td>
+        <!-- <td> <%#= link_to("Remove", url_for(action: :destroy, id: orderproduct.id), method: :delete, data: {confirm: "Are you sure?"} ) %></td> -->
+      <% end %>
     </tr>
     <% @orderproducts.each do | orderproduct | %>
       <tr>
@@ -21,7 +29,6 @@
           <td> <%= f.submit "Update" %> </td>
           <td> <%= number_to_currency(orderproduct.subtotal/100) %> </td>
           <td> <%= link_to("Remove", url_for(action: :destroy, id: orderproduct.product_id), method: :delete, data: {confirm: "Are you sure?"} ) %></td>
-
         <% end %>
       </tr>
     <% end %>

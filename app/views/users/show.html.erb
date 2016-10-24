@@ -1,6 +1,6 @@
-<h1><%=@user.name%></h1>
+<h2><%=@user.name%></h2>
 <image><%= image_tag(@user.avatar)%></image>
-<h3>Username: <%=@user.username%></h3>
+<h3>Shop Name: <%=@user.username%></h3>
 <h3><%= link_to("Edit Profile", edit_user_path(@user.id)) %></h3>
 <p><%= link_to 'Delete Your Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></p>
 
@@ -15,23 +15,10 @@
     <li><%=link_to(pet.name, product_path(pet.id)) %>
       Quantity Available: <%=pet.quantity%>
       <%if pet.active %>
-        Active <p><%= link_to "Deactivate🏼", {action: "activation", id: pet[:id] }, method: :post %></p>
+        Active <p><%= link_to"Deactivate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
       <%else%>
-        Inactive
+        Inactive <p><%= link_to "Activate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
       <%end%>
-      <p>Active?</p>
-      <div class="switch tiny">
-        <input class="switch-input" id="yes-no" type="checkbox" name="Active?">
-        <label class="switch-paddle" for="yes-no">
-        <%= form_for @products, url: products_path do |f| %>
-        <%= f.input_field :active, label: false, as: :boolean, class: 'form-control' %>
-          <span class="show-for-sr">Active?</span>
-          <span class="switch-active" aria-hidden="true">Yes</span>
-          <span class="switch-inactive" aria-hidden="true">No</span>
-          <%end%>
-        </label>
-      </div>
-
     </li>
   <%end%>
 </ul>

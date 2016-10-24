@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Petsy</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
-</head>
-  <!--  This weird body tag will allow me to disable turbolinks on a single page -look at the top of views/orders/edit.html.erb -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "Petsy" %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+  </head>
+
   <body>
-
     <header>
-    <%# Link to Homepage  %>
-    <h1><%= link_to("PETSY", root_path)%></h1>
-
-    <nav>
-
       <%# Links to Login/Logout  %>
       <% if session[:user_id] == nil %>
         <%= link_to("Login via Github", "/auth/github") %>  <%# i.e. "/auth/:provider" %>
@@ -24,27 +21,23 @@
         <%= link_to("Logout", "/sessions/destroy", method: "delete") %>
       <% end %>
 
+      <%# Link to Homepage  %>
+      <h1><%= link_to("PETSY", root_path)%></h1>
       <%# Link to User Profile (if logged in) %>
       <% if session[:user_id] != nil%>
-        <%= link_to("Profile", user_path(session[:user_id])) %>
+        <p><%= link_to("Profile", user_path(session[:user_id])) %></p>
       <%end%>
-
       <%# Link to Shopping Cart %>
-      <div class="cart">
-        <% if session[:user_id] != nil%>
-          <%= link_to("View Cart", edit_order_path(session[:user_id])) %>
-        <% else %>
-          <%= link_to("View Cart", edit_order_path("guest")) %>
-        <%end%>
-      </div>
+      <% if session[:user_id] != nil%>
+        <%= link_to("View Cart", edit_order_path(session[:user_id])) %>
+      <% else %>
+        <%= link_to("View Cart", edit_order_path("guest")) %>
+      <%end%>
+      <hr/>
+    </header>
 
-    </nav>
+    <%= yield %>
 
-    <hr/>
+  </body>
 
-  </header>
-
-<%= yield %>
-
-</body>
 </html>

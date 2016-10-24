@@ -87,10 +87,16 @@ class ProductsController < ApplicationController
   end
 
   def activation
-    product.update_attribute(product.toggle :active)
-    redirect_to(request.referer)
+    if product.active == true
+      product.update_attribute(:active, false)
+    else
+      product.active == false
+      product.update_attribute(:active, true)
+    end
+    redirect_to :back
   end
 
+# book.update_attribute(:votes, (book.votes + 1))
 
 private
    def product_params

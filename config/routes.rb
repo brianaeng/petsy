@@ -13,9 +13,10 @@ Rails.application.routes.draw do
     post 'reviews/create'
   end
 
-  resources :users do
+  resources :products do
     member do
-      post 'activation'
+      patch 'activation'
+      get 'activation'
     end
   end
 
