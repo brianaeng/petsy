@@ -1,4 +1,4 @@
-<h1><%=@user.name%></h1>
+<h2><%=@user.name%></h2>
 <image><%= image_tag(@user.avatar)%></image>
 <h3>Username: <%=@user.username%></h3>
 <h3><%= link_to("Edit Profile", edit_user_path(@user.id)) %></h3>
@@ -15,9 +15,9 @@
     <li><%=link_to(pet.name, product_path(pet.id)) %>
       Quantity Available: <%=pet.quantity%>
       <%if pet.active %>
-        Active <p><%= link_to"Deactivate🏼", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
+        Active <p><%= link_to"Deactivate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
       <%else%>
-        Inactive <p><%= link_to"Activate🏼", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
+        Inactive <p><%= link_to "Activate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
       <%end%>
     </li>
   <%end%>
