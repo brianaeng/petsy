@@ -5,19 +5,20 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.categories.build
+    @product.categories.new
   end
 
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      if Category.find_by(name:"") != nil
+      if Category.find_by(name:"") != nil #swap this to .exists?
         blank = Category.find_by(name:"")
         blank.destroy
       end
       redirect_to action: "show", id: @product.id
     else
+      flash[:notice] = @product.errors.full_messages
       redirect_to new_product_path
     end
   end
@@ -69,7 +70,12 @@ class ProductsController < ApplicationController
 
   def edit
     product
-    @product.categories.build
+
+    if session[:user_id] == @product.user_id
+      @product.categories.new
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy

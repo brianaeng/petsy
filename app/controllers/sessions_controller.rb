@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
     # session.delete(:user_id)
     session[:user_id] = nil  # Don't want to delete users (usually) for simplicity
 
-    redirect_to(:back)
+    redirect_to root_path
   end
 end
