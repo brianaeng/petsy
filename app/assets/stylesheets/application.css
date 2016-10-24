@@ -1,3 +1,5 @@
+  @import url('foundation.css');
+
 .stars {
   display: inline;
 }
@@ -5,6 +7,17 @@
 img {
   height: 20rem;
 }
+
+h1, h2 {
+    font-family: Chewy;
+}
+
+h1 {
+  font-size: 5em;
+  text-align: center;
+}
+
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

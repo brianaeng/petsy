@@ -15,12 +15,13 @@ class HomepagesController < ApplicationController
   end
 
 
-  private
+private
   def get_current_user # Private Helper method
     @user = User.find_by(id: session[:user_id]) # It will figure out the integer thing and return nil if it doesn't find anything
   end
 
   def three_random_images
+
     # @unique_random_nums = []
     # until @unique_random_nums.length == 3
     #   @unique_random_nums << (1 + rand(Product.count))

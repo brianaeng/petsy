@@ -6,6 +6,7 @@ gem 'minitest-reporters'
 gem 'rails-erd'
 gem 'awesome_print', require: 'ap'
 gem 'simplecov'
+gem 'foundation-rails'
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-github'
