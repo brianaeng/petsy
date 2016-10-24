@@ -19,19 +19,6 @@
       <%else%>
         Inactive
       <%end%>
-      <p>Active?</p>
-      <div class="switch tiny">
-        <input class="switch-input" id="yes-no" type="checkbox" name="Active?">
-        <label class="switch-paddle" for="yes-no">
-        <%= form_for @products, url: products_path do |f| %>
-        <%= f.input_field :active, label: false, as: :boolean, class: 'form-control' %>
-          <span class="show-for-sr">Active?</span>
-          <span class="switch-active" aria-hidden="true">Yes</span>
-          <span class="switch-inactive" aria-hidden="true">No</span>
-          <%end%>
-        </label>
-      </div>
-
     </li>
   <%end%>
 </ul>
