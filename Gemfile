@@ -6,7 +6,9 @@ gem 'minitest-reporters'
 gem 'rails-erd'
 gem 'awesome_print', require: 'ap'
 gem 'simplecov'
+#Gems to make Foundation work
 gem 'foundation-rails'
+gem 'jquery-turbolinks'
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-github'

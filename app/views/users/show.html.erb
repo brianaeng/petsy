@@ -1,6 +1,6 @@
 <h2><%=@user.name%></h2>
 <image><%= image_tag(@user.avatar)%></image>
-<h3>Username: <%=@user.username%></h3>
+<h3>Shop Name: <%=@user.username%></h3>
 <h3><%= link_to("Edit Profile", edit_user_path(@user.id)) %></h3>
 <p><%= link_to 'Delete Your Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></p>
 

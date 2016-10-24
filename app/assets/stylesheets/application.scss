@@ -17,6 +17,16 @@ h1 {
   text-align: center;
 }
 
+header h1 {
+  display: inline;
+}
+
+nav {
+  display: inline-block;;
+}
+
+
+
 
 
 /*
@@ -33,4 +43,6 @@ h1 {
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
