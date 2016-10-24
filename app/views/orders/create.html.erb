@@ -3,5 +3,16 @@
 <%= params %>
 <p>
   <%= session[:user_id] == nil %>
+  <%= @order.products.size %>
 </p>
 <%= session[:cart] %>
+
+<p>
+  <%= @orderproduct == nil %>
+</p>
+
+<%= @orderproduct %>
+<%= @orderproduct.product_id %>
+<%= @orderproduct.order_id %>
+<%= @orderproduct.quantity %>
+<%= params[:order_product][:quantity] %>

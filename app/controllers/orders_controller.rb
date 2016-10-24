@@ -11,19 +11,25 @@ class OrdersController < ApplicationController
       if @order.nil?
         @order = Order.new(buyer_id: session[:user_id], status: "pending") # status of the order ("pending", "paid", "complete", "cancelled")
       end
-      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: params[:order_product][:product_id], quantity: params[:order_product][:quantity])
+
+      @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: params[:order_product][:product_id])
+      if @orderproduct.nil?
+        @orderproduct = OrderProduct.new(order_id: @order.id, product_id: params[:order_product][:product_id], quantity: params[:order_product][:quantity])
+      else
+        @orderproduct.quantity = params[:order_product][:quantity]
+      end
 
       @order.save
       @orderproduct.save
 
-    # Store the cart as a session variable if the user is NOT signed in
+    # Store the cart as a session variable if a user is NOT signed in
     elsif session[:cart] != nil
       session[:cart][params[:order_product][:product_id]] = params[:order_product][:quantity] # This will reset the quantity of a product if they try to add it multiple times, or make a new key for a new product
     else
       session[:cart] = {params[:order_product][:product_id] => params[:order_product][:quantity]}  # {product_id => quantity}
     end
 
-    # redirect_to :back
+    redirect_to :back
   end
 
   def index
@@ -33,6 +39,10 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
+    @order.status = "paid"
+    @order.save
+
   end
 
   def edit
@@ -78,5 +88,8 @@ class OrdersController < ApplicationController
   # ])
 
   def destroy
+    orderproduct = OrderProduct.find(params[:id])
+    orderproduct.destroy
+    redirect_to(:back)
   end
 end

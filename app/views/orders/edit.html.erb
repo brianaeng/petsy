@@ -1,13 +1,15 @@
 <h1>Orders#edit</h1>
 
 <%= @orderproducts %>
+<%= @order.status %>
 
 <h2> Shopping Cart </h2>
 <table>
   <tr>
-    <td> Pet </td>
-    <td> Quantity </td>
-    <td> Update </td>
+    <th> Pet </th>
+    <th> Quantity </th>
+    <th> Update </th>
+    <th> Subtotal </th>
   </tr>
   <% @orderproducts.each do | orderproduct | %>
     <tr>
@@ -16,10 +18,18 @@
         <td> <%= f.number_field :quantity, :quantity => nil, :min => 0, :max => orderproduct.product.quantity, :required => true %> </td>
         <%= f.hidden_field :product_id, :value => orderproduct.product.id %>
         <td> <%= f.submit "Update" %> </td>
+        <td> <%= number_to_currency(orderproduct.subtotal/100) %> </td>
+        <td> <%= link_to("Remove", url_for(action: :destroy, id: orderproduct.id), method: :delete, data: {confirm: "Are you sure?"} ) %></td>
       <% end %>
     </tr>
-
   <% end %>
+  <tr class="cart_total">
+    <td> </td> <td> </td> <td> </td>
+    <th> <%= number_to_currency(@order.cart_total/100) %> </th>
+  </tr>
 </table>
+
+<%= button_to("Empty Cart", url_for(action: :update, id: @order.id), method: :patch) %>
+<%= button_to("Place order", url_for(action: :update, id: @order.id), method: :patch) %>
 
 <%= params %>
