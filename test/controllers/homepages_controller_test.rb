@@ -8,6 +8,7 @@ class HomepagesControllerTest < ActionController::TestCase
     assert_template :index
   end
 
+  #Not using for now
   # test "should get show" do
   #   get :show
   #   assert_response :success
