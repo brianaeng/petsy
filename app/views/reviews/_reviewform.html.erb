@@ -1,0 +1,16 @@
+<% if flash[:notice] != nil %>
+  <%= flash[:notice] %>
+<% end %>
+
+<%= form_for @review, url: product_reviews_create_path do |f| %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating, max: 5 %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+<% end %>
