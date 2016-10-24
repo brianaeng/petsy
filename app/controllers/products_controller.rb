@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.categories.build
+    @product.categories.new
   end
 
   def create
@@ -71,7 +71,7 @@ class ProductsController < ApplicationController
     product
 
     if session[:user_id] == @product.user_id
-      @product.categories.build
+      @product.categories.new
     else
       redirect_to root_path
     end
