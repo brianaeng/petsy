@@ -15,9 +15,9 @@ class OrdersController < ApplicationController
       @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: params[:order_product][:product_id])
       if @orderproduct.nil?
         @orderproduct = OrderProduct.new(order_id: @order.id, product_id: params[:order_product][:product_id], quantity: params[:order_product][:quantity])
-      else
-        @orderproduct.quantity = params[:order_product][:quantity]
       end
+
+      @orderproduct.quantity = params[:order_product][:quantity]
 
       @order.save
       @orderproduct.save
@@ -60,17 +60,19 @@ class OrdersController < ApplicationController
 
     # Get the products in a NOT signed in users cart
     elsif session[:cart] != nil
-      @order = Order.new(buyer_id: 0, status: "pending")
+      @order = Order.create(buyer_id: 0, status: "pending") # Making buyer ID for guest 0 by default, that way I can remove those entries later(?)
 
       session[:cart].each do |k, v|
-        orderproduct = OrderProduct.new(order_id: @order.id, product_id: k, quantity: v)
+        orderproduct = OrderProduct.create(order_id: @order.id, product_id: k, quantity: v)
+        # orderproduct.save
         @orderproducts << orderproduct
       end
     # Make a placeholder if a not signed in user looks at an empty cart
     else
-      @order = Order.new(buyer_id: 0, status: "pending")
-      @orderproducts << OrderProduct.new(order_id: @order.id, product_id: 0, quantity: 0)
+      @order = Order.create(buyer_id: 0, status: "pending")
+      @orderproducts << OrderProduct.create(order_id: @order.id, product_id: 0, quantity: 0)
     end
+
   end
 
   # o.products.exists?
@@ -88,8 +90,33 @@ class OrdersController < ApplicationController
   # ])
 
   def destroy
-    orderproduct = OrderProduct.find(params[:id])
-    orderproduct.destroy
+    # If a user is signed in
+    if session[:user_id] != nil
+      # Remove everything from the cart
+      if params[:order_id]
+        #Get all the order_products for this order
+        orderproducts_to_delete = OrderProduct.where(order_id: params[:order_id])
+        # If the order is pending
+        if Order.find_by(id: params[:order_id]).status == "pending"  # just in case, probably not necessary
+          # Delete them
+          orderproducts_to_delete.each do | orderproduct |
+            orderproduct.destroy
+          end
+        end
+      # OR just remove one thing from the cart
+      elsif params[:id]
+        orderproduct = OrderProduct.find_by(product_id: params[:id])
+        orderproduct.destroy
+      end
+
+    # If a user is NOT signed in
+    elsif session[:cart] != nil
+      if params[:order_id]
+        # session[:cart] = nil
+      elsif params[:id]
+        session[:cart].delete(params[:id])
+      end
+    end
     redirect_to(:back)
   end
 end
