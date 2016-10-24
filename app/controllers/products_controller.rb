@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
       end
       redirect_to action: "show", id: @product.id
     else
+      flash[:notice] = @product.errors.full_messages
       redirect_to new_product_path
     end
   end
