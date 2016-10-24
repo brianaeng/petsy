@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'homepages#index'
 
   # get 'sessions/create'
+  get '/products/by_merchant' => "products#by_merchant", as: 'by_merchant'
 
   get "/auth/:provider/callback" =>  "sessions#create"
 

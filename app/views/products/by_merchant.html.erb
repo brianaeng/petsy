@@ -1,0 +1,16 @@
+<% @merchants.each do |merchant| %>
+  <!-- change .name to shopname -->
+  <%= link_to merchant.name, by_merchant_path(merchant_id: merchant.id) %>
+<% end %>
+
+<% if !@products.empty? %>
+  <% @products.each do |product| %>
+    <% if product.active %>
+      <h3><%= link_to(product.name, product_path(product.id)) %></h3>
+      <h3><%= product.description %></h3>
+      <image><%= image_tag(product.picture)%></image>
+    <% end %>
+  <% end %>
+<% else %>
+  Merchant currently has no items for sale.
+<% end %>

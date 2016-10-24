@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  product_id: 
-  category_id: 
+no_productid:
+  product_id:
+  category_id: 5
 
-two:
-  product_id: 
-  category_id: 
+no_categoryid:
+  product_id: 3
+  category_id:
+
+valid_product_category:
+    product_id: 6
+    category_id: 2
