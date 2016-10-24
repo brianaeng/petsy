@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      if Category.find_by(name:"") != nil
+      if Category.find_by(name:"") != nil #swap this to .exists?
         blank = Category.find_by(name:"")
         blank.destroy
       end
