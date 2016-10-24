@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      if Category.find_by(name:"") != nil #swap this to .exists?
+      if Category.exists?(name:"")
         blank = Category.find_by(name:"")
         blank.destroy
       end
@@ -60,12 +60,16 @@ class ProductsController < ApplicationController
     product
     @product.update(product_params)
 
-    if Category.find_by(name:"") != nil
-      blank = Category.find_by(name:"")
-      blank.destroy
+    if @product.save
+      if Category.exists?(name:"")
+        blank = Category.find_by(name:"")
+        blank.destroy
+      end
+      redirect_to action: "show", id: @product.id
+    else
+      flash[:notice] = @product.errors.full_messages
+      redirect_to edit_product_path(id: @product.id)
     end
-
-    redirect_to action: "show", id: @product.id
   end
 
   def edit
@@ -97,6 +101,6 @@ class ProductsController < ApplicationController
 
 private
    def product_params
-     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
+     params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, :image, categories_attributes: [:name], category_ids: [])
    end
 end
