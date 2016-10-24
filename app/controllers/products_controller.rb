@@ -41,6 +41,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def by_merchant
+    @merchants = User.all
+
+    if !params[:merchant_id].blank?
+      @products = User.find(params[:merchant_id]).products
+    else
+      @products = Product.all
+    end
+  end
+
   def show
     @product = Product.find(params[:id].to_i)
     @reviews = Review.where(product_id: params[:id].to_i)
