@@ -9,11 +9,12 @@ class ReviewsController < ApplicationController
     @review.rating = params[:review][:rating]
     @review.title = params[:review][:rating]
     @review.description = params[:review][:description]
+    @review.product_id = params[:product_id]
 
     #need to call flash[:notice] in views
     if @review.save
       flash[:notice] = "Review successfully created"
-      redirect_to controller: 'products', action:'show', id: @review.product_id
+      redirect_to product_path(@review.product_id)
     else
       @notices = @review.errors.full_messages.join("\n")
       flash[:notice] = @notices

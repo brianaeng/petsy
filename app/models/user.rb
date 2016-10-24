@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :products
   has_many :orders
-  validates :email, :uid, :provider, :authenticated, presence: true
+  validates_presence_of :email, :uid, :provider, :authenticated
 
   validate :email_at_symbol
   validate :avatar_url
