@@ -31,6 +31,6 @@
   </table>
 
   <%= button_to("Empty Cart", url_for(action: :destroy, order_id: @order.id), method: :delete, data: {confirm: "Are you sure?"} ) %>
-  <%= button_to("Place order", url_for(action: :show, order_id: @order.id), method: :get) %>
+  <%= button_to("Place order", url_for(action: :index), method: :get, params: {order_id: @order.id}) %>
 
   <%= params %>

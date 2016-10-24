@@ -33,13 +33,16 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @order = Order.find(params[:order_id])
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def update
     @order = Order.find(params[:id])
+    @order.update(order_params)
     @order.status = "paid"
     @order.save
 
@@ -119,4 +122,9 @@ class OrdersController < ApplicationController
     end
     redirect_to(:back)
   end
+
+private
+   def order_params
+     params.require(:order).permit(:cc_number, :cc_expiration, :address, :buyer_id)
+   end
 end
