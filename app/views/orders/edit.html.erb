@@ -19,7 +19,7 @@
         <%= f.hidden_field :product_id, :value => orderproduct.product.id %>
         <td> <%= f.submit "Update" %> </td>
         <td> <%= number_to_currency(orderproduct.subtotal/100) %> </td>
-        <td> <%= link_to("Remove", url_for(action: :destroy, id: orderproduct.id), method: :delete, data: {confirm: "Are you sure?"} ) %></td>
+        <!-- <td> <%#= link_to("Remove", url_for(action: :destroy, id: orderproduct.id), method: :delete, data: {confirm: "Are you sure?"} ) %></td> -->
       <% end %>
     </tr>
   <% end %>
@@ -29,7 +29,7 @@
   </tr>
 </table>
 
-<%= button_to("Empty Cart", url_for(action: :update, id: @order.id), method: :patch) %>
-<%= button_to("Place order", url_for(action: :update, id: @order.id), method: :patch) %>
-
+<!-- <%#= button_to("Empty Cart", url_for(action: :update, id: @order.id), method: :patch) %>
+<%#= button_to("Place order", url_for(action: :update, id: @order.id), method: :patch) %>
+ -->
 <%= params %>
