@@ -11,16 +11,20 @@
 <% end %>
 <div class="home-images">
   <div>
-    <h3><%= link_to(@random_pet1.name, product_path(@random_pet1.id)) %></h3>
-    <image><%= image_tag(@random_pet1.picture)%></image>
+    <% @chosen_pets.each do |pet| %>
+      <%= image_tag pet.picture %>
+      <%= link_to pet.name, product_path(pet.id) %>
+    <% end %>
+    <!-- <h3><%# link_to(@random_pet1.name, product_path(@random_pet1.id)) %></h3>
+    <image><%# image_tag(@random_pet1.picture)%></image>
   </div>
   <div>
-    <h3><%= link_to(@random_pet2.name, product_path(@random_pet2.id)) %></h3>
-    <image><%= image_tag(@random_pet2.picture)%></image>
+    <h3><%# link_to(@random_pet2.name, product_path(@random_pet2.id)) %></h3>
+    <image><%# image_tag(@random_pet2.picture)%></image>
   </div>
   <div>
-    <h3><%= link_to(@random_pet3.name, product_path(@random_pet3.id)) %></h3>
-    <image><%= image_tag(@random_pet3.picture)%></image>
+    <h3><%# link_to(@random_pet3.name, product_path(@random_pet3.id)) %></h3>
+    <image><%# image_tag(@random_pet3.picture)%></image> -->
   </div>
 </div>
 
