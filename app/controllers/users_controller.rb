@@ -15,13 +15,12 @@ class UsersController < ApplicationController
   # end
 
   def show
-    #ADD RESTRICTION SO YOU CAN'T SEE OTHER USERS' PROFILES
     user
 
     if @user.id != session[:user_id]
       redirect_to index_path
     end
-    
+
     @products = Product.where(user_id: @user.id )
   end
 
@@ -41,7 +40,13 @@ class UsersController < ApplicationController
 
   def purchase_history
     @user ||= User.find(params[:id].to_i)
-    @purchase_orders = Order.where(buyer_id: @user.id).where.not(status: "pending")
+    @purchase_orders = Order.where(buyer_id: @user.id)#.where.not(status: "pending")
+  end
+
+  def delete_order
+    @order = Order.find(params[:current_order])
+    @order.destroy
+    redirect_to root_path
   end
 
   def selling_history
@@ -57,7 +62,14 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
 
+  #Is this supposed to go in the model since it's changing the OrderProduct?
+  def mark_shipped
+    @orderproduct = OrderProduct.find(params[:current_order_product].to_i)
+    @orderproduct.toggle!(:shipped)
+
+    redirect_to selling_history_path
   end
 
 private

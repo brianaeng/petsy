@@ -49,6 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def by_merchant
+    #ONLY WANT MERCHANTS THAT HAVE ACTIVE ITEMS
     @merchants = User.all
 
     if !params[:merchant_id].blank?
