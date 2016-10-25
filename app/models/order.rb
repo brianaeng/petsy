@@ -2,9 +2,9 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :order_products
   has_many :products, through: :order_products
-  has_many :order_products
+  accepts_nested_attributes_for :order_products, allow_destroy: true
 
-  # validates :address, :buyer_id, :cc_expiration, presence: true
+  validates :buyer_id, presence: true
   validates_inclusion_of :status, :within => ["pending","paid","complete","cancelled"], :message => "{{value}} is not a valid status"
   # validates :cc_number, length: { is: 4 }
   # validate :not_expired
