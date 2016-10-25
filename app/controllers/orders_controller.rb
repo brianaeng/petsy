@@ -34,10 +34,11 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
+    modified_params = order_params
+    modified_params[:cc_number] = modified_params[:cc_number].split().last(4).join
+    @order.update(modified_params)
     @order.status = "paid"
     @order.save
-
   end
 
   def edit
@@ -93,7 +94,7 @@ class OrdersController < ApplicationController
 
 
 
-  private
+private
 
   def current_user
     if session[:user_id] != nil
