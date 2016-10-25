@@ -5,9 +5,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.find_by(buyer_id: current_user.id, status: "pending") # If the current user already has a pending order, just add to that
+    @current_user = current_user
+    @order = Order.find_by(buyer_id: @current_user.id, status: "pending") # If the current user already has a pending order, just add to that
     if @order.nil?
-      @order = Order.new(buyer_id: current_user.id, status: "pending") # status of the order ("pending", "paid", "complete", "cancelled")
+      @order = Order.new(buyer_id: @current_user.id, status: "pending") # status of the order ("pending", "paid", "complete", "cancelled")
     end
 
     @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: params[:order_product][:product_id])
@@ -37,11 +38,12 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @current_user = current_user
     @orderproducts = [];
 
-    @order = Order.find_by(buyer_id: current_user.id, status: "pending") # If the current user already has a pending order, just add to that
+    @order = Order.find_by(buyer_id: @current_user.id, status: "pending") # If the current user already has a pending order, just add to that
     if @order.nil? # This would happen if they haven't added to their cart before viewing it
-      @order = Order.create(buyer_id: current_user.id, status: "pending") # status of the order ("pending", "paid", "complete", "cancelled")
+      @order = Order.create(buyer_id: @current_user.id, status: "pending") # status of the order ("pending", "paid", "complete", "cancelled")
     end
 
     @order.order_products.each do | orderproduct |
@@ -90,12 +92,13 @@ class OrdersController < ApplicationController
   private
 
   def current_user
-    if session[:user_id]
+    if session[:user_id] != nil
       user = User.find(session[:user_id])
-    elsif session[:guest_id]
+    elsif session[:guest_id] != nil
       user = User.find(session[:guest_id])
     else
-      user = User.create(name: "Guest", authenticated: false)
+      user = User.new(name: "Guest", authenticated: false)
+      user.save
       session[:guest_id] = user.id
     end
     return user

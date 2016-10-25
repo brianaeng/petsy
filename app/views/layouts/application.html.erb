@@ -25,7 +25,7 @@
       <h1><%= link_to("PETSY", root_path)%></h1>
       <%# Link to User Profile (if logged in) %>
       <% if session[:user_id] != nil%>
-        <p><%= link_to("Profile", user_path(session[:user_id])) %></p>
+        <%= link_to("Profile", user_path(session[:user_id])) %>
       <%end%>
       <%# Link to Shopping Cart %>
       <% if session[:user_id] != nil%>

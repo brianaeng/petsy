@@ -22,9 +22,16 @@ header h1 {
 }
 
 nav {
-  display: inline-block;;
+  display: inline;
 }
 
+td {
+  text-align: center;
+}
+
+.button_to {
+  display: inline-block;
+}
 
 
 

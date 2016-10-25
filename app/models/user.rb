@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   has_many :products
   has_many :orders
-  validates_presence_of :name, :authenticated
+  validates_presence_of :name
 
-  # validate :email_at_symbol, :provider, :email, :uid
+  # validate :email_at_symbol, :provider, :email, :uid, :authenticated
   # validate :avatar_url
 
   def self.build_from_github(auth_hash)
