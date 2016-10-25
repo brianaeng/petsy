@@ -13,23 +13,24 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 6em;
   text-align: center;
 }
 
-header h1 {
-  display: inline;
-  text-align: center;
-  clear: both;
+.image-wrapper {
+    position: relative;
+    width: 90%;
 }
 
-header img{
-  z-index: -1;
+.image-wrapper h1 {
+    position: absolute;
+    left: 35%;
+    top: -10%;
+    padding: 5%;
 }
 
 
-
-nav {
+nav li, nav p{
   display: inline;
 }
 
@@ -37,9 +38,31 @@ td {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+}
 
+.top-bar {
+  background-color: #33b873;
+  color: #33b873;
+}
+.top-bar *, .top-bar ul{
+  background-color: #33b873;
+}
 
+.top-bar p a{
+  color: white;
+  font-size: 1.5em;
+  font-family: Open Sans;
+}
 
+a{
+  color: black;
+}
+
+a:hover {
+  color: #33b873;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
