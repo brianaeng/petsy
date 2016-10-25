@@ -6,9 +6,14 @@
 
 <h4>Pets You Sell</h4>
 <p> Your average product rating:
-  <% (@user.average_rating).times do %>
-    <h4 class ="stars">⭐️</h4>
-    <%end%></p>
+  <% if @user.average_rating != nil %>
+    <% (@user.average_rating).times do %>
+      <h4 class ="stars">⭐️</h4>
+      <%end%>
+  <% else %>
+    You have not sold any items.
+  <% end %>
+</p>
 
 <ul>
   <% @products.each do |pet|%>
