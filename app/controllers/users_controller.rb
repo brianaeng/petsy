@@ -15,7 +15,13 @@ class UsersController < ApplicationController
   # end
 
   def show
+    #ADD RESTRICTION SO YOU CAN'T SEE OTHER USERS' PROFILES
     user
+
+    if @user.id != session[:user_id]
+      redirect_to index_path
+    end
+    
     @products = Product.where(user_id: @user.id )
   end
 
