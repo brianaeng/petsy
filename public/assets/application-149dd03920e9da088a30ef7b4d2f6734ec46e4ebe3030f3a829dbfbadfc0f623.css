@@ -1,0 +1,96 @@
+@import url("foundation.css");
+/* line 3, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.stars {
+  display: inline;
+}
+
+/* line 7, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+img {
+  height: 20rem;
+}
+
+/* line 11, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+h1, h2 {
+  font-family: Chewy;
+}
+
+/* line 15, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+h1 {
+  font-size: 6em;
+  text-align: center;
+}
+
+/* line 20, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper {
+  position: relative;
+  width: 90%;
+}
+
+/* line 25, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper h1 {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+  padding: 5%;
+}
+
+/* line 33, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+nav li, nav p {
+  display: inline;
+}
+
+/* line 37, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+td {
+  text-align: center;
+}
+
+/* line 41, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 45, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar {
+  background-color: #33b873;
+  color: #33b873;
+}
+
+/* line 49, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar *, .top-bar ul {
+  background-color: #33b873;
+}
+
+/* line 53, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar p a {
+  color: white;
+  font-size: 1.5em;
+  font-family: Open Sans;
+}
+
+/* line 59, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+a {
+  color: black;
+}
+
+/* line 63, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+a:hover {
+  color: #33b873;
+}
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
