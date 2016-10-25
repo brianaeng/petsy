@@ -10,5 +10,6 @@
       <p>Quantity: <%= product.quantity %></p>
     <% end %>
     <p>Total: <%= number_to_currency(order.cart_total/100) %></p>
+    <%= button_to "Cancel Order", cancel_order_path(current_order: order.id), method: :delete, data: {confirm: "Are you sure you want to delete this?"}  %>
   <% end %>
 <% end %>
