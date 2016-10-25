@@ -55,17 +55,14 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id].to_i)
     @reviews = Review.where(product_id: params[:id].to_i)
 
-    if session[:user_id] != nil
-      @order = Order.find_by(buyer_id: session[:user_id], status: "pending") # If the current user already has a pending order, just add to that
-      if @order.nil?
-        @order = Order.new(buyer_id: session[:user_id])
-      end
-      @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: @product.id)
-      if @orderproduct.nil?
-        @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
-      end
-    else
-      @orderproduct = OrderProduct.new(order_id: 0, product_id: @product.id, quantity: 0)
+    @current_user = current_user
+    @order = Order.find_by(buyer_id: @current_user.id, status: "pending") # If the current user already has a pending order, just add to that
+    if @order.nil?
+      @order = Order.new(buyer_id: @current_user.id)
+    end
+    @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: @product.id)
+    if @orderproduct.nil?
+      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
     end
   end
 
@@ -115,5 +112,18 @@ class ProductsController < ApplicationController
 private
    def product_params
      params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
+   end
+
+   def current_user
+     if session[:user_id] != nil
+       user = User.find(session[:user_id])
+     elsif session[:guest_id] != nil
+       user = User.find(session[:guest_id])
+     else
+       user = User.new(name: "Guest", authenticated: false)
+       user.save
+       session[:guest_id] = user.id
+     end
+     return user
    end
 end
