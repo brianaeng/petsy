@@ -4,7 +4,7 @@ class HomepagesController < ApplicationController
     get_current_user
 
     @q = Product.ransack(params[:q])
-    @results = @q.result(distinct: true)
+    # @products = @q.result(distinct: true)
 
     three_random_images
   end
