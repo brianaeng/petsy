@@ -14,26 +14,42 @@
 
   <body>
     <header>
-      <image><%= image_tag('pets.jpg')%></image>
-      <%# Links to Login/Logout  %>
+      <div class="fixed">
+        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large" data-options="is_hover: false">
+        <%# Links to Login/Logout  %>
+        <ul>
       <% if session[:user_id] == nil %>
-        <%= link_to("Login via Github", "/auth/github") %>  <%# i.e. "/auth/:provider" %>
+        <p><%= link_to("Login via Github", "/auth/github") %></p>
+        <li class="divider"></li>
+          <%# i.e. "/auth/:provider" %>
       <% else %>
-        <%= link_to("Logout", "/sessions/destroy", method: "delete") %>
+        <p><%= link_to("Logout", "/sessions/destroy", method: "delete") %></p>
+        <li class="divider"></li>
       <% end %>
-
-      <%# Link to Homepage  %>
-      <h1><%= link_to("PETsy", root_path)%></h1>
       <%# Link to User Profile (if logged in) %>
       <% if session[:user_id] != nil%>
-        <%= link_to("Profile", user_path(session[:user_id])) %>
+        <p><%= link_to("Profile", user_path(session[:user_id])) %></p>
+        <li class="divider"></li>
       <%end%>
       <%# Link to Shopping Cart %>
       <% if session[:user_id] != nil%>
-        <%= link_to("View Cart", edit_order_path(session[:user_id])) %>
+        <p><%= link_to("View Cart", edit_order_path(session[:user_id])) %></p>
+        <li class="divider"></li>
       <% else %>
-        <%= link_to("View Cart", edit_order_path("guest")) %>
+        <p><%= link_to("View Cart", edit_order_path("guest")) %></p>
+        <li class="divider"></li>
       <%end%>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="image-wrapper">
+      <image><%= image_tag('pets.jpg')%></image>
+
+      <%# Link to Homepage  %>
+      <h1><%= link_to("PETsy", root_path)%></h1>
+
+      </div>
       <hr/>
     </header>
 
