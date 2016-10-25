@@ -1,5 +1,9 @@
 <% if flash[:notice] != nil %>
-  <%= flash[:notice] %>
+  <% if flash[:notice].length > 1 %>
+    <%= flash[:notice].join("<br>").html_safe %>
+  <% else %>
+    <%= flash[:notice].join("") %>
+    <% end %>
 <% end %>
 
 <%= form_for @review, url: product_reviews_create_path do |f| %>

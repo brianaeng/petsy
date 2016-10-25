@@ -5,7 +5,8 @@
     <%= flash[:notice].join("<br>").html_safe %>
   <% else %>
     <%= flash[:notice].join("") %>
-<% end %><% end %>
+    <% end %>
+<% end %>
 
 <%= form_for @product, url: products_path do |f| %>
 

@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def new
+    #ADD RESTRICTION SO ONLY USERS WHO BOUGHT ITEM CAN REVIEW?
     @review = Review.new
   end
 
@@ -14,8 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to product_path(@review.product_id)
     else
-      @notices = @review.errors.full_messages.join("\n")
-      flash[:notice] = @notices
+      flash[:notice] = @review.errors.full_messages
       redirect_to product_reviews_new_path
     end
 

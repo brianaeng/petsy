@@ -4,11 +4,16 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @product.categories.new
+    if session[:user_id] != nil
+      @product = Product.new
+      @product.categories.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
+    #Maybe add @product.price *= 100 so a user can just enter the amount normally and we convert to cents for storage?
     @product = Product.new(product_params)
 
     if @product.save
@@ -25,17 +30,19 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Category.all
+
+    #If a search is submitted
     if params[:commit] == "search"
+      #If the user does a non-blank search
       if !params[:q].blank?
-        @results = Product.ransack(params[:q])
-      else
-        @results = Product.ransack({:id_eq => 0})
+        @products = Product.ransack(params[:q]).result
       end
 
-      @products = @results.result
-
+    #If a category_id is passed via the products page (by clicking on a category)
     elsif !params[:category_id].blank?
       @products = Category.find(params[:category_id]).products
+
+    #If a user goes to the Products page without search or category selection
     else
       @products = Product.all
     end

@@ -19,7 +19,15 @@ h1 {
 
 header h1 {
   display: inline;
+  text-align: center;
+  clear: both;
 }
+
+header img{
+  z-index: -1;
+}
+
+
 
 nav {
   display: inline;

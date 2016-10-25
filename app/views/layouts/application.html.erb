@@ -14,6 +14,7 @@
 
   <body>
     <header>
+      <image><%= image_tag('pets.jpg')%></image>
       <%# Links to Login/Logout  %>
       <% if session[:user_id] == nil %>
         <%= link_to("Login via Github", "/auth/github") %>  <%# i.e. "/auth/:provider" %>
@@ -22,7 +23,7 @@
       <% end %>
 
       <%# Link to Homepage  %>
-      <h1><%= link_to("PETSY", root_path)%></h1>
+      <h1><%= link_to("PETsy", root_path)%></h1>
       <%# Link to User Profile (if logged in) %>
       <% if session[:user_id] != nil%>
         <%= link_to("Profile", user_path(session[:user_id])) %>

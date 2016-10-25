@@ -4,9 +4,8 @@ class HomepagesController < ApplicationController
     get_current_user
 
     @q = Product.ransack(params[:q])
-    @results = @q.result(distinct: true)
+    # @products = @q.result(distinct: true)
 
-    #need to get product's average review rating then order with .order('rating DESC') and take first one from each category
     three_random_images
   end
 
