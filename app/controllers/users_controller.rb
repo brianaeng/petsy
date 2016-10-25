@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.id != session[:user_id]
       redirect_to index_path
     end
-    
+
     @products = Product.where(user_id: @user.id )
   end
 
@@ -41,7 +41,13 @@ class UsersController < ApplicationController
 
   def purchase_history
     @user ||= User.find(params[:id].to_i)
-    @purchase_orders = Order.where(buyer_id: @user.id).where.not(status: "pending")
+    @purchase_orders = Order.where(buyer_id: @user.id)#.where.not(status: "pending")
+  end
+
+  def delete_order
+    @order = Order.find(params[:current_order])
+    @order.destroy
+    redirect_to root_path
   end
 
   def selling_history
