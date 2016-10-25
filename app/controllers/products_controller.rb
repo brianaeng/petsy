@@ -72,6 +72,8 @@ class ProductsController < ApplicationController
     if @orderproduct.nil?
       @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
     end
+    @order.save
+    @orderproduct.save
   end
 
   def update
