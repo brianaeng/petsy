@@ -1,7 +1,6 @@
 
-  <h4>Orders#edit</h4>
-  <p><%= "OrderProducts: #{@orderproducts}"%></p>
-  <p><%= "Buyer ID: #{@order.buyer_id} | Session ID nil? #{session[:user_id] == nil}  |  Status: #{@order.status}  |  Order ID: #{@order.id} | Valid Order: #{@order.valid?} " %></p>
+  <%# "OrderProducts: #{@orderproducts}"%>
+  <%# "User ID: #{@current_user} | Buyer ID: #{@order.buyer_id} | Session user_id: #{session[:user_id] } | Session guest_id: #{session[:guest_id] }  |  Status: #{@order.status}  |  Order ID: #{@order.id} | Valid Order: #{@order.valid?} " %>
 
   <h2> Shopping Cart </h2>
   <table>
@@ -18,19 +17,19 @@
           <td> <%= link_to(orderproduct.product.name, product_path(orderproduct.product.id)) %></td>
           <td> <%= f.number_field :quantity, :quantity => nil, :min => 0, :max => orderproduct.product.quantity, :required => true %> </td>
           <%= f.hidden_field :product_id, :value => orderproduct.product.id %>
-          <td> <%= f.submit "Update" %> </td>
+          <td> <%= f.submit "Update", class: "update-btn" %> </td>
           <td> <%= number_to_currency(orderproduct.subtotal/100) %> </td>
-          <td> <%= link_to("Remove", url_for(action: :destroy, id: orderproduct.product_id), method: :delete, data: {confirm: "Are you sure?"} ) %></td>
+          <td> <%= link_to("Remove", url_for(action: :destroy, id: orderproduct.id), method: :delete, data: {confirm: "Are you sure?"} ) %></td>
         <% end %>
       </tr>
     <% end %>
     <tr class="cart_total">
-      <td> </td> <td> </td> <td> </td> <%# This seems like a hacky way to get the total in the right column%>
+      <td> </td>
+      <td> <%= button_to("Empty Cart", url_for(action: :destroy, order_id: @order.id), method: :delete, data: {confirm: "Are you sure?"} ) %> </td>
+      <td> </td>  <%# This seems like a hacky way to get the total in the right column%>
       <th> <%= number_to_currency(@order.cart_total/100) %> </th>
+      <td> <%= button_to("Place order", url_for(action: :index), method: :get, params: {order_id: @order.id}) %> </td>
     </tr>
   </table>
 
-  <%= button_to("Empty Cart", url_for(action: :destroy, order_id: @order.id), method: :delete, data: {confirm: "Are you sure?"} ) %>
-  <%= button_to("Place order", url_for(action: :show, order_id: @order.id), method: :get) %>
-
-  <%= params %>
+  <%# params %>
