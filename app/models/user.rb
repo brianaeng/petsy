@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
     user.uid   = auth_hash[:uid]
     user.provider = 'github'
     user.name  = auth_hash['info']['name']
+    user.username  = auth_hash['info']['name']
     user.email = auth_hash['info']['email']
     user.avatar = auth_hash['extra']['raw_info']['avatar_url']
     user.authenticated = true

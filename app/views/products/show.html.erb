@@ -3,16 +3,16 @@
 <p>Price: <%=number_to_currency(@product.price/100)%></p>
 
 
-<%# if session[:user_id] != nil %>
-  <%= form_for @orderproduct, controller: "orders", action: "create", method: "post", url: orders_path do |f| %>
 
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity, :quantity => @orderproduct.quantity, :min => 0, :max => @product.quantity, :required => true   %>
-    <%= f.hidden_field :product_id, :value => @product.id %>
+<%= form_for @orderproduct, controller: "orders", action: "create", method: "post", url: orders_path do |f| %>
 
-    <%= f.submit "Add to cart", class: "update-btn"  %>
-  <%end%>
-<%# end %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, :quantity => @orderproduct.quantity, :min => 0, :max => @product.quantity, :required => true   %>
+  <%= f.hidden_field :product_id, :value => @product.id %>
+
+  <%= f.submit "Add to cart", class: "update-btn"  %>
+<%end%>
+
 
 <% if @product.quantity > 0  &&  @product.active %>
   <p>This product is available.</p>
