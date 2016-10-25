@@ -10,8 +10,9 @@
 
   <%= f.label :credit_card_number %>:
   <%= f.text_field :cc_number %><br />
-
+<p>I need to figure out how to store only the last four digits.</p>
   <%= f.date_select :cc_expiration, :order => [:day, :month, :year] %>
+<p>I need to figure out how to store the buyer_id as id of the user on the page maybe with a hidden field.</p>
   <%= f.submit %>
 <% end %>
 
