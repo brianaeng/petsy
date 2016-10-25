@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   delete '/order/cancel' => "users#delete_order", as: 'cancel_order'
 
+  patch '/users/:id/selling_history/mark_shipped' => "users#mark_shipped", as: 'mark_shipped'
+
   resources :products do
     get 'reviews/new'
     post 'reviews/create'

@@ -63,7 +63,13 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
 
+  def mark_shipped
+    @orderproduct = OrderProduct.find(params[:current_order_product].to_i)
+    @orderproduct.toggle!(:shipped)
+
+    redirect_to selling_history_path
   end
 
 private

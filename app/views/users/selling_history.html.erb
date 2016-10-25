@@ -8,6 +8,16 @@
     <% order.products.each do |product| %>
       <p>Name: <%= product.name %></p>
       <p>Quantity: <%= product.quantity %></p>
+      <% if product.user_id == @user.id %>
+      <!-- How do I access the order_product?! -->
+        <% op = OrderProduct.find_by(order_id: order.id, product_id: product.id) %>
+        <!-- change "Mark as shipped" b/c we made it a toggle - needs to be mark shipped or mark not shipped based on current status -->
+        <% if op.shipped == true %>
+          <%= button_to "Mark as Not Shipped", mark_shipped_path(current_order_product: op.id), method: :patch %>
+        <% elsif op.shipped == false %>
+          <%= button_to "Mark as Shipped", mark_shipped_path(current_order_product: op.id), method: :patch %>
+        <% end %>
+      <% end %>
     <% end %>
     <p>Total: <%= number_to_currency(order.cart_total/100) %></p>
   <% end %>
