@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   # end
 
   def show
-    #ADD RESTRICTION SO YOU CAN'T SEE OTHER USERS' PROFILES
     user
 
     if @user.id != session[:user_id]
@@ -65,6 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
+  #Is this supposed to go in the model since it's changing the OrderProduct?
   def mark_shipped
     @orderproduct = OrderProduct.find(params[:current_order_product].to_i)
     @orderproduct.toggle!(:shipped)
