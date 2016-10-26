@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     modified_params = order_params
-    modified_params[:cc_number] = modified_params[:cc_number].split().last(4).join
+    modified_params[:cc_number] = modified_params[:cc_number].to_s.chars.last(4).join
     @order.update(modified_params)
     @order.status = "paid"
     @order.save

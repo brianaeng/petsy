@@ -1,6 +1,3 @@
-<% @merchants.each do |merchant| %>
-  <%= link_to merchant.username, by_merchant_path(merchant_id: merchant.id) %>
-<% end %>
 
 <% if !@products.empty? %>
   <% @products.each do |product| %>

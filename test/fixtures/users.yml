@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-minimal_valid_user:
-  uid: 1
-  name:
-  email: ada@lovelacelearning.com
+unauthenticated_user:
+  uid: 100
+  name: Ada Lovelace
+  email: 
   username:
-  provider: github
+  provider:
   avatar:
-  authenticated: true
+  authenticated: false
 
 
 no_email_user:
