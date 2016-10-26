@@ -52,16 +52,16 @@ class ProductsController < ApplicationController
     end
   end
 
-  def by_merchant
-    #ONLY WANT MERCHANTS THAT HAVE ACTIVE ITEMS
-    @merchants = User.all
-
-    if !params[:merchant_id].blank?
-      @products = User.find(params[:merchant_id]).products
-    else
-      @products = Product.all
-    end
-  end
+  # def by_merchant
+  #   #ONLY WANT MERCHANTS THAT HAVE ACTIVE ITEMS
+  #   @merchants = User.all
+  #
+  #   if !params[:merchant_id].blank?
+  #     @products = User.find(params[:merchant_id]).products
+  #   else
+  #     @products = Product.all
+  #   end
+  # end
 
   def show
     @product = Product.find(params[:id].to_i)
