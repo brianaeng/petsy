@@ -9,26 +9,42 @@
   <%= f.search_field :name_or_description_cont, placeholder: "Search Products"%>
   <%= f.submit "search" %>
 <% end %>
-<div class="home-images">
-  <div>
+
+<h2> Featured Pets </h2>
+<!-- Wrapper Around Orbit -->
+<div class="orbit" role="region" aria-label="Chuck Norris Quotes" data-orbit>
+  <!-- Previous and Next Buttons -->
+  <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+  <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
+
+  <!-- Unordered List of photos or text for carousel -->
+  <ul class="orbit-container">
     <% @chosen_pets.each do |pet| %>
-      <%= image_tag pet.picture %>
-      <%= link_to pet.name, product_path(pet.id) %>
+      <li class="orbit-slide">
+        <h3> <%= link_to pet.name, product_path(pet.id) %> </h3>
+        <%= image_tag pet.picture, alt: "#{pet.name} image"  %>
+      </li>
     <% end %>
-    <!-- <h3><%# link_to(@random_pet1.name, product_path(@random_pet1.id)) %></h3>
-    <image><%# image_tag(@random_pet1.picture)%></image>
-  </div>
-  <div>
-    <h3><%# link_to(@random_pet2.name, product_path(@random_pet2.id)) %></h3>
-    <image><%# image_tag(@random_pet2.picture)%></image>
-  </div>
-  <div>
-    <h3><%# link_to(@random_pet3.name, product_path(@random_pet3.id)) %></h3>
-    <image><%# image_tag(@random_pet3.picture)%></image> -->
-  </div>
+  </ul>
+  <!-- Navigation Buttons for Accessibility -->
+  <nav class="orbit-bullets">
+    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+  </nav>
 </div>
 
+<h2>Page with slick</h2>
+
+<div class="scroller">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+
 <% if flash[:notice] %>
+  <hr/>
   <p class="flash-notice">
     <%= flash[:notice] %>
   </p>

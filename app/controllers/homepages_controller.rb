@@ -33,7 +33,7 @@ private
 
     #another possible solution?
     @products = Product.all
-    @chosen_pets = @products.sample(6)
+    @chosen_pets = @products.sample(3)
     # @random_pet1 = @chosen_pets[0]
     # @random_pet2 = @chosen_pets[1]
     # @random_pet3 = @chosen_pets[2]
