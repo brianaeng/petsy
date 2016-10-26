@@ -6,12 +6,11 @@ class Order < ActiveRecord::Base
 
   validates :buyer_id, presence: true
   validates_inclusion_of :status, :within => ["pending","paid","complete","cancelled"], :message => "{{value}} is not a valid status"
-#If the order has been placed...
+
   validate :cc_4_digits
   validate :cc_not_expired
   validate :shipping_address
   validate :cant_buy_from_self
-  # validate :cc_is_number
   validates :cc_number, numericality: { only_integer: true }
 
   def shipping_address
@@ -56,6 +55,12 @@ class Order < ActiveRecord::Base
       end
   end
 
-  #status can only be complete if all of the order-products associated with that order have been shipped
+  def complete_status
+    self.order_products.each do |op|
+      if op.shipped == true
+        self.status = "complete"
+      end
+    end
+  end
 
 end
