@@ -34,12 +34,13 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    modified_params = order_params
-    puts modified_params[:cc_number]
-    modified_params[:cc_number] = modified_params[:cc_number].to_s.split("").last(4).join
-    puts modified_params[:cc_number]
+    # modified_params = order_params
+    # puts modified_params[:cc_number]
+    # modified_params[:cc_number] = modified_params
+    # puts modified_params[:cc_number]
     @order.update(modified_params)
     @order.status = "paid"
+    @order.cc_number = params[:cc_number].to_s.chars.last(4).join
     @order.save
   end
 
