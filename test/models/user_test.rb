@@ -2,7 +2,9 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  test "User with minimal information is valid" do
+  test "An unauthenticated user with minimal information is valid" do
+    users(:unauthenticated_user).valid?
+    puts users(:unauthenticated_user).errors.full_messages.first if users(:unauthenticated_user).errors.any?
     assert users(:unauthenticated_user).valid?
   end
 

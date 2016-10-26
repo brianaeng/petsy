@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :products
   has_many :orders
-  validates_presence_of :name, :uid, :authenticated
+  validates_presence_of :name, :uid
+  validates_inclusion_of :authenticated, :in => [true, false]
 
   validate :email_at_symbol, :auth_needs_provider, :auth_needs_email
 
@@ -19,19 +20,19 @@ class User < ActiveRecord::Base
   end
 
   def auth_needs_provider
-    if self.authenticated = true && self.provider == nil
+    if self.authenticated == true && self.provider == nil
       errors.add(:provider, "Authenticated users must have a provider")
     end
   end
 
   def auth_needs_email
-    if self.authenticated = true && self.email == nil
+    if self.authenticated == true && self.email == nil
       errors.add(:provider, "Authenticated users must have an email")
     end
   end
 
   def email_at_symbol
-    if self.authenticated = true && self.email != nil
+    if self.authenticated == true && self.email != nil
       unless self.email.include?("@")
         errors.add(:email, "Email address must include @")
       end
