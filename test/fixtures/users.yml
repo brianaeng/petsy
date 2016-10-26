@@ -6,7 +6,7 @@ unauthenticated_user:
   email: ada@lovelacelearning.com
   username: Ada_C0de_G0ddess
   provider: github
-  avatar: my_picture 
+  avatar: my_picture
   authenticated: false
 
 no_email_user:
