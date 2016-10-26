@@ -50,9 +50,11 @@ class User < ActiveRecord::Base
     end
     #Sum all of the ratings and divide the sum by the number of ratings
     if ratings != nil
-      average = ratings.reduce(:+)/ratings.length
+      average = (ratings.reduce(:+)/ratings.length)
+      return average.round
+    else
+      return average = nil
     end
 
-    return average.round
   end
 end
