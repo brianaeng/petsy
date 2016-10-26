@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
   has_many :products
   has_many :orders
-  validates_presence_of :name
+  validates_presence_of :name, :uid, :authenticated
 
-  # validate :email_at_symbol, :provider, :email, :uid, :authenticated
-  # validate :avatar_url
+  validate :email_at_symbol, :auth_needs_provider, :auth_needs_email
 
   def self.build_from_github(auth_hash)
     user       = User.new
@@ -19,19 +18,26 @@ class User < ActiveRecord::Base
     return user
   end
 
+  def auth_needs_provider
+    if self.authenticated = true && self.provider == nil
+      errors.add(:provider, "Authenticated users must have a provider")
+    end
+  end
+
+  def auth_needs_email
+    if self.authenticated = true && self.email == nil
+      errors.add(:provider, "Authenticated users must have an email")
+    end
+  end
+
   def email_at_symbol
-    if self.email != nil
+    if self.authenticated = true && self.email != nil
       unless self.email.include?("@")
         errors.add(:email, "Email address must include @")
       end
     end
   end
 
-  def avatar_url
-    if self.avatar != nil && !self.avatar.include?(".com")
-      errors.add(:avatar, "Avatar link must be a .com url")
-    end
-  end
 
   def average_rating
     #Find all of the products sold by this seller

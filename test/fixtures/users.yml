@@ -2,13 +2,12 @@
 
 minimal_valid_user:
   uid: 1
-  name:
+  name: Ada Lovelace
   email: ada@lovelacelearning.com
   username:
-  provider: github
+  provider:
   avatar:
-  authenticated: true
-
+  authenticated: false
 
 no_email_user:
   uid: 1
@@ -45,12 +44,3 @@ no_authentication_status:
   provider: github
   avatar: adaavatar.com
   authenticated:
-
-invalid_avatar:
-  uid: 1
-  name: Ada Lovelace
-  email: ada@lovelacelearning.com
-  username: Ada_C0de_G0ddess
-  provider: github
-  avatar: adaavatar
-  authenticated: true

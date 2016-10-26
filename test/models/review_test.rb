@@ -18,13 +18,13 @@ class ReviewTest < ActiveSupport::TestCase
     reviews(:no_description_review).invalid?
     assert reviews(:no_description_review).invalid?
   end
-
-  test "Reviews with ratings that are not 1,2,3,4 or 5 are invalid" do
-    reviews(:rating_too_high).invalid?
-    assert reviews(:rating_too_high).invalid?
-    reviews(:rating_too_low).invalid?
-    assert reviews(:rating_too_low).invalid?
-    reviews(:rating_decimal).invalid?
-  end
+  # 
+  # test "Reviews with ratings that are not 1,2,3,4 or 5 are invalid" do
+  #   reviews(:rating_too_high).invalid?
+  #   assert reviews(:rating_too_high).invalid?
+  #   reviews(:rating_too_low).invalid?
+  #   assert reviews(:rating_too_low).invalid?
+  #   reviews(:rating_decimal).invalid?
+  # end
 
 end
