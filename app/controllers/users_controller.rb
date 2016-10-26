@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   def purchase_history
     @user ||= User.find(params[:id].to_i)
-    @purchase_orders = Order.where(buyer_id: @user.id)#.where.not(status: "pending")
+    @purchase_orders = Order.where(buyer_id: @user.id).where.not(status: "pending")
   end
 
   def delete_order
