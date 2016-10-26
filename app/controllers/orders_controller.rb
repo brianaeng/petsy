@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
     # puts modified_params[:cc_number]
     # modified_params[:cc_number] = modified_params
     # puts modified_params[:cc_number]
-    @order.update(modified_params)
+    @order.update(order_params)
     @order.status = "paid"
     @order.cc_number = params[:cc_number].to_s.chars.last(4).join
     @order.save
