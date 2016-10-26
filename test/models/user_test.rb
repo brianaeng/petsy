@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   test "User with minimal information is valid" do
-    assert users(:minimal_valid_user).valid?
+    assert users(:unauthenticated_user).valid?
   end
 
   test "An authenticated user must have a valid email" do
