@@ -66,12 +66,11 @@ class UsersController < ApplicationController
 
   def selling_history
     @user ||= User.find(params[:id].to_i)
-    # @sold_orders = Order.includes(Product.where(user_id: @user.id))
 
     #THERE MUST BE ANOTHER WAY!
     #Should this go in the model?
     @sold_orders = []
-    Order.all.each do |order|
+    Order.where.not(status: "pending").each do |order|
       order.products.each do |product|
         if product.user_id == @user.id
           @sold_orders.push(order)
