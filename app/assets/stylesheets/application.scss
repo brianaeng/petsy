@@ -1,4 +1,6 @@
   @import url('foundation.css');
+  @import 'slick';
+  @import 'slick-theme';
 
 .stars {
   display: inline;
@@ -64,6 +66,27 @@ a {
 
 a:hover {
   color: #33b873;
+}
+
+
+// Slick Carousel
+.scroller {
+  div {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+.slick-prev::before, .slick-next::before {
+  color: #000;
+}
+
+.slick-next {
+  right: -5px;
+}
+
+.slick-prev {
+  left: -5px;
 }
 
 /*
