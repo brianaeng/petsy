@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
   test "Product with minimal information is valid" do
     products(:valid_penguin).valid?
     assert products(:valid_penguin).valid?
@@ -68,5 +66,5 @@ class ProductTest < ActiveSupport::TestCase
     products(:decimal_quantity).invalid?
     assert products(:decimal_quantity).invalid?
   end
-  
+
 end
