@@ -11,14 +11,29 @@ class UsersController < ApplicationController
 
   end
 
-  # def index
-  # end
+  def index
+    #This will show all the merchants
+    #ONLY WANT MERCHANTS THAT HAVE ACTIVE ITEMS
+    @merchants = []
+
+    User.all.each do |user|
+      if user.products != nil
+        @merchants.push(user)
+      end
+    end
+
+    # if !params[:merchant_id].blank?
+    #   @products = User.find(params[:merchant_id]).products
+    # else
+    #   @products = Product.all
+    # end
+  end
 
   def show
     user
 
     if @user.id != session[:user_id]
-      redirect_to index_path
+      redirect_to root_path
     end
 
     @products = Product.where(user_id: @user.id )
@@ -54,6 +69,7 @@ class UsersController < ApplicationController
     # @sold_orders = Order.includes(Product.where(user_id: @user.id))
 
     #THERE MUST BE ANOTHER WAY!
+    #Should this go in the model?
     @sold_orders = []
     Order.all.each do |order|
       order.products.each do |product|
@@ -64,7 +80,7 @@ class UsersController < ApplicationController
     end
   end
 
-  #Is this supposed to go in the model since it's changing the OrderProduct?
+  #Is this supposed to go in the model?
   def mark_shipped
     @orderproduct = OrderProduct.find(params[:current_order_product].to_i)
     @orderproduct.toggle!(:shipped)
