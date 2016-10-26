@@ -1,8 +1,8 @@
 <h3>Please Enter Details for Your Order</h3>
 
-<%= params %>
+<!-- <%#= params %>
 
-<p>This is where there will be a beautiful, functional form that lets a user enter necessary information to purchase an order.</p>
+<p>This is where there will be a beautiful, functional form that lets a user enter necessary information to purchase an order.</p> -->
 
 <%= form_for @order do |f| %>
   <%= f.label :shipping_address %>:
@@ -10,9 +10,8 @@
 
   <%= f.label :credit_card_number %>:
   <%= f.text_field :cc_number %><br />
-<p>I need to figure out how to store only the last four digits.</p>
+  
   <%= f.date_select :cc_expiration, :order => [:day, :month, :year] %>
-<p>I need to figure out how to store the buyer_id as id of the user on the page maybe with a hidden field.</p>
   <%= f.submit %>
 <% end %>
 
