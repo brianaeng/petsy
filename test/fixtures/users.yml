@@ -8,7 +8,7 @@ minimal_valid_user:
   username:
   provider: github
   avatar:
-  authenticated: true
+  authenticated: "no"
 
 
 no_email_user:
