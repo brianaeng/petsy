@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 minimal_valid_user:
-  uid: 1
+  id: 6
+  uid: 100
   name:
   email: ada@lovelacelearning.com
   username:
