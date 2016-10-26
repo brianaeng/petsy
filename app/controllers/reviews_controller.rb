@@ -1,19 +1,20 @@
 class ReviewsController < ApplicationController
   def new
-    #ADD RESTRICTION SO ONLY USERS WHO BOUGHT ITEM CAN REVIEW?
-    #Not sure if the below works yet, need to make a purchase and then check if I can review
     @user ||= User.find(session[:user_id].to_i)
-    @purchase_orders = Order.where(buyer_id: @user.id)#.not.where(status:"pending")
+    @purchase_orders = Order.where(buyer_id: @user.id).where.not(status:"pending")
+
+    @user_products = []
 
     @purchase_orders.each do |order|
-      order.products.each do |product|
-        if product.id == params[:product_id]
-          @review = Review.new
-        end
-      end
+      @user_products += order.products
     end
 
-    # redirect_to product_path(params[:product_id])
+    if @user_products.include? (Product.find(params[:product_id]))
+      @review = Review.new
+    else
+      redirect_to product_path(params[:product_id])
+    end
+
   end
 
   def create
