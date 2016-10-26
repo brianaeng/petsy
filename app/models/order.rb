@@ -11,6 +11,8 @@ class Order < ActiveRecord::Base
   validate :cc_not_expired
   validate :shipping_address
   validate :cant_buy_from_self
+  # validate :cc_is_number
+  validates :cc_number, numericality: { only_integer: true }
 
   def shipping_address
     if self.status == "paid" && self.address == nil
@@ -34,7 +36,7 @@ class Order < ActiveRecord::Base
         errors.add(:cc_expiration, "You must enter a credit card number")
       elsif self.cc_number.length != 4
         errors.add(:cc_expiration, "Only store four.")
-      end 
+      end
     end
   end
 

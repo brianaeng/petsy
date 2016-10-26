@@ -51,6 +51,10 @@ class OrderTest < ActiveSupport::TestCase
     assert orders(:cc_number_too_long).invalid?
   end
 
+  test "CC_number must be a number" do
+    assert orders(:cc_number_not_number).invalid?
+  end
+
   test "Paid order cc_expiration must not be in the past" do
     orders(:cc_expired).invalid?
     assert orders(:cc_expired).invalid?
