@@ -1,6 +1,5 @@
   @import url('foundation.css');
-  @import 'slick';
-  @import 'slick-theme';
+
 
 .stars {
   display: inline;
@@ -69,33 +68,6 @@ a:hover {
   color: black;
 }
 
-
-// Slick Carousel
-#carousel {
-  text-align: center;
-}
-
-.scroller {
-  div {
-    text-align: center;
-  }
-}
-
-.slide {
-  text-align: center;
-}
-
-.slick-prev::before, .slick-next::before {
-  color: #000;
-}
-
-.slick-next {
-  right: -5px;
-}
-
-.slick-prev {
-  left: -5px;
-}
 
 
 /*-- PRODUCTS // BY_MERCHANT --*/
