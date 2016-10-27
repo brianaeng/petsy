@@ -1,0 +1,494 @@
+@charset "UTF-8";
+@import url("foundation.css");
+/* Slider */
+/* line 2, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 23, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 33, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-list:focus {
+  outline: none;
+}
+
+/* line 37, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 43, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 53, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+/* line 61, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: '';
+}
+
+/* line 68, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-track:after {
+  clear: both;
+}
+
+/* line 72, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+/* line 77, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+/* line 85, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+[dir='rtl'] .slick-slide {
+  float: right;
+}
+
+/* line 89, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-slide img {
+  display: block;
+}
+
+/* line 93, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+/* line 97, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+/* line 101, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+/* line 105, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+/* line 109, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+/* line 117, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick.css */
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* Slider */
+/* line 3, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-loading .slick-list {
+  background: #fff url(/assets/slick/ajax-loader-e7b44c86b050fca766a96ddac2d0932af0126da6f2305280342d909168dcce6b.gif) center center no-repeat;
+}
+
+/* Icons */
+@font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  font-style: normal;
+  src: url(/assets/slick-06d80cf01250132fd1068701108453feee68854b750d22c344ffc0de395e1dcb.eot);
+  src: url(/assets/slick-06d80cf01250132fd1068701108453feee68854b750d22c344ffc0de395e1dcb.eot?#iefix) format("embedded-opentype"), url(/assets/slick-26726bac4060abb1226e6ceebc1336e84930fe7a7af1b3895a109d067f5b5dcc.woff) format("woff"), url(/assets/slick-37bc99cfdbbc046193a26396787374d00e7b10d3a758a36045c07bd8886360d2.ttf) format("truetype"), url(/assets/slick-8ca11b5fcbff92ee6378017cf6832dddfa745253202d7c8d01f42d5d17c4cb5c.svg#slick) format("svg");
+}
+/* Arrows */
+/* line 22, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  padding: 0;
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* line 45, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  color: transparent;
+  outline: none;
+  background: transparent;
+}
+
+/* line 54, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+
+/* line 61, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: .25;
+}
+
+/* line 67, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 81, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev {
+  left: -25px;
+}
+
+/* line 85, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+[dir='rtl'] .slick-prev {
+  right: -25px;
+  left: auto;
+}
+
+/* line 90, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-prev:before {
+  content: '←';
+}
+
+/* line 94, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+[dir='rtl'] .slick-prev:before {
+  content: '→';
+}
+
+/* line 99, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-next {
+  right: -25px;
+}
+
+/* line 103, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+[dir='rtl'] .slick-next {
+  right: auto;
+  left: -25px;
+}
+
+/* line 108, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-next:before {
+  content: '→';
+}
+
+/* line 112, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+[dir='rtl'] .slick-next:before {
+  content: '←';
+}
+
+/* Dots */
+/* line 118, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-slider {
+  margin-bottom: 30px;
+}
+
+/* line 123, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots {
+  position: absolute;
+  bottom: -45px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+/* line 137, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* line 150, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+/* line 168, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+
+/* line 173, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+/* line 178, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: '•';
+  text-align: center;
+  opacity: .25;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 200, /Users/erinbond/.rvm/gems/ruby-2.3.1/gems/jquery-slick-rails-1.6.0.2/app/assets/stylesheets/slick-theme.css.erb */
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: black;
+}
+
+/* line 5, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.stars {
+  display: inline;
+}
+
+/* line 9, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+img {
+  height: 20rem;
+  width: auto;
+}
+
+/* line 14, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+h1, h2 {
+  font-family: Chewy;
+}
+
+/* line 18, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+h1 {
+  font-size: 6em;
+  text-align: center;
+}
+
+/* line 23, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper {
+  position: relative;
+  width: 90%;
+}
+
+/* line 28, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper h1 {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+  padding: 5%;
+}
+
+/* line 36, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+nav li, nav p {
+  display: inline;
+}
+
+/* line 40, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+td {
+  text-align: center;
+}
+
+/* line 44, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 48, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar {
+  background-color: #33b873;
+  color: #33b873;
+}
+
+/* line 52, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar *, .top-bar ul {
+  background-color: #33b873;
+}
+
+/* line 56, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar p a {
+  color: white;
+  font-size: 1.5em;
+  font-family: Open Sans;
+  text-decoration: none;
+}
+
+/* line 63, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 68, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+a:hover {
+  color: black;
+}
+
+/* line 74, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+#carousel {
+  text-align: center;
+}
+
+/* line 79, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.scroller div {
+  text-align: center;
+}
+
+/* line 84, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.slide {
+  text-align: center;
+}
+
+/* line 88, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.slick-prev::before, .slick-next::before {
+  color: #000;
+}
+
+/* line 92, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.slick-next {
+  right: -5px;
+}
+
+/* line 96, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.slick-prev {
+  left: -5px;
+}
+
+/*-- PRODUCTS // BY_MERCHANT --*/
+/* line 102, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.product-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* line 107, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.merchant-name {
+  font-size: 4rem;
+}
+
+/*-- USERS // INDEX --*/
+/* line 112, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.merchant-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* line 117, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.merchant-card h3 {
+  font-family: Chewy;
+}
+
+/* Erin */
+/* line 125, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.profile-pic {
+  width: 50%;
+  float: right;
+  margin-top: -10%;
+}
+
+/* line 131, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.name {
+  font-size: 4em;
+}
+
+/* line 135, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.profile-page {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+/* line 141, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+header image {
+  padding: -5%;
+}
+
+/* Erin */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */

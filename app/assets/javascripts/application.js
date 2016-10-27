@@ -19,8 +19,6 @@
 
 
 
-
-
 $(function(){ $(document).foundation(); });
 
 //= require foundation

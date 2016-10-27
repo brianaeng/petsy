@@ -10,9 +10,6 @@
   <%= f.submit "search" %>
 <% end %>
 
-
-
-
 <h2>Featured pets</h2>
 
 <% @chosen_pets.each do |pet| %>
@@ -21,8 +18,6 @@
     <%= image_tag pet.picture, alt: "#{pet.name} image"  %>
   </div>
 <% end %>
-
-
 
 <% if flash[:notice] %>
   <hr/>
