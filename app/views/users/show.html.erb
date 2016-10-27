@@ -1,32 +1,36 @@
-<h2><%=@user.name%></h2>
-<image><%= image_tag(@user.avatar)%></image>
-<h3>Shop Name: <%=link_to @user.username, by_merchant_path(@user.id)%></h3>
-<h4><%= link_to "Purchase History", purchase_history_path(@user.id) %></h4>
-<h4><%= link_to "Selling History", selling_history_path(@user.id) %></h4>
+<div class = "profile-page">
+  <h2 class="name"><%=@user.name%></h2>
+  <p><%= link_to("Edit Profile", edit_user_path(@user.id)) %></p>
+  <p><%= link_to 'Delete Your Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <div class="profile-pic">
+    <image><%= image_tag(@user.avatar)%></image>
+  </div>
+  <h3>Shop Name: <%=link_to @user.username, by_merchant_path(@user.id)%></h3>
+  <h4><%= link_to "Purchase History", purchase_history_path(@user.id) %></h4>
+  <h4><%= link_to "Selling History", selling_history_path(@user.id) %></h4>
 
-<p><%= link_to("Edit Profile", edit_user_path(@user.id)) %></p>
-<p><%= link_to 'Delete Your Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <h4>Pets You Sell</h4>
+  <p> Your average product rating:
+    <% if @user.average_rating != nil %>
+      <% (@user.average_rating).times do %>
+        <h4 class ="stars">⭐️</h4>
+        <%end%>
+    <% else %>
+      You have not sold any items.
+    <% end %>
+  </p>
+  <table>
 
-<h4>Pets You Sell</h4>
-<p> Your average product rating:
-  <% if @user.average_rating != nil %>
-    <% (@user.average_rating).times do %>
-      <h4 class ="stars">⭐️</h4>
+    <% @products.each do |pet|%>
+    <tr>
+        <td><%=link_to(pet.name, product_path(pet.id))%></td>
+        <td>Quantity Available: <%=pet.quantity%></td>
+          <%if pet.active %>
+              <td>Active <%= link_to"Deactivate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></td>
+          <%else%>
+          <td>Inactive <%= link_to "Activate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></td>
+          <%end%>
+    </tr>
       <%end%>
-  <% else %>
-    You have not sold any items.
-  <% end %>
-</p>
-
-<ul>
-  <% @products.each do |pet|%>
-    <li><%=link_to(pet.name, product_path(pet.id)) %>
-      Quantity Available: <%=pet.quantity%>
-      <%if pet.active %>
-        Active <p><%= link_to"Deactivate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
-      <%else%>
-        Inactive <p><%= link_to "Activate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></p>
-      <%end%>
-    </li>
-  <%end%>
-</ul>
+  </table>
+</div>

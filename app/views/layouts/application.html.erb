@@ -10,12 +10,18 @@
     <%= csrf_meta_tags %>
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
-
-
   </head>
 
   <body>
     <header>
+
+      <div class="image-wrapper">
+      <image><%= image_tag('pets.jpg')%></image>
+
+      <%# Link to Homepage  %>
+      <h1><%= link_to("PETSY", root_path)%></h1>
+
+      </div>
       <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large" data-options="is_hover: false">
         <%# Links to Login/Logout  %>
@@ -45,15 +51,6 @@
           </ul>
         </nav>
       </div>
-
-      <div class="image-wrapper">
-      <image><%= image_tag('pets.jpg')%></image>
-
-      <%# Link to Homepage  %>
-      <h1><%= link_to("PETSY", root_path)%></h1>
-
-      </div>
-      <hr/>
     </header>
 
     <main>
