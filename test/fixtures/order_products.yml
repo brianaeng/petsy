@@ -32,17 +32,17 @@ quantity_too_big:
 #Make two products purchased in the same order that have both been shipped, order status will be complete, should be VALID
 order_ship_ship_1_product:
   product_id: 1
-  order: all_products_shipped_complete
+  order: all_products_shipped
   shipped: true
   quantity: 1
 
 order_ship_ship_2_product:
   product_id: 2
-  order: all_products_shipped_complete
+  order: all_products_shipped
   shipped: true
   quantity: 1
 
-#Order will have two products where one is shipped and the other is not, order status can NOT be complete, should be VALID
+#Order will have two products where one is shipped and the other is not, order status can NOT be complete
 order_ship_not_1_product:
   product_id: 1
   order: some_products_shipped_pending
@@ -54,6 +54,7 @@ order_ship_not_2_product:
   order: some_products_shipped_pending
   shipped: false
   quantity: 1
+
 #Order will have 2 products, both with NOT be shipped, order status can NOT be complete
 order_not_not_1_product:
   product_id: 1

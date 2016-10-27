@@ -105,24 +105,24 @@ same_buyer_user:
   status: paid
   buyer_id: 3
 
-#Order will have 2 products, both will be shipped, order status should be  complete
-all_products_shipped_complete:
+#Order has 2 products, both will be shipped
+all_products_shipped:
     cc_number: 4567
     cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
     address: 4654 Main St. Williamsburg, PA 90786
     status: complete
     buyer_id: 3
-#Order will have 2 products, both will be shipped, order status will be pending
-all_products_shipped_pending: #should be invalid
+#Order will have two products where one is shipped and the other is not, order status can NOT be complete
+some_products_shipped_pending:
     cc_number: 4567
     cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
     address: 4654 Main St. Williamsburg, PA 90786
     status: pending
     buyer_id: 3
-#Order will have two products where one is shipped and the other is not, order status can NOT be complete
-some_products_shipped_pending: #should be invalid
+
+some_products_shipped_complete: #should be invalid
     cc_number: 4567
     cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
     address: 4654 Main St. Williamsburg, PA 90786
-    status: pending
+    status: complete
     buyer_id: 3

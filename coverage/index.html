@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-10-26T18:51:45-07:00">2016-10-26T18:51:45-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-10-26T20:02:18-07:00">2016-10-26T20:02:18-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">84.44%</span></span>
+    (<span class="covered_percent"><span class="yellow">83.08%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.02
+         1.97
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>13</b> files in total.
-    <b>257</b> relevant lines. 
-    <span class="green"><b>217</b> lines covered</span> and
-    <span class="red"><b>40</b> lines missed </span>
+    <b>260</b> relevant lines. 
+    <span class="green"><b>216</b> lines covered</span> and
+    <span class="red"><b>44</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#85cf0b82611e863d710df7dc9c1d64cfc1ba06c4" class="src_link" title="app/models/order.rb">app/models/order.rb</a></td>
-        <td class="yellow strong">82.98 %</td>
+        <td class="red strong">74.47 %</td>
         <td>75</td>
         <td>47</td>
-        <td>39</td>
-        <td>8</td>
-        <td>3.9</td>
+        <td>35</td>
+        <td>12</td>
+        <td>3.7</td>
       </tr>
       
       <tr>
@@ -133,9 +133,9 @@
       <tr>
         <td class="strong"><a href="#b7290da9552ce5a41635f77b7213dd6d157a196b" class="src_link" title="test/models/order_test.rb">test/models/order_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>58</td>
-        <td>31</td>
-        <td>31</td>
+        <td>67</td>
+        <td>34</td>
+        <td>34</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -259,11 +259,11 @@
         <div class="source_table" id="85cf0b82611e863d710df7dc9c1d64cfc1ba06c4">
   <div class="header">
     <h3>app/models/order.rb</h3>
-    <h4><span class="yellow">82.98 %</span> covered</h4>
+    <h4><span class="red">74.47 %</span> covered</h4>
     <div>
       <b>47</b> relevant lines. 
-      <span class="green"><b>39</b> lines covered</span> and
-      <span class="red"><b>8</b> lines missed.</span>
+      <span class="green"><b>35</b> lines covered</span> and
+      <span class="red"><b>12</b> lines missed.</span>
     </div>
   </div>
   
@@ -636,14 +636,14 @@
           <code class="ruby">    self.order_products.each do |op|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="62">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="62">
+          
           
           <code class="ruby">      if op.shipped == true</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="63">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="63">
+          
           
           <code class="ruby">        shipped_products += 1</code>
         </li>
@@ -672,14 +672,14 @@
           <code class="ruby">    if self.order_products.length != 0</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="68">
+          
           
           <code class="ruby">      if self.order_products.length == shipped_products &amp;&amp; self.status != &quot;complete&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="69">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="69">
+          
           
           <code class="ruby">        errors.add(:status, &quot;Orders where all items have shipped should be complete.&quot;)</code>
         </li>
@@ -1851,8 +1851,8 @@
     <h3>test/models/order_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>31</b> relevant lines. 
-      <span class="green"><b>31</b> lines covered</span> and
+      <b>34</b> relevant lines. 
+      <span class="green"><b>34</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2181,28 +2181,82 @@
         <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
-          <code class="ruby">  test &quot;An order where all products have shipped should have a complete status&quot; do</code>
+          <code class="ruby">  test &quot;An order where all products have shipped should have status of complete&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert orders(:all_products_shipped_complete).valid?</code>
+          <code class="ruby">    assert orders(:all_products_shipped).valid?</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert orders(:all_products_shipped_pending).invalid?</code>
+          <code class="ruby">    puts &quot;BANANA&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    puts &quot;The number of order_products is: #{orders(:all_products_shipped).order_products.length}&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    orders(:all_products_shipped).status = &quot;pending&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    assert orders(:all_products_shipped).invalid?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">  # test &quot;An order where not all products have shipped should not have a status of  complete&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">  #   assert orders(:some_products_shipped_pending).valid?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">  #   orders(:some_products_shipped_pending).status = &quot;complete&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">  #   assert orders(:some_products_shipped_pending).invalid?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">end</code>
