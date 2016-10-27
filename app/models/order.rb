@@ -42,10 +42,22 @@ class Order < ActiveRecord::Base
 
   def cart_total
     total = 0
-    order_products.each do | op |
+    available_products.each do | op |
       total += op.subtotal
     end
     return total
+  end
+
+  def available_products
+    ops = []
+    order_products.each do | orderproduct |
+      if orderproduct.product.active == true
+        # If fewer products are available than when originally added to cart, only show the available number
+        orderproduct.quantity = orderproduct.product.quantity if orderproduct.product.quantity < orderproduct.quantity
+        ops << orderproduct
+      end
+    end
+    return ops
   end
 
   def cant_buy_from_self

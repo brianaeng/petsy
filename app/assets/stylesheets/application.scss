@@ -1,6 +1,6 @@
   @import url('foundation.css');
-  // @import 'slick';
-  // @import 'slick-theme';
+  @import 'slick';
+  @import 'slick-theme';
 
 .stars {
   display: inline;
@@ -110,6 +110,27 @@ a:hover {
   font-family: Chewy;
 }
 
+/* Erin */
+.profile-pic {
+  width: 50%;
+  float: right;
+  margin-top: -10%;
+}
+
+.name {
+  font-size: 4em;
+}
+
+.profile-page {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+header image{
+  padding: -5%;
+}
+/* Erin */
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
