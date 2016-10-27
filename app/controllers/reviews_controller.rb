@@ -1,13 +1,14 @@
 class ReviewsController < ApplicationController
   def new
-    @user ||= User.find(session[:user_id].to_i)
-    @purchase_orders = Order.where(buyer_id: @user.id).where.not(status:"pending")
-
-    @user_products = []
-
-    @purchase_orders.each do |order|
-      @user_products += order.products
-    end
+    # @user ||= User.find(session[:user_id].to_i)
+    # @purchase_orders = Order.where(buyer_id: @user.id).where.not(status:"pending")
+    #
+    # @user_products = []
+    #
+    # @purchase_orders.each do |order|
+    #   @user_products += order.products
+    # end
+    find_user_purchased_products
 
     if @user_products.include? (Product.find(params[:product_id]))
       @review = Review.new
