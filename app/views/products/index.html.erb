@@ -8,14 +8,18 @@
   <% end %>
 </section>
 
+<section class="row small-up-1 medium-up-1 large-up-2">
 <% if !@products.empty? %>
   <% @products.each do |product| %>
     <% if product.active %>
-      <h3><%= link_to(product.name, product_path(product.id)) %></h3>
-      <h3><%= product.description %></h3>
-      <image><%= image_tag(product.picture)%></image>
+      <div class="product-card column">
+        <h3><%= link_to(product.name, product_path(product.id)) %></h3>
+        <h6><%= number_to_currency(product.price/100) %></h6>
+        <image><%= image_tag(product.picture)%></image>
+      </div>
     <% end %>
   <% end %>
 <% else %>
   Product not found.
 <% end %>
+</secton>

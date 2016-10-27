@@ -17,7 +17,8 @@
 //= require jquery.turbolinks
 //= require_tree .
 //= require jquery.slick
-// require initialize
+//= require initialize
+
 
 
 

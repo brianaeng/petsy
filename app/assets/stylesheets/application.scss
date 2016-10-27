@@ -8,10 +8,11 @@
 
 img {
   height: 20rem;
+  width: auto;
 }
 
 h1, h2 {
-    font-family: Chewy;
+  font-family: Chewy;
 }
 
 h1 {
@@ -97,39 +98,51 @@ a:hover {
 }
 
 
-// // CSS Carousel
-// $slide-width: 100%;
-// $slide-height: 100%;
-//
-// #slider {
-// 	width: $slide-width;
-// 	height: $slide-height;
-// 	overflow: hidden;
-// }
-//
-// .slide {
-// 	width: $slide-width;
-// 	height: $slide-height;
-// 	float: left;
-// 	position: relative;
-// }
-//
-// #slide-holder {
-//   // wide enough to fit all the slides
-// 	width: 400%;
-// 	position: relative;
-// 	left: 0;
-// 	will-change: transform;
-// 	animation: scroller 20s infinite;
-// }
-//
-// // need a step for each slide
-// @keyframes scroller {
-//   0% { transform: translateX(0); }
-//   33% { transform: translateX(-$slide-width); }
-//   66% { transform: translateX(-$slide-width*2); }
-//   100% { transform: translateX(0); }
-// }
+/*-- PRODUCTS // BY_MERCHANT --*/
+.product-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.merchant-name {
+  font-size: 4rem;
+}
+
+/*-- USERS // INDEX --*/
+.merchant-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.merchant-card h3 {
+  font-family: Chewy;
+}
+
+
+
+
+/* Erin */
+.profile-pic {
+  width: 50%;
+  float: right;
+  margin-top: -10%;
+}
+
+.name {
+  font-size: 4em;
+}
+
+.profile-page {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+header image{
+  padding: -5%;
+}
+/* Erin */
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

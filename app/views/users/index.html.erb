@@ -1,7 +1,9 @@
 <h1>Merchants</h1>
+<section class="row small-up-1 medium-up-1 large-up-2">
 <% @merchants.each do |merchant| %>
-  <div class="merchant-card">
-    <%= link_to merchant.username, by_merchant_path(merchant.id) %>
+  <div class="column merchant-card">
+    <h3><%= link_to merchant.username, by_merchant_path(merchant.id) %></h3>
     <%= image_tag merchant.products.sample.picture %>
   </div>
 <% end %>
+</section>
