@@ -8,10 +8,11 @@
 
 img {
   height: 20rem;
+  width: auto;
 }
 
 h1, h2 {
-    font-family: Chewy;
+  font-family: Chewy;
 }
 
 h1 {
@@ -88,6 +89,22 @@ a:hover {
 .slick-prev {
   left: -5px;
 }
+
+/*-- PRODUCTS // BY_MERCHANT --*/
+.product-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+
+/*-- USERS // INDEX --*/
+.merchant-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -22,6 +22,7 @@
     <% @chosen_pets.each do |pet| %>
       <li class="orbit-slide">
         <h3> <%= link_to pet.name, product_path(pet.id) %> </h3>
+        <h6><%= number_to_currency(pet.price/100) %></h6>
         <%= image_tag pet.picture, alt: "#{pet.name} image"  %>
       </li>
     <% end %>
