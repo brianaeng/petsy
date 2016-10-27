@@ -12,6 +12,7 @@ class Order < ActiveRecord::Base
   validate :shipping_address
   validate :cant_buy_from_self
   validates :cc_number, numericality: { only_integer: true }
+  validate :complete_status
 
   def shipping_address
     if self.status == "paid" && self.address == nil
@@ -56,11 +57,19 @@ class Order < ActiveRecord::Base
   end
 
   def complete_status
+    shipped_products = 0
     self.order_products.each do |op|
       if op.shipped == true
-        self.status = "complete"
+        shipped_products += 1
+      end
+    end
+
+    if self.order_products.length != 0
+      if self.order_products.length == shipped_products && self.status != "complete"
+        errors.add(:status, "Orders where all items have shipped should be complete.")
+      elsif self.order_products.length != shipped_products && self.status == "complete"
+        errors.add(:status, "Orders can not be complete if there are un-shipped items.")
       end
     end
   end
-
 end
