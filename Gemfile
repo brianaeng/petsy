@@ -12,8 +12,7 @@ gem 'simplecov'
 #Gems to make Foundation work
 gem 'foundation-rails'
 gem 'jquery-turbolinks'
-# Gem for Slick Carousel on homepage
-gem "jquery-slick-rails"
+
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-github'
