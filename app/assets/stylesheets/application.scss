@@ -1,6 +1,6 @@
   @import url('foundation.css');
-  // @import 'slick';
-  // @import 'slick-theme';
+  @import 'slick';
+  @import 'slick-theme';
 
 .stars {
   display: inline;
@@ -70,11 +70,18 @@ a:hover {
 
 
 // Slick Carousel
+#carousel {
+  text-align: center;
+}
+
 .scroller {
   div {
     text-align: center;
-    font-size: 30px;
   }
+}
+
+.slide {
+  text-align: center;
 }
 
 .slick-prev::before, .slick-next::before {
@@ -88,6 +95,41 @@ a:hover {
 .slick-prev {
   left: -5px;
 }
+
+
+// // CSS Carousel
+// $slide-width: 100%;
+// $slide-height: 100%;
+//
+// #slider {
+// 	width: $slide-width;
+// 	height: $slide-height;
+// 	overflow: hidden;
+// }
+//
+// .slide {
+// 	width: $slide-width;
+// 	height: $slide-height;
+// 	float: left;
+// 	position: relative;
+// }
+//
+// #slide-holder {
+//   // wide enough to fit all the slides
+// 	width: 400%;
+// 	position: relative;
+// 	left: 0;
+// 	will-change: transform;
+// 	animation: scroller 20s infinite;
+// }
+//
+// // need a step for each slide
+// @keyframes scroller {
+//   0% { transform: translateX(0); }
+//   33% { transform: translateX(-$slide-width); }
+//   66% { transform: translateX(-$slide-width*2); }
+//   100% { transform: translateX(0); }
+// }
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
