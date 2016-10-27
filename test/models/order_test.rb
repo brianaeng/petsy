@@ -51,13 +51,12 @@ class OrderTest < ActiveSupport::TestCase
     assert orders(:same_buyer_user).invalid?
   end
 
-  # test "An order where all products have shipped should have status of complete" do
-  #   assert orders(:all_products_shipped).valid?
-  #   puts "BANANA"
-  #   puts "The number of order_products is: #{orders(:all_products_shipped).order_products.length}"
-  #   orders(:all_products_shipped).status = "pending"
-  #   assert orders(:all_products_shipped).invalid?
-  # end
+  test "An order where all products have shipped should have status of complete" do
+    assert orders(:all_products_shipped).valid?
+    puts "The number of order_products is: #{orders(:all_products_shipped).order_products.length}.............."
+    # orders(:all_products_shipped).status = "pending"
+    # assert orders(:all_products_shipped).invalid?
+  end
 
   # test "An order where not all products have shipped should not have a status of  complete" do
   #   assert orders(:some_products_shipped_pending).valid?
