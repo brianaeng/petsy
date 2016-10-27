@@ -10,9 +10,14 @@
   <%= f.submit "search" %>
 <% end %>
 
+<h2>Featured pets</h2>
 
-
-
+<% @chosen_pets.each do |pet| %>
+  <div class="slide">
+    <h3><%= link_to pet.name, product_path(pet.id) %></h3>
+    <%= image_tag pet.picture, alt: "#{pet.name} image"  %>
+  </div>
+<% end %>
 
 <% if flash[:notice] %>
   <hr/>

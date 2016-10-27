@@ -3,19 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  #Should we just put this in the app controller since we use it so frequently across all controllers?
-  def current_user
-    if session[:user_id] != nil
-      user = User.find(session[:user_id])
-    elsif session[:guest_id] != nil
-      user = User.find(session[:guest_id])
-    else
-      user = User.new(name: "Guest", authenticated: false)
-      user.save
-      session[:guest_id] = user.id
-    end
-    return user
-  end
+  # #Should we just put this in the app controller since we use it so frequently across all controllers?
+  # def current_user
+  #   if session[:user_id] != nil
+  #     user = User.find(session[:user_id])
+  #   elsif session[:guest_id] != nil
+  #     user = User.find(session[:guest_id])
+  #   else
+  #     user = User.new(name: "Guest", authenticated: false)
+  #     user.save
+  #     session[:guest_id] = user.id
+  #   end
+  #   return user
+  # end
 
   def find_user_purchased_products
     @user = current_user
