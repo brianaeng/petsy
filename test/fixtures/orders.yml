@@ -107,6 +107,7 @@ same_buyer_user:
 
 #Order has 2 products, both will be shipped
 all_products_shipped:
+    id: 24
     cc_number: 4567
     cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
     address: 4654 Main St. Williamsburg, PA 90786

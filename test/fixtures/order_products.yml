@@ -32,13 +32,13 @@ quantity_too_big:
 #Make two products purchased in the same order that have both been shipped, order status will be complete, should be VALID
 order_ship_ship_1_product:
   product_id: 1
-  order: all_products_shipped
+  order: :all_products_shipped
   shipped: true
   quantity: 1
 
 order_ship_ship_2_product:
   product_id: 2
-  order: all_products_shipped
+  order_id: 24
   shipped: true
   quantity: 1
 
