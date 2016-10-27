@@ -34,16 +34,28 @@ class Order < ActiveRecord::Base
         errors.add(:cc_expiration, "You must enter a credit card number")
       elsif self.cc_number.length != 4
         errors.add(:cc_expiration, "Only store four.")
-      end 
+      end
     end
   end
 
   def cart_total
     total = 0
-    order_products.each do | op |
+    available_products.each do | op |
       total += op.subtotal
     end
     return total
+  end
+
+  def available_products
+    ops = []
+    order_products.each do | orderproduct |
+      if orderproduct.product.active == true
+        # If fewer products are available than when originally added to cart, only show the available number
+        orderproduct.quantity = orderproduct.product.quantity if orderproduct.product.quantity < orderproduct.quantity
+        ops << orderproduct
+      end
+    end
+    return ops
   end
 
   def cant_buy_from_self

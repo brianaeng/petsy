@@ -34,11 +34,29 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+
+    # If they place an order update the order and products to reflect the purchase
+    @order.order_products.each do | orderproduct |
+      # This mirrors the logic in the available_products order.rb method
+      if orderproduct.product.active == true
+        # If fewer products are available than when originally added to cart, only sell the available number
+        orderproduct.quantity = orderproduct.product.quantity if orderproduct.product.quantity < orderproduct.quantity
+        orderproduct.save
+        # Decrease the available product quantity by the number purchased
+        orderproduct.product.quantity -= orderproduct.quantity
+        orderproduct.product.save
+      # Delete products from the order that we unavailable at the time of purchase (they did not show up on the cart)
+      elsif orderproduct.product.active == false
+        orderproduct.destroy
+      end
+    end
+
     modified_params = order_params
     modified_params[:cc_number] = modified_params[:cc_number].to_s.chars.last(4).join
     @order.update(modified_params)
     @order.status = "paid"
     @order.save
+
   end
 
   def edit
@@ -50,7 +68,9 @@ class OrdersController < ApplicationController
       @order = Order.create(buyer_id: @current_user.id, status: "pending") # status of the order ("pending", "paid", "complete", "cancelled")
     end
 
-    @order.order_products.each do | orderproduct |
+    # Only show products that are available available when viewing the cart)
+    # If fewer products are available than when originally added to cart, only show the available number
+    @order.available_products.each do | orderproduct |
       @orderproducts << orderproduct
     end
 
