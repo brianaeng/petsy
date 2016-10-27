@@ -38,7 +38,6 @@
 </p>
 
 <p>
-  <!-- make method to check if user purchased a product into a model method so we can call it here (and show link only if they purchased product) -->
   <% if @user_products.include? (Product.find(params[:id])) %>
     <%= link_to "Add a Review", product_reviews_new_path(@product.id) %>
   <% end %>
