@@ -8,10 +8,11 @@
 
 img {
   height: 20rem;
+  width: auto;
 }
 
 h1, h2 {
-    font-family: Chewy;
+  font-family: Chewy;
 }
 
 h1 {
@@ -89,6 +90,26 @@ a:hover {
   left: -5px;
 }
 
+/*-- PRODUCTS // BY_MERCHANT --*/
+.product-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.merchant-name {
+  font-size: 4rem;
+}
+
+/*-- USERS // INDEX --*/
+.merchant-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.merchant-card h3 {
+  font-family: Chewy;
+}
+
 /* Erin */
 .profile-pic {
   width: 50%;
@@ -110,6 +131,7 @@ header image{
   padding: -5%;
 }
 /* Erin */
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_user_purchased_products
-    @user ||= User.find(session[:user_id].to_i)
+    @user = current_user
     @purchase_orders = Order.where(buyer_id: @user.id).where.not(status:"pending")
 
     @user_products = []
