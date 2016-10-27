@@ -29,3 +29,54 @@ quantity_too_big:
   order_id: 2
   shipped: true
   quantity: 1000000000
+#Make two products purchased in the same order that have both been shipped, order status will be complete, should be VALID
+order_ship_ship_1_product:
+  product_id: 1
+  order: :all_products_shipped
+  shipped: true
+  quantity: 1
+
+order_ship_ship_2_product:
+  product_id: 2
+  order_id: 24
+  shipped: true
+  quantity: 1
+
+#Order will have two products where one is shipped and the other is not, order status can NOT be complete
+order_ship_not_1_product:
+  product_id: 1
+  order: some_products_shipped_pending
+  shipped: true
+  quantity: 1
+
+order_ship_not_2_product:
+  product_id: 2
+  order: some_products_shipped_pending
+  shipped: false
+  quantity: 1
+
+#Order will have 2 products, both with NOT be shipped, order status can NOT be complete
+order_not_not_1_product:
+  product_id: 1
+  order_id: 22
+  shipped: false
+  quantity: 1
+
+order_not_not_2_product:
+  product_id: 2
+  order_id: 21
+  shipped: false
+  quantity: 1
+
+#Order will have 2 products, both will be shipped, order-status will be pending, should be INVALID
+order_ship_ship_1_product:
+  product_id: 1
+  order: all_products_shipped_pending
+  shipped: true
+  quantity: 1
+
+order_ship_ship_2_product:
+  product_id: 2
+  order: all_products_shipped_pending
+  shipped: true
+  quantity: 1
