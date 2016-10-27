@@ -9,18 +9,21 @@
   <h4><%= link_to "Purchase History", purchase_history_path(@user.id) %></h4>
   <h4><%= link_to "Selling History", selling_history_path(@user.id) %></h4>
 
-  <h4>Pets You Sell</h4>
-  <p> Your average product rating:
-    <% if @user.average_rating != nil %>
-      <% (@user.average_rating).times do %>
-        <h4 class ="stars">⭐️</h4>
-        <%end%>
-    <% else %>
-      You have not sold any items.
-    <% end %>
-  </p>
-  <table>
 
+
+  <table>
+    <h2>Pets You Sell</h2>
+    <div class = "av-product-rating">
+      <p> Your average product rating:
+        <% if @user.average_rating != nil %>
+          <% (@user.average_rating).times do %>
+            <h4 class ="stars">⭐️</h4>
+            <%end%>
+        <% else %>
+          You have not sold any items.
+        <% end %>
+      </p>
+    </div>
     <% @products.each do |pet|%>
     <tr>
         <td><%=link_to(pet.name, product_path(pet.id))%></td>
