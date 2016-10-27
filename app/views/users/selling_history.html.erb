@@ -6,7 +6,7 @@
     <p>Order Status: <%= order.status %></p>
     <p>Order items:</p>
     <% order.products.each do |product| %>
-      <p>Name: <%= product.name %></p>
+      <p>Name: <%= link_to product.name, product_path(product.id) %></p>
       <p>Quantity: <%= product.quantity %></p>
       <% if product.user_id == @user.id %>
       <!-- How do I access the order_product?! -->

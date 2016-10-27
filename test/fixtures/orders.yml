@@ -14,6 +14,13 @@ no_cc_number:
   status: paid
   buyer_id: 4
 
+cc_number_not_number:
+  cc_number: ghost
+  cc_expiration: Thu, 20 Oct 2017 20:39:11 -0700
+  address: 4654 Main St. Williamsburg, PA 90786
+  status: paid
+  buyer_id: 4
+
 no_cc_expiration:
   cc_number: 1234
   cc_expiration:
@@ -85,15 +92,38 @@ cc_number_too_long:
   buyer_id: 4
 
 cc_expired:
-  cc_number: 45678
+  cc_number: 4567
   cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
   address: 4654 Main St. Williamsburg, PA 90786
   status: paid
   buyer_id: 4
 
 same_buyer_user:
-  cc_number: 45678
+  cc_number: 4567
   cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
   address: 4654 Main St. Williamsburg, PA 90786
   status: paid
   buyer_id: 3
+
+#Order has 2 products, both will be shipped
+all_products_shipped:
+    id: 24
+    cc_number: 4567
+    cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
+    address: 4654 Main St. Williamsburg, PA 90786
+    status: complete
+    buyer_id: 3
+#Order will have two products where one is shipped and the other is not, order status can NOT be complete
+some_products_shipped_pending:
+    cc_number: 4567
+    cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
+    address: 4654 Main St. Williamsburg, PA 90786
+    status: pending
+    buyer_id: 3
+
+some_products_shipped_complete: #should be invalid
+    cc_number: 4567
+    cc_expiration: Thu, 20 Oct 2012 20:39:11 -0700
+    address: 4654 Main St. Williamsburg, PA 90786
+    status: complete
+    buyer_id: 3

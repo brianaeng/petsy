@@ -24,3 +24,5 @@
 
 #Ignore coverage files
 /coverage
+/coverage.data
+/coverage/

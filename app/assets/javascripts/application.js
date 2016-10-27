@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require_tree .
-//= require jquery.slick
+// require jquery.slick
 // require initialize
 
 
