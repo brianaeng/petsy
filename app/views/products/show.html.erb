@@ -22,6 +22,8 @@
 
 <p> Quantity available: <%=@product.quantity%></p>
 <p><%=@product.description%></p>
+
+<p>Sold by: <%= link_to @product.user.username, by_merchant_path(@product.user_id) %></p>
 <image><%= image_tag(@product.picture)%></image>
 
 <h3>Product Reviews</h3>
@@ -29,11 +31,17 @@
   <% if @product.reviews.length > 0 %>
     <% (@product.average_rating).times do %>
       <h4 class ="stars">⭐️</h4>
-      <%end%>
+      <% end %>
   <% else %>
     <p>There are no reviews yet for this pet.</p>
-  <%end%></p>
+  <%end%>
+</p>
 
+<p>
+  <% if @user_products.include? (Product.find(params[:id])) %>
+    <%= link_to "Add a Review", product_reviews_new_path(@product.id) %>
+  <% end %>
+</p>
 <% @reviews.each do |review| %>
   <h4><%=review.title%></h4>
   <% (review.rating).times do %>

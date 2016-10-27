@@ -73,6 +73,8 @@ class ProductsController < ApplicationController
     end
     @order.save
     @orderproduct.save
+
+    find_user_purchased_products
   end
 
   def update
