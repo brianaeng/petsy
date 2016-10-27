@@ -116,18 +116,7 @@ class OrdersController < ApplicationController
 
 private
 
-  def current_user
-    if session[:user_id] != nil
-      user = User.find(session[:user_id])
-    elsif session[:guest_id] != nil
-      user = User.find(session[:guest_id])
-    else
-      user = User.new(name: "Guest", authenticated: false)
-      user.save
-      session[:guest_id] = user.id
-    end
-    return user
-  end
+  # current_user in ApplicationController now
 
    def order_params
      params.require(:order).permit(:cc_number, :cc_expiration, :address, :buyer_id)

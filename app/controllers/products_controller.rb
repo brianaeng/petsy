@@ -130,16 +130,5 @@ private
      params.require(:product).permit(:name, :user_id, :price, :quantity, :description, :picture, :active, categories_attributes: [:name], category_ids: [])
    end
 
-   def current_user
-     if session[:user_id] != nil
-       user = User.find(session[:user_id])
-     elsif session[:guest_id] != nil
-       user = User.find(session[:guest_id])
-     else
-       user = User.new(name: "Guest", authenticated: false)
-       user.save
-       session[:guest_id] = user.id
-     end
-     return user
-   end
+  # current_user in ApplicationController now
 end
