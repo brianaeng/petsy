@@ -7,13 +7,13 @@ class Product < ActiveRecord::Base
 
   has_many :orders, through: :order_products
 
-  validates :name, presence: true
-  validates :user_id, presence: true
-  validates :price, numericality: { only_integer: true, greater_than: 0 }
-  validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :description, presence: true
-  validate :out_of_stock
-  validate :picture_must_be_url
+  # validates :name, presence: true
+  # validates :user_id, presence: true
+  # validates :price, numericality: { only_integer: true, greater_than: 0 }
+  # validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  # validates :description, presence: true
+  # validate :out_of_stock
+  # validate :picture_must_be_url
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|

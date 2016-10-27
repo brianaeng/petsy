@@ -65,11 +65,11 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @order = Order.find_by(buyer_id: @current_user.id, status: "pending") # If the current user already has a pending order, just add to that
     if @order.nil?
-      @order = Order.new(buyer_id: @current_user.id)
+      @order = Order.new(buyer_id: @current_user.id, status: "pending")
     end
     @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: @product.id)
     if @orderproduct.nil?
-      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0)  #this isn't really necessary, but this gives the quantity field in the form
+      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: @product.id, quantity: 0, shipped: false)  #this isn't really necessary, but this gives the quantity field in the form
     end
     @order.save
     @orderproduct.save

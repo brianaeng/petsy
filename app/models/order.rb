@@ -7,12 +7,12 @@ class Order < ActiveRecord::Base
   validates :buyer_id, presence: true
   validates_inclusion_of :status, :within => ["pending","paid","complete","cancelled"], :message => "{{value}} is not a valid status"
 
-  validate :cc_4_digits
-  validate :cc_not_expired
-  validate :shipping_address
-  validate :cant_buy_from_self
-  validates :cc_number, numericality: { only_integer: true }
-  validate :complete_status
+  # validate :cc_4_digits
+  # validate :cc_not_expired
+  # validate :shipping_address
+  # validate :cant_buy_from_self
+  # validates :cc_number, numericality: { only_integer: true }
+  # validate :complete_status
 
   def shipping_address
     if self.status == "paid" && self.address == nil

@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   has_many :products
   has_many :orders
-  validates_presence_of :name, :uid
+  validates_presence_of :name #, :uid
   validates_inclusion_of :authenticated, :in => [true, false]
 
-  validate :email_at_symbol, :auth_needs_provider, :auth_needs_email
+  # validate :email_at_symbol, :auth_needs_provider, :auth_needs_email
 
   def self.build_from_github(auth_hash)
     user       = User.new
