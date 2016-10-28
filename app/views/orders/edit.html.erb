@@ -27,7 +27,7 @@
       <th> Subtotal </th>
       <th>  </th>
     </tr>
-    <% @orderproducts.each do | orderproduct | %>
+    <% @order.order_products.each do | orderproduct | %>
       <tr>
         <%= form_for orderproduct, controller: "orders", action: "create", url: orders_path, method: "post" do |f| %>
           <td> <%= link_to(orderproduct.product.name, product_path(orderproduct.product.id)) %></td>

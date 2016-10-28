@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   def delete_order
     @order = Order.find(params[:current_order])
     @order.destroy
-    redirect_to root_path
+    redirect_to purchase_history_path(id: session[:user_id])
   end
 
   def selling_history
