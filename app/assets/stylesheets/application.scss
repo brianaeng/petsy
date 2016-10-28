@@ -145,9 +145,14 @@ main {
 
 
 /*-- PRODUCTS // BY_MERCHANT --*/
-.product-card {
-  text-align: center;
-  padding: 2rem;
+
+.callout {
+  padding-top: 1%;
+  font-size: 1.1em;
+}
+
+.callout h4, .callout p {
+  font-family: helvetica;
 }
 
 .merchant-name {
