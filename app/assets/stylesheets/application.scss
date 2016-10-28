@@ -120,7 +120,7 @@ footer {
   font-size: 1em;
   font-family: Open Sans;
   text-decoration: none;
-  padding-top: 3%;
+  padding: 3%;
 }
 
 .av-product-rating *, .profile-links *{
@@ -153,6 +153,15 @@ a:hover{
   font-family: Open Sans;
 }
 
+.submit {
+  font-size: 1em;
+  background-color: lightgray;
+  border-radius: 10%;
+}
+
+label {
+  font-size: 1.25em;
+}
 
 /* Erin */
 

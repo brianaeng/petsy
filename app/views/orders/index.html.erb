@@ -5,16 +5,16 @@
   <%= form_for @order do |f| %>
   <div class="row">
     <div class="small-8">
-          <!-- <label for="shipping_address"> -->
-            <%= f.label :shipping_address%>
-            <%= f.text_field :address %><br />
-          <!-- </label> -->
+
+        <%= f.label :shipping_address%>
+        <%= f.text_field :address %><br />
+
         <%= f.label :credit_card_number %>
         <%= f.text_field :cc_number %><br />
 
         <%= f.label :credit_card_expiration_date %>
         <%= f.date_select :cc_expiration, :order => [:day, :month, :year] %>
-        <%= f.submit %>
+        <%= f.submit 'Place Order', :class => 'submit' %>
       <% end %>
     </div>
   </div>
