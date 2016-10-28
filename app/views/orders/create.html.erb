@@ -1,6 +1,6 @@
 <h1>Orders#create</h1>
 
-<!-- <%=# params %> -->
+<%= params %>
 <p>
   <%= session[:user_id] == nil %>
   <%= @order.products.size %>
@@ -17,3 +17,4 @@
 <%= @orderproduct.quantity %>
 <%= params[:order_product][:quantity] %>
 <%= params[:order_product][:product_id] %>
+<%= @orderproduct.valid? %>
