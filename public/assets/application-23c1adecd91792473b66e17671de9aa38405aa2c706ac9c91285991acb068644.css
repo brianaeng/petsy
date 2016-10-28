@@ -1,0 +1,239 @@
+@import url("foundation.css");
+/* line 4, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.stars {
+  display: inline;
+}
+
+/* line 8, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+h1, h2, h3, h4 {
+  font-family: Chewy;
+}
+
+/* line 16, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+td {
+  text-align: center;
+}
+
+/* line 20, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 24, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 30, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+a:hover {
+  color: black;
+  opacity: .5;
+}
+
+/* line 37, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+header h1 {
+  font-size: 10vw;
+  text-align: center;
+}
+
+/* line 42, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+header ul {
+  display: inline-block;
+}
+
+/* line 52, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+/* line 58, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper h1 {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+  padding: 5%;
+}
+
+/* line 66, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.image-wrapper a:hover {
+  color: black;
+}
+
+/* line 72, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar {
+  padding-top: 0.25em;
+  padding-bottom: 0;
+  display: inline-block;
+}
+
+/* line 83, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar-left li {
+  padding: 0;
+}
+
+/* line 87, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar-right li {
+  white-space: nowrap;
+  padding: 0;
+  padding-top: 0.25em;
+}
+
+/* line 94, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.top-bar-right input.button {
+  background-color: black;
+  color: white;
+  padding: 0.75em 1em;
+}
+
+/* line 100, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.menu-text a {
+  font-family: Chewy;
+  font-size: 1.5em;
+}
+
+/* line 105, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+main {
+  text-align: center;
+  margin-top: 2vh;
+}
+
+/*-- JEANNIE --*/
+/* line 127, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.homepage h2 {
+  padding: 2%;
+}
+
+/* line 131, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.callout {
+  background-color: #e6e6e6;
+  border: none;
+  z-index: -10;
+}
+
+/* line 137, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.callout p {
+  padding-top: 1%;
+  font-size: 1.1em;
+}
+
+/*-- JEANNIE --*/
+/*-- PRODUCTS // BY_MERCHANT --*/
+/* line 148, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.product-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* line 153, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.merchant-name {
+  font-size: 4rem;
+}
+
+/*-- USERS // INDEX --*/
+/* line 158, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.merchant-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* line 163, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.merchant-card h3 {
+  font-family: Chewy;
+}
+
+/* Erin */
+/* line 171, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.profile-pic {
+  width: 50%;
+  float: right;
+  margin-top: -8%;
+  padding: 1%;
+}
+
+/* line 178, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.name {
+  font-size: 4em;
+}
+
+/* line 182, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.profile-page, .order-form {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+/* line 190, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+footer {
+  background-color: #e6e6e6;
+  color: black;
+  font-size: 1em;
+  font-family: Open Sans;
+  text-decoration: none;
+  padding: 2%;
+}
+
+/* line 199, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.av-product-rating *, .profile-links * {
+  display: inline;
+}
+
+/* line 203, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.profile-pic * {
+  border-radius: 5%;
+}
+
+/* line 207, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+p, h5 {
+  font-family: Open Sans;
+}
+
+/* line 211, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.hidden {
+  color: white;
+  font-size: .25em;
+}
+
+/* line 217, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.order-form, .product-form {
+  font-family: Chewy;
+  margin-left: 20%;
+}
+
+/* line 222, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.order-form input, .product-form input {
+  font-family: Open Sans;
+}
+
+/* line 226, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+.submit {
+  font-size: 1em;
+  background-color: lightgray;
+  border-radius: 10%;
+}
+
+/* line 232, /Users/erinbond/Desktop/Ada/betsy/petsy/app/assets/stylesheets/application.scss */
+label {
+  font-size: 1.25em;
+}
+
+/* Erin */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
