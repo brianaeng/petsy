@@ -188,17 +188,17 @@ main {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
+  text-align: left;
 }
-
 
 
 footer {
   background-color: #e6e6e6;
-  color: white;
+  color: black;
   font-size: 1em;
-  font-family: Open Sans;
+  font-family: Helvetica;
   text-decoration: none;
-  padding: 3%;
+  padding: 2%;
 }
 
 .av-product-rating *, .profile-links *{
@@ -210,7 +210,7 @@ footer {
 }
 
 p, h5{
-  font-family: Open Sans;
+  font-family: Helvetica;
 }
 
 .hidden {
@@ -225,7 +225,7 @@ p, h5{
 }
 
 .order-form input, .product-form input{
-  font-family: Open Sans;
+  font-family: Helvetica;
 }
 
 .submit {
