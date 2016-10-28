@@ -226,12 +226,12 @@ p, h5{
 }
 
 
-.form, .product-form {
+.form {
   font-family: Helvetica;
   margin-left: 20%;
 }
 
-.form input, .product-form input{
+.form input,{
   font-family: Helvetica;
 }
 
@@ -245,6 +245,18 @@ label {
   font-size: 1.25em;
 }
 
+.seller-order-summary {
+  text-align: left;
+}
+
+.seller-order-summary h5{
+  display: inline;
+  padding-right: 3%;
+}
+
+.seller-table {
+  margin: 3%;
+}
 /* Erin */
 
 

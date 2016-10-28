@@ -1,24 +1,34 @@
+<h2 class = "seller-title"><%=@user.username%>'s Past Sales</h2>
 <% if @sold_orders.empty? %>
   You have not sold any items yet.
 <% else %>
+
   <% @sold_orders.each do |order| %>
-    <h5>Order ID: <%= order.id %></h5>
-    <p>Order Status: <%= order.status %></p>
-    <p>Order items:</p>
-    <% order.products.each do |product| %>
-      <p>Name: <%= link_to product.name, product_path(product.id) %></p>
-      <p>Quantity: <%= product.quantity %></p>
-      <% if product.user_id == @user.id %>
-      <!-- How do I access the order_product?! -->
-        <% op = OrderProduct.find_by(order_id: order.id, product_id: product.id) %>
-        <!-- change "Mark as shipped" b/c we made it a toggle - needs to be mark shipped or mark not shipped based on current status -->
-        <% if op.shipped == true %>
-          <%= button_to "Mark as Not Shipped", mark_shipped_path(current_order_product: op.id), method: :patch %>
-        <% elsif op.shipped == false %>
-          <%= button_to "Mark as Shipped", mark_shipped_path(current_order_product: op.id), method: :patch %>
+  <div class= "seller-table">
+    <div class = "seller-order-summary">
+      <h5><b>Order ID:</b> <%=order.id %></h5></td>
+      <h5><b>Order Status:</b> <%= order.status %></h5></td>
+      <h5><b>Total:</b> <%= number_to_currency(order.cart_total/100) %></h5>
+    </div>
+      <table>
+        <th>Order Item</th>
+        <th>Quantity</th>
+        <th>Shipping Status</th>
+        <tr>
+          <% order.order_products.each do |op| %>
+
+          <% if op.product.user_id == @user.id %>
+            <td><p><%= link_to op.product.name, product_path(op.product.id) %></p></td>
+            <td><p><%= op.quantity %></p></td>
+            <% if op.shipped == true %>
+              <td style="color:#33b873;">Shipped</td>
+            <% elsif op.shipped == false %>
+              <td style="color:#B22222;"> Not Shipped<%= link_to "⚪️", mark_shipped_path(current_order_product: op.id), method: :patch%></td>
+            <% end %>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
+      </table>
+      </div>
     <% end %>
-    <p>Total: <%= number_to_currency(order.cart_total/100) %></p>
   <% end %>
-<% end %>
