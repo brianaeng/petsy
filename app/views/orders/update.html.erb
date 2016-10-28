@@ -34,4 +34,6 @@
 
 <!-- <p>Total: <%# number_to_currency(@order.cart_total/100) %></p> -->
 
+<% if session[:user_id] != nil %>
 <p>Track your order via your <%= link_to "Purchase History", purchase_history_path(session[:user_id]) %> page.</p>
+<% end %>
