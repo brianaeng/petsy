@@ -1,6 +1,16 @@
-<h1>Orders#update</h1>
+<!-- <h1>Orders#update</h1>
 <p> Convert order to paid </p>
+ -->
 
+<%# params %>
 
+<h2>Your Order #<%= @order.id %> was successfully placed!</h2>
 
-<%= params %>
+<% @order.products.each do |product| %>
+  <%= link_to product.name, product_path(product.id) %>
+  <%= number_to_currency(product.price/100) %>
+<% end %>
+
+<p>Total: <%= number_to_currency(@order.cart_total/100) %></p>
+
+<p>Track your order via your <%= link_to "Purchase History", purchase_history_path(session[:user_id]) %> page.</p>
