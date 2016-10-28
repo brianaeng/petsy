@@ -2,14 +2,22 @@
   You have not made any purchases yet.
 <% else %>
   <% @purchase_orders.each do |order| %>
+  <section class="purchased-order">
     <h5>Order ID: <%= order.id %></h5>
     <p>Order Status: <%= order.status %></p>
-    <p>Order items:</p>
-    <% order.products.each do |product| %>
-      <p>Name: <%= link_to product.name, product_path(product.id) %></p>
-      <p>Quantity: <%= product.quantity %></p>
-    <% end %>
-    <p>Total: <%= number_to_currency(order.cart_total/100) %></p>
-    <%= button_to "Cancel Order", cancel_order_path(current_order: order.id), method: :delete, data: {confirm: "Are you sure you want to delete this?"}  %>
+
+    <table class="purchased-products">
+      <th>Product</th>
+      <th>Quantity</th>
+      <% order.products.each do |product| %>
+      <tr>
+        <td>Name: <%= link_to product.name, product_path(product.id) %></td>
+        <td>Quantity: <%= product.quantity %></td>
+      </tr>
+      <% end %>
+    </table>
+      <p>Total: <%= number_to_currency(order.cart_total/100) %></p>
+      <%= button_to "Cancel Order", cancel_order_path(current_order: order.id), method: :delete, data: {confirm: "Are you sure you want to delete this?"}  %>
+  </section>
   <% end %>
 <% end %>
