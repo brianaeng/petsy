@@ -23,7 +23,7 @@
       <div class="callout">
         <%# image_tag pet.picture, alt: "#{pet.name} image"  %>
         <%= link_to(image_tag(pet.picture, alt: "#{pet.name} image"), product_path(pet.id))%>
-        <p><%= link_to pet.name.capitalize, product_path(pet.id) %></p>
+        <p><%= link_to(pet.name.capitalize, product_path(pet.id)) %></p>
       </div>
     </div>
   <% end %>
