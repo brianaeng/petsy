@@ -1,21 +1,3 @@
-  <%# "OrderProducts: #{@orderproducts}"%>
-  <%# "User ID: #{@current_user} | Buyer ID: #{@order.buyer_id} | Session user_id: #{session[:user_id] } | Session guest_id: #{session[:guest_id] }  |  Status: #{@order.status}  |  Order ID: #{@order.id} | Valid Order: #{@order.valid?} " %>
-
-  <!-- This will reload the page ONCE - so that the update button will work even with Turbolinks on -->
-  <!-- <script type="text/javascript">
-    $(document).ready(function(){
-    //Check if the current URL contains '#'
-    if(document.URL.indexOf("#")==-1)
-    {
-    // Set the URL to whatever it was plus "#".
-    url = document.URL+"#";
-    location = "#";
-    //Reload the page
-    location.reload(true);
-    }
-    });
-  </script> -->
-
 
 <div class="large-12 columns">
   <h2> Shopping Cart </h2>
@@ -48,3 +30,21 @@
     </tr>
   </table>
 </div>
+
+<%# "OrderProducts: #{@orderproducts}"%>
+<%# "User ID: #{@current_user} | Buyer ID: #{@order.buyer_id} | Session user_id: #{session[:user_id] } | Session guest_id: #{session[:guest_id] }  |  Status: #{@order.status}  |  Order ID: #{@order.id} | Valid Order: #{@order.valid?} " %>
+
+<!-- This will reload the page ONCE - so that the update button will work even with Turbolinks on -->
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+  //Check if the current URL contains '#'
+  if(document.URL.indexOf("#")==-1)
+  {
+  // Set the URL to whatever it was plus "#".
+  url = document.URL+"#";
+  location = "#";
+  //Reload the page
+  location.reload(true);
+  }
+  });
+</script> -->

@@ -198,7 +198,6 @@ main {
   text-align: left;
 }
 
-
 footer {
   background-color: #e6e6e6;
   color: black;
@@ -208,15 +207,24 @@ footer {
   padding: 2%;
 }
 
-.av-product-rating *, .profile-links *{
+.av-product-rating *{
   display: inline;
+}
+
+.profile-links *{
+  padding: .5%;
+  display: inline;
+}
+
+.profile-links h5:last-child{
+  padding-left: 3%;
 }
 
 .profile-pic * {
   border-radius: 5%;
 }
 
-p, h5{
+p, h5, .form input{
   font-family: Helvetica;
 }
 
@@ -225,14 +233,9 @@ p, h5{
   font-size: .25em;
 }
 
-
 .form {
   font-family: Helvetica;
   margin-left: 10%;
-}
-
-.form input,{
-  font-family: Helvetica;
 }
 
 .submit {
