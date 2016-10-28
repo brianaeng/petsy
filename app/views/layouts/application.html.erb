@@ -14,13 +14,10 @@
 
   <body>
     <header>
-
       <div class="image-wrapper">
-      <image><%= image_tag('pets.jpg')%></image>
-
-      <%# Link to Homepage  %>
-      <h1><%= link_to("PETSY", root_path)%></h1>
-
+        <image><%= image_tag('pets.jpg')%></image>
+        <%# Link to Homepage  %>
+        <h1><%= link_to("PETSY", root_path)%></h1>
       </div>
       <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large" data-options="is_hover: false">
@@ -34,7 +31,6 @@
         <p><%= link_to("Logout", "/sessions/destroy", method: "delete") %></p>
         <li class="divider"></li>
       <% end %>
-
       <%# Link to User Profile (if logged in) %>
       <% if session[:user_id] != nil%>
         <p><%= link_to("Profile", user_path(session[:user_id])) %></p>
@@ -56,7 +52,9 @@
     <main>
       <%= yield %>
     </main>
-
+    <footer>
+      <p>&copy Briana, Erin & Jeannie 2016</p>
+    </footer>
   </body>
 
 </html>

@@ -1,14 +1,21 @@
-<h3>Please Enter Details for Your Order</h3>
 
 <%#= params %>
+<div class="order-form">
+  <h2>Please Enter Details for Your Order</h2>
+  <%= form_for @order do |f| %>
+  <div class="row">
+    <div class="small-8">
 
-<%= form_for @order do |f| %>
-  <%= f.label :shipping_address %>:
-  <%= f.text_field :address %><br />
+        <%= f.label :shipping_address%>
+        <%= f.text_field :address %><br />
 
-  <%= f.label :credit_card_number %>:
-  <%= f.text_field :cc_number %><br />
+        <%= f.label :credit_card_number %>
+        <%= f.text_field :cc_number %><br />
 
-  <%= f.date_select :cc_expiration, :order => [:day, :month, :year] %>
-  <%= f.submit %>
-<% end %>
+        <%= f.label :credit_card_expiration_date %>
+        <%= f.date_select :cc_expiration, :order => [:day, :month, :year] %>
+        <%= f.submit 'Place Order', :class => 'submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>
