@@ -1,42 +1,47 @@
-<h1>Products#edit</h1>
-<h1>Edit a Product</h1>
+<div class="form">
+  <h1>Edit <%=@product.name%></h1>
 
-<% if flash[:notice] != nil %>
-  <% if flash[:notice].length > 1 %>
-    <%= flash[:notice].join("<br>").html_safe %>
-  <% else %>
-    <%= flash[:notice].join("") %>
+  <% if flash[:notice] != nil %>
+    <% if flash[:notice].length > 1 %>
+      <%= flash[:notice].join("<br>").html_safe %>
+    <% else %>
+      <%= flash[:notice].join("") %>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_for @product, url: product_path do |f| %>
+  <%= form_for @product, url: product_path do |f| %>
+  <div class="row">
+    <div class="small-8">
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-<%= f.label :price %>
-<%= f.text_field :price %>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
 
-<%= f.label :quantity %>
-<%= f.text_field :quantity %>
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity %>
 
-<%= f.fields_for :categories, @product.categories.build do |categories_fields| %>
-  <%= categories_fields.label :name, "Add New Category" %>
-  <%= categories_fields.text_field :name %>
-<% end %>
+      <%= f.fields_for :categories, @product.categories.build do |categories_fields| %>
+        <%= categories_fields.label :name, "Add New Category" %>
+        <%= categories_fields.text_field :name %>
+      <% end %>
 
-<%= f.label :category_ids, "Choose Categories" %>
-<%= f.collection_select :category_ids, Category.all, :id, :name, {}, {:selected => @product.categories, :multiple => true} %>
+      <%= f.label :category_ids, "Choose Categories" %>
+      <%= f.collection_select :category_ids, Category.all, :id, :name, {}, {:selected => @product.categories, :multiple => true} %>
 
-<%= f.label :description %>
-<%= f.text_area :description %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
 
-<%= f.label :picture %>
-<%= f.text_field :picture %>
+      <%= f.label :picture %>
+      <%= f.text_field :picture %>
 
-<%= f.hidden_field :user_id, value: session[:user_id] %>
-<%= f.hidden_field :active, value: true %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
+      <%= f.hidden_field :active, value: true %>
 
-<%= f.submit %>
+      <%= f.submit 'Edit Product', :class => 'submit'%>
 
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

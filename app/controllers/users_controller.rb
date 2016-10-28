@@ -74,7 +74,8 @@ class UsersController < ApplicationController
   #Is this supposed to go in the model?
   def mark_shipped
     @orderproduct = OrderProduct.find(params[:current_order_product].to_i)
-    @orderproduct.toggle!(:shipped)
+    @orderproduct.shipped = true
+    @orderproduct.save
 
     redirect_to selling_history_path
   end

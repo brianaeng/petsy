@@ -204,13 +204,12 @@ main {
   font-size: 4em;
 }
 
-.profile-page, .order-form{
+.profile-page, .form{
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
   text-align: left;
 }
-
 
 footer {
   background-color: #e6e6e6;
@@ -221,15 +220,24 @@ footer {
   padding: 2%;
 }
 
-.av-product-rating *, .profile-links *{
+.av-product-rating *{
   display: inline;
+}
+
+.profile-links *{
+  padding: .5%;
+  display: inline;
+}
+
+.profile-links h5:last-child{
+  padding-left: 3%;
 }
 
 .profile-pic * {
   border-radius: 5%;
 }
 
-p, h5{
+p, h5, .form input{
   font-family: Helvetica;
 }
 
@@ -238,14 +246,9 @@ p, h5{
   font-size: .25em;
 }
 
-
-.order-form, .product-form {
-  font-family: Chewy;
-  margin-left: 20%;
-}
-
-.order-form input, .product-form input{
+.form {
   font-family: Helvetica;
+  margin-left: 10%;
 }
 
 .submit {
@@ -258,6 +261,18 @@ label {
   font-size: 1.25em;
 }
 
+.seller-order-summary {
+  text-align: left;
+}
+
+.seller-order-summary h5{
+  display: inline;
+  padding-right: 3%;
+}
+
+.seller-table {
+  margin: 3%;
+}
 /* Erin */
 
 
