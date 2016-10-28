@@ -29,4 +29,6 @@ class ApplicationController < ActionController::Base
 
     return @user_products
   end
+
+  
 end

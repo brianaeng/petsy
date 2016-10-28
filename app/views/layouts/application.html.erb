@@ -15,43 +15,69 @@
   <body>
     <header>
 
-      <div class="image-wrapper">
-      <image><%= image_tag('pets.jpg')%></image>
-
-      <%# Link to Homepage  %>
-      <h1><%= link_to("PETSY", root_path)%></h1>
-
+      <div class="wrapper row">
+        <div class="large-12 columns">
+          <div class="image-wrapper" id="hero">
+            <image><%= image_tag('pets.jpg')%></image>
+            <%# Link to Homepage  %>
+            <h1><%= link_to("PETSY", root_path)%></h1>
+          </div>
+        </div>
       </div>
-      <div class="fixed">
-        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large" data-options="is_hover: false">
-        <%# Links to Login/Logout  %>
-        <ul>
-      <% if session[:user_id] == nil %>
-        <p><%= link_to("Login via Github", "/auth/github") %></p>
-        <li class="divider"></li>
-          <%# i.e. "/auth/:provider" %>
-      <% else %>
-        <p><%= link_to("Logout", "/sessions/destroy", method: "delete") %></p>
-        <li class="divider"></li>
-      <% end %>
 
-      <%# Link to User Profile (if logged in) %>
-      <% if session[:user_id] != nil%>
-        <p><%= link_to("Profile", user_path(session[:user_id])) %></p>
-        <li class="divider"></li>
-      <%end%>
-      <%# Link to Shopping Cart %>
-      <% if session[:user_id] != nil%>
-        <p><%= link_to("View Cart", edit_order_path(session[:user_id])) %></p>
-        <li class="divider"></li>
-      <% else %>
-        <p><%= link_to("View Cart", edit_order_path("guest")) %></p>
-        <li class="divider"></li>
-      <%end%>
-          </ul>
-        </nav>
+      <div data-sticky-container>
+        <div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="hero:bottom" >
+          <div class="wrapper row">
+            <div class="small-12 medium-6 large-6 columns">
+              <!-- Column 1 -->
+                  <div class="top-bar-left">
+                    <ul class="dropdown menu" data-dropdown-menu>
+                      <li class="menu-text"><a href="/#"> PETsy </a></li>
+                      <li>
+                        <%= link_to("Explore Pets", products_path)%>
+                        <ul class="dropdown vertical large-horizontal menu">
+                          <li><%= link_to("View Merchants", users_path) %></li>
+                          <% Category.all.order(:name).each do |category| %>
+                            <li><%= link_to "#{category.name.capitalize} Pets", products_path(category_id: category.id) %></li>
+                          <% end %>
+                        </ul>
+                      </li>
+                      <%# Link to Shopping Cart %>
+                      <% if session[:user_id] != nil%>
+                        <li><%= link_to("View Cart", edit_order_path(session[:user_id])) %></li>
+                      <% else %>
+                        <li><%= link_to("View Cart", edit_order_path("guest")) %></li>
+                      <%end%>
+                    </ul>
+                  </div>
+            </div>
+            <div class="small-12 medium-6 large-6 columns">
+              <!-- Column 2 -->
+                  <div class="top-bar-right">
+                    <ul class="menu">
+                        <%# Search Bar %>
+                        <li><%= search_form_for Product.ransack(params[:q]) do |f| %>
+                            <%= f.search_field :name_or_description_cont, placeholder: "Search Pets"%></li>
+                            <li type="button"><%= f.submit "search", class: "button"%> </li>
+                        <% end %>
+                      <%# Links to Login/Logout  %>
+                      <% if session[:user_id] == nil %>
+                        <li><%= link_to("Login via Github", "/auth/github") %></li>
+                      <% else %>
+                        <li><%= link_to("Logout", "/sessions/destroy", method: "delete") %></li>
+                      <% end %>
+                      <%# Link to User Profile (if logged in) %>
+                      <% if session[:user_id] != nil%>
+                        <li><%= link_to("Profile", user_path(session[:user_id])) %></li>
+                      <%end%>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
+
 
     <main>
       <%= yield %>

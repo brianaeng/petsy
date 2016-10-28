@@ -2,7 +2,7 @@
   <%# "User ID: #{@current_user} | Buyer ID: #{@order.buyer_id} | Session user_id: #{session[:user_id] } | Session guest_id: #{session[:guest_id] }  |  Status: #{@order.status}  |  Order ID: #{@order.id} | Valid Order: #{@order.valid?} " %>
 
   <!-- This will reload the page ONCE - so that the update button will work even with Turbolinks on -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(document).ready(function(){
     //Check if the current URL contains '#'
     if(document.URL.indexOf("#")==-1)
@@ -14,7 +14,7 @@
     location.reload(true);
     }
     });
-  </script>
+  </script> -->
 
 
 
