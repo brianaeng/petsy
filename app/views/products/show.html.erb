@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <%# "OrderProducts: #{@orderproducts}"%>
 <%# "User ID: #{@current_user} | Buyer ID: #{@order.buyer_id} | Session user_id: #{session[:user_id] } | Session guest_id: #{session[:guest_id] }  |  Status: #{@order.status}  |  Valid Order: #{@order.valid?} " %>
 <p><%# "current_user: #{@current_user.name} | Order: #{@order} | Order ID: #{@order.id} | Order Product Valid?: #{@orderproduct.valid?}" %></p> -->
@@ -25,7 +25,7 @@
             <%= form_for @orderproduct, controller: "orders", action: "create", method: "post", url: orders_path do |f| %>
               <%= f.label :quantity, class: "hidden-label"%>
               <div class="purchase-quantity">
-                <%= f.select :quantity, options_for_select(0..@product.quantity), {:quantity => @orderproduct.quantity, :required => true}  %>
+                <%= f.select(:quantity, options_for_select(0..@product.quantity,  :selected => @orderproduct.quantity,), {:quantity => @orderproduct.quantity, :required => true})  %>
                 <%# f.number_field :quantity, :quantity => @orderproduct.quantity, :min => 0, :max => @product.quantity, :required => true   %>
                 <%= f.hidden_field :product_id, :value => @product.id %>
               </div>
