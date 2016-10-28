@@ -24,6 +24,7 @@ ul {
 a {
   color: black;
   text-decoration: none;
+
 }
 
 a:hover {
@@ -61,6 +62,7 @@ header ul {
     padding: 5%;
 }
 
+// <<<<<<< HEAD
 .image-wrapper a:hover {
   color: black;
 }
@@ -72,6 +74,10 @@ header ul {
   padding-bottom: 0;
   display: inline-block;
 }
+// =======
+// nav li, nav p{
+//   display: inline;
+//
 
 
 .top-bar-left li {
@@ -165,22 +171,72 @@ main {
 .profile-pic {
   width: 50%;
   float: right;
-  margin-top: -10%;
+  margin-top: -8%;
+  padding: 1%;
 }
 
 .name {
   font-size: 4em;
 }
 
-.profile-page {
+.profile-page, .order-form{
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
 }
 
-// header image{
-//   padding: -5%;
-// }
+
+
+footer {
+  background-color: #33b873;
+  color: white;
+  font-size: 1em;
+  font-family: Open Sans;
+  text-decoration: none;
+  padding: 3%;
+}
+
+.av-product-rating *, .profile-links *{
+  display: inline;
+}
+
+.profile-pic * {
+  border-radius: 5%;
+}
+
+p, h5{
+  font-family: Open Sans;
+}
+
+.hidden {
+  color: white;
+  font-size: .25em;
+}
+
+a:hover{
+  // opacity: .75;
+  color: #33b873;
+}
+
+.order-form, .product-form {
+  font-family: Chewy;
+  margin-left: 20%;
+}
+
+.order-form input, .product-form input{
+  font-family: Open Sans;
+}
+
+.submit {
+  font-size: 1em;
+  background-color: lightgray;
+  border-radius: 10%;
+}
+
+label {
+  font-size: 1.25em;
+}
+
 /* Erin */
 
 

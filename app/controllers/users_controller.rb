@@ -12,21 +12,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    #This will show all the merchants
-    #ONLY WANT MERCHANTS THAT HAVE ACTIVE ITEMS
     @merchants = []
 
-    User.all.each do |user|
+    User.where.not(username: "").find_each do |user|
       if user.products != nil
         @merchants.push(user)
       end
     end
-
-    # if !params[:merchant_id].blank?
-    #   @products = User.find(params[:merchant_id]).products
-    # else
-    #   @products = Product.all
-    # end
   end
 
   def show
