@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   # validate :out_of_stock
   # validate :picture_must_be_url
 
-  def categories_attributes=(category_attributes)
+  def categories_attributes(category_attributes)
     category_attributes.values.each do |category_attribute|
       category = Category.create(category_attribute)
       self.categories << category
