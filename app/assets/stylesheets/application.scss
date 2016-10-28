@@ -10,7 +10,7 @@ img {
   width: auto;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
   font-family: Chewy;
 }
 
@@ -30,7 +30,6 @@ h1 {
     top: -10%;
     padding: 5%;
 }
-
 
 nav li, nav p{
   display: inline;
@@ -97,14 +96,15 @@ a:hover {
 .profile-pic {
   width: 50%;
   float: right;
-  margin-top: -10%;
+  margin-top: -8%;
+  padding: 1%;
 }
 
 .name {
   font-size: 4em;
 }
 
-.profile-page {
+.profile-page, .order-form{
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
@@ -123,9 +123,37 @@ footer {
   padding-top: 3%;
 }
 
-.av-product-rating *{
+.av-product-rating *, .profile-links *{
   display: inline;
 }
+
+.profile-pic * {
+  border-radius: 5%;
+}
+
+p, h5{
+  font-family: Open Sans;
+}
+
+.hidden {
+  color: white;
+}
+
+a:hover{
+  // opacity: .75;
+  color: #33b873;
+}
+
+.order-form {
+  font-family: Chewy;
+  margin-left: 20%;
+}
+
+.order-form input{
+  font-family: Open Sans;
+}
+
+
 /* Erin */
 
 

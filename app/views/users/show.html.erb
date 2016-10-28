@@ -1,20 +1,19 @@
 <div class = "profile-page">
   <h2 class="name"><%=@user.name%></h2>
-  <p><%= link_to("Edit Profile", edit_user_path(@user.id)) %></p>
-  <p><%= link_to 'Delete Your Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></p>
   <div class="profile-pic">
     <image><%= image_tag(@user.avatar)%></image>
   </div>
-  <h3>Shop Name: <%=link_to @user.username, by_merchant_path(@user.id)%></h3>
+  <h2><%=link_to @user.username, by_merchant_path(@user.id)%></h2>
   <h4><%= link_to "Purchase History", purchase_history_path(@user.id) %></h4>
   <h4><%= link_to "Selling History", selling_history_path(@user.id) %></h4>
-
-
-
+  <p class="hidden">.</p>
   <table>
     <h2>Pets You Sell</h2>
+
+<%#Link to add a new product%>
+
     <div class = "av-product-rating">
-      <p> Your average product rating:
+      <h4> Your average product rating:
         <% if @user.average_rating != nil %>
           <% (@user.average_rating).times do %>
             <h4 class ="stars">⭐️</h4>
@@ -22,18 +21,24 @@
         <% else %>
           You have not sold any items.
         <% end %>
-      </p>
+      </h4>
     </div>
     <% @products.each do |pet|%>
     <tr>
         <td><%=link_to(pet.name, product_path(pet.id))%></td>
         <td>Quantity Available: <%=pet.quantity%></td>
           <%if pet.active %>
-              <td>Active <%= link_to"Deactivate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></td>
+              <td style="color:#33b873;">Active <%= link_to"⚪️", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></td>
           <%else%>
-          <td>Inactive <%= link_to "Activate", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></td>
+          <td style="color:#B22222;">Inactive <%= link_to "⚪️", {controller: "products", action: "activation", id: pet[:id] }, method: :patch %></td>
           <%end%>
     </tr>
       <%end%>
   </table>
+
+  <div class="profile-links">
+    <h4><%= link_to("Edit Profile", edit_user_path(@user.id)) %></h4>
+    <p class="hidden">.....</p>
+    <h4><%= link_to 'Delete Profile',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure?"} %></h4>
+  </div>
 </div>
