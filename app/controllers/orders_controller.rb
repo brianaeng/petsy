@@ -13,13 +13,15 @@ class OrdersController < ApplicationController
 
     @orderproduct = OrderProduct.find_by(order_id: @order.id, product_id: params[:order_product][:product_id])
     if @orderproduct.nil?
-      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: params[:order_product][:product_id], quantity: params[:order_product][:quantity])
+      @orderproduct = OrderProduct.new(order_id: @order.id, product_id: params[:order_product][:product_id], quantity: params[:order_product][:quantity], shipped: false)
     end
 
     @orderproduct.quantity = params[:order_product][:quantity]
 
     @order.save
-    @orderproduct.save
+    if @orderproduct.quantity > 0
+      @orderproduct.save
+    end
 
     redirect_to :back
   end
