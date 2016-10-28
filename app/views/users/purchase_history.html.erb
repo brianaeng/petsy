@@ -9,10 +9,12 @@
     <table class="purchased-products">
       <th>Pet</th>
       <th>Quantity</th>
-      <% order.products.each do |product| %>
+      <th>Subtotal</th>
+      <% order.order_products.each do |op| %>
       <tr>
-        <td>Name: <%= link_to product.name, product_path(product.id) %></td>
-        <td>Quantity: <%= product.quantity %></td>
+        <td><%= link_to op.product.name, product_path(op.product.id) %></td>
+        <td><%= op.quantity %></td>
+        <td><%= number_to_currency(op.subtotal/100) %></td>
       </tr>
       <% end %>
     </table>

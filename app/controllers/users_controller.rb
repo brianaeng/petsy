@@ -69,6 +69,8 @@ class UsersController < ApplicationController
         end
       end
     end
+
+    @sold_orders = @sold_orders.uniq
   end
 
   #Is this supposed to go in the model?
