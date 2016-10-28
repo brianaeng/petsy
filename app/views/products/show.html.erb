@@ -41,18 +41,24 @@
           <h6> Quantity available: <%=@product.quantity%></h6>
         <%end%>
 
-
         <hr/>
-        <h5> A little about the <%=@product.name%>: </h5>
-        <small> <%=@product.description%> </small>
+          <h5> A little about the <%=@product.name%>: </h5>
+          <small> <%=@product.description%> </small>
+
+        <!-- If they have one: rating link -->
+        <% if @user_products.include? (Product.find(params[:id])) %>
+          <hr/>
+          <h3>Already have a <%=@product.name%>? </h3>
+          <h6> <%= link_to "Add a Review", product_reviews_new_path(@product.id) %></h6>
+        <% end %>
       </div>
     </div>
   </div>
 
   <!-- Ratings -->
   <div class="column">
-      <h3>Product Reviews</h3>
-      <p>Average product rating:
+      <h3>Pet Reviews</h3>
+      <p>Average pet rating:
         <% if @product.reviews.length > 0 %>
           <% (@product.average_rating).times do %>
             <h4 class ="stars">⭐️</h4>
