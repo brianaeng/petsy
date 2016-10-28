@@ -134,6 +134,11 @@ main {
   background-color: #e6e6e6;
   border: none;
   z-index: 0;
+  padding: 3%;
+}
+
+#featured-image {
+  padding-top: 2%;
 }
 
 .callout p {
@@ -144,6 +149,29 @@ main {
 
 #all-page-content {
   background-color: white;
+}
+
+.purchase-callout {
+  display: inline;
+  vertical-align: middle;
+}
+
+.purchase-quantity {
+  display: inline-block;
+  width: 30%;
+}
+
+.hidden-label {
+  display: none;
+}
+
+.purchase-callout input.button {
+  background-color: black;
+  color: white;
+  padding: 0.75em 1em;
+}
+.purchase-callout input {
+  vertical-align: top;
 }
 
 /*-- JEANNIE --*/

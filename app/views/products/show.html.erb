@@ -3,53 +3,76 @@
 <%# "User ID: #{@current_user} | Buyer ID: #{@order.buyer_id} | Session user_id: #{session[:user_id] } | Session guest_id: #{session[:guest_id] }  |  Status: #{@order.status}  |  Valid Order: #{@order.valid?} " %>
 <p><%# "current_user: #{@current_user.name} | Order: #{@order} | Order ID: #{@order.id} | Order Product Valid?: #{@orderproduct.valid?}" %></p> -->
 
-<h2><%=@product.name%></h2>
-<p>Price: <%=number_to_currency(@product.price/100)%></p>
+
+<div class="row small-up-1 medium-up-2 large-up-2" data-equalizer data-equalize-on="true">
+
+  <!-- View -->
+  <div class="column">
+    <div class="callout">
+      <h2><%=@product.name%></h2>
+      <image><%= image_tag(@product.picture)%></image>
+      <h6>Sold by: <%= link_to @product.user.username, by_merchant_path(@product.user_id) %></h6>
+    </div>
+  </div>
+
+  <!-- Purchase -->
+  <div class="column">
+    <div class="callout">
+      <div class="purchase-callout">
+        <% if @product.quantity > 0  &&  @product.active %>
+          <h3>Purchase a <%=@product.name%>! </h3>
+          <h5>Price: <%=number_to_currency(@product.price/100)%></h5>
+            <%= form_for @orderproduct, controller: "orders", action: "create", method: "post", url: orders_path do |f| %>
+              <%= f.label :quantity, class: "hidden-label"%>
+              <div class="purchase-quantity">
+                <%= f.select :quantity, options_for_select(0..@product.quantity), {:quantity => @orderproduct.quantity, :required => true}  %>
+                <%# f.number_field :quantity, :quantity => @orderproduct.quantity, :min => 0, :max => @product.quantity, :required => true   %>
+                <%= f.hidden_field :product_id, :value => @product.id %>
+              </div>
+              <%= f.submit "Add to cart", class: "button"  %>
+            <%end%>
+        <% else %>
+          <h3> Sorry! </h3>
+        <% end %>
+
+        <% if @product.quantity == 0  ||  @product.active == false %>
+          <h6>This product is currently out of stock.</h6>
+        <% else %>
+          <h6> Quantity available: <%=@product.quantity%></h6>
+        <%end%>
 
 
-<%= form_for @orderproduct, controller: "orders", action: "create", method: "post", url: orders_path do |f| %>
+        <hr/>
+        <h5> A little about the <%=@product.name%>: </h5>
+        <small> <%=@product.description%> </small>
+      </div>
+    </div>
+  </div>
 
-  <%= f.label :quantity %>
-  <%= f.number_field :quantity, :quantity => @orderproduct.quantity, :min => 0, :max => @product.quantity, :required => true   %>
-  <%= f.hidden_field :product_id, :value => @product.id %>
-
-  <%= f.submit "Add to cart", class: "update-btn"  %>
-<%end%>
-
-
-<% if @product.quantity > 0  &&  @product.active %>
-  <p>This product is available.</p>
-<% else %>
-  <p>This product is currently out of stock.</p>
-<%end%>
-
-<p> Quantity available: <%=@product.quantity%></p>
-<p><%=@product.description%></p>
-
-<p>Sold by: <%= link_to @product.user.username, by_merchant_path(@product.user_id) %></p>
-<image><%= image_tag(@product.picture)%></image>
-
-<h3>Product Reviews</h3>
-<p>Average product rating:
-  <% if @product.reviews.length > 0 %>
-    <% (@product.average_rating).times do %>
-      <h4 class ="stars">⭐️</h4>
-      <% end %>
-  <% else %>
-    <p>There are no reviews yet for this pet.</p>
-  <%end%>
-</p>
-
-<p>
-  <% if @user_products.include? (Product.find(params[:id])) %>
-    <%= link_to "Add a Review", product_reviews_new_path(@product.id) %>
-  <% end %>
-</p>
-<% @reviews.each do |review| %>
-  <h4><%=review.title%></h4>
-  <% (review.rating).times do %>
-   <h4 class ="stars">⭐️</h4>
-   <%end%>
-  <p><%= review.description%></p>
-  <hr/>
-<%end%>
+  <!-- Ratings -->
+  <div class="column">
+      <h3>Product Reviews</h3>
+      <p>Average product rating:
+        <% if @product.reviews.length > 0 %>
+          <% (@product.average_rating).times do %>
+            <h4 class ="stars">⭐️</h4>
+            <% end %>
+        <% else %>
+          <p>There are no reviews yet for this pet.</p>
+        <%end%>
+      </p>
+      <p>
+        <% if @user_products.include? (Product.find(params[:id])) %>
+          <%= link_to "Add a Review", product_reviews_new_path(@product.id) %>
+        <% end %>
+      </p>
+      <% @reviews.each do |review| %>
+      <hr/>
+        <h4><%=review.title%></h4>
+        <% (review.rating).times do %>
+         <h4 class ="stars">⭐️</h4>
+         <%end%>
+        <p><%= review.description%></p>
+      <%end%>
+  </div>
+</div>

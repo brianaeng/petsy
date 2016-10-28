@@ -20,7 +20,7 @@
 <div class="row small-up-1 medium-up-2 large-up-3" data-equalizer data-equalize-on="true">
   <% @chosen_pets.each do |pet| %>
     <div class="column">
-      <div class="callout">
+      <div class="callout" id="featured-image">
         <%# image_tag pet.picture, alt: "#{pet.name} image"  %>
         <%= link_to(image_tag(pet.picture, alt: "#{pet.name} image"), product_path(pet.id))%>
         <p><%= link_to(pet.name.capitalize, product_path(pet.id)) %></p>
